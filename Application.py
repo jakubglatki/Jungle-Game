@@ -1,4 +1,5 @@
 import model
+from Game.Player import Player
 from model.Animal import Animal
 
 m1 = Animal("rat",1,1)
@@ -20,4 +21,8 @@ e2 = Animal("elephant",8,2)
 
 Animals1 = {m1, c1, d1, w1, l1, t1, li1, e1}
 Animals2 = {m2, c2, d2, w2, l2, t2, li2, e2}
+
+p1 = Player(1,Animals1)
+p2 = Player(2,Animals2)
+
 
