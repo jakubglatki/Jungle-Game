@@ -1,6 +1,6 @@
 class Cell:
-    def __init__(self,type):
-        self.type = type
+    def __init__(self,kind):
+        self.kind = kind
         # 1: grass - 2: water - 3: traps - 4: dojo1 - 5: dojo2
     Animal = None
     def addAnimal(self,Animal: Animal):
