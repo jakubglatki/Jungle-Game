@@ -14,7 +14,7 @@ class Board:
                   [Cell(1), Cell(1), Cell(1), Cell(3), Cell(1), Cell(1), Cell(1)],
                   [Cell(1), Cell(1), Cell(3), Cell(4), Cell(3), Cell(1), Cell(1)]]
         #put the animals in their starting points
-        self.matrix[3][0].Animal=Animals2[0]
+        self.matrix[2][0].Animal=Animals2[0]
         self.matrix[1][5].Animal=Animals2[1]
         self.matrix[1][1].Animal=Animals2[2]
         self.matrix[2][4].Animal=Animals2[3]
