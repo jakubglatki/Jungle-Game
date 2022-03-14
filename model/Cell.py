@@ -7,3 +7,12 @@ class Cell:
         self.Animal = Animal
     def removeAnimal(self):
         self.Animal = None
+    def thereIsAnimal(self):
+        if(self.Animal!=None): return True
+        else: return False
+
+    def killAnimal(self):
+        self.Animal.x=-1
+        self.Animal.y=-1
+        self.Animal.isAlive=False
+        self.Animal.player.alive=self.Animal.player.alive-1

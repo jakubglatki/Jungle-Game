@@ -31,3 +31,7 @@ class Board:
         self.matrix[8][0].Animal=Animals1[5]
         self.matrix[8][6].Animal=Animals1[6]
         self.matrix[6][0].Animal=Animals1[7]
+
+    def killAnimal(self,x1:int,y1:int):
+        if(self.matrix[x1][y1].thereIsAnimal()):
+            self.matrix[x1][y1].killAnimal()
