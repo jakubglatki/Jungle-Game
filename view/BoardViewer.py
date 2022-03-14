@@ -9,12 +9,13 @@ class BoardViewer:
         self.board = board
 
     def showBoard(self):
-        boardView = " A   B   C   D   E   F   G \n"
+        boardView = ""
         for index1, row in enumerate(reversed(self.board.matrix)):
             for index2, cell in enumerate(row):
                 boardView += self.putAnimalOnBoard(index1, index2, cell)
-            boardView += " " + str(index1 + 1)
+            boardView += "  " + str(index1 + 1)
             boardView += "\n"
+        boardView += "\n A   B   C   D   E   F   G \n"
         print(boardView)
         return boardView
 
