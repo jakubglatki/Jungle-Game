@@ -1,4 +1,5 @@
 from view.BoardViewer import BoardViewer
+from view.GameViewer import GameViewer
 
 
 class GameController:
@@ -7,18 +8,15 @@ class GameController:
         self.boardViewer = boardViewer
 
     def chooseGameMode(self):
-        print(" Jungle Game\n")
-        print("1- Player vs Player")
-        print("2- Player vs Computer")
-        print("3- Computer vs Computer")
-        op = int(input("\n--> "))
+        gameViewer = GameViewer()
+        mode = gameViewer.showChoosingGameModeMenu()
         print("\n")
 
-        if op == 1:
+        if mode == 1:
             self.PlayerVsPlayer()
-        elif op == 2:
+        elif mode == 2:
             self.PlayerVsComputer()
-        elif op == 3:
+        elif mode == 3:
             self.ComputerVsComputer()
 
     def PlayerVsPlayer(self):
