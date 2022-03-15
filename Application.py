@@ -1,4 +1,5 @@
 from controller.GameController import GameController
+from controller.HumanRoundController import HumanRoundController
 from model.Player import Player
 from model.Animal import Animal
 from model.Board import Board
@@ -14,7 +15,7 @@ p1 = Animal("panther", "P1", 5, player1, 6, 4)
 t1 = Animal("tiger", "T1", 6, player1, 8, 0)
 l1 = Animal("lion", "L1", 7, player1, 8, 6)
 e1 = Animal("elephant", "E1", 8, player1, 6, 0)
-m2 = Animal("rat", "M2", 1, player2, 3, 0)
+m2 = Animal("rat", "M2", 1, player2, 2, 0)
 c2 = Animal("cat", "C2", 2, player2, 1, 5)
 d2 = Animal("dog", "D2", 3, player2, 1, 1)
 w2 = Animal("wolf", "W2", 4, player2, 2, 4)
@@ -45,14 +46,14 @@ def testFinalGame():
 def noPossibleMoveForPlayer(player: Player):
     return False
 
-
-while (testFinalGame == True):
-    print("Turn of player" + actual.number)
+while (testFinalGame()):
+    print("Turn of player" + str(actual.number))
     if (actual.isABot == False):
         humanRoundController.round(actual,board)
     if (actual == player1):
         actual = player2
     else:
         actual = player1
+    boardViewer.showBoard()
     if (noPossibleMoveForPlayer(actual) == True):
         exit()
