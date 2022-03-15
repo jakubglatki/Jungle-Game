@@ -1,4 +1,4 @@
-from game.Player import Player
+from model.Player import Player
 
 class Animal:
     def __init__(self,name: str, fieldName: str, power: int,player: Player, x: int, y: int):

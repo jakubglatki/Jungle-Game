@@ -1,6 +1,5 @@
-import model
 from controller.GameController import GameController
-from game.Player import Player
+from model.Player import Player
 from model.Animal import Animal
 from model.Board import Board
 from view.BoardViewer import BoardViewer
