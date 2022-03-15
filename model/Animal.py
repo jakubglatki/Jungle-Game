@@ -9,3 +9,4 @@ class Animal:
         self.x = x
         self.y = y
         self.isAlive = True
+
