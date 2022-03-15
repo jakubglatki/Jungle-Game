@@ -1,4 +1,5 @@
 import model
+from controller.GameController import GameController
 from game.Player import Player
 from model.Animal import Animal
 from model.Board import Board
@@ -33,7 +34,8 @@ board = Board(Animals1, Animals2)
 actual = player1
 
 boardViewer = BoardViewer(board)
-boardViewer.showBoard()
+gameController = GameController(boardViewer)
+gameController.chooseGameMode()
 
 
 def testFinalGame():
