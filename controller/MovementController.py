@@ -1,4 +1,4 @@
-from model.animal import Animal
+from model.Animal import Animal
 from model.Board import Board
 
 
