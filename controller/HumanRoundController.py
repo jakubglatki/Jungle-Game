@@ -4,6 +4,30 @@ from model.Board import Board
 from controller.MovementController import MovementController
 
 
+def mouseMovementEndingPoint(animal, board, x, y, startingX, startingY):
+    if board.matrix[x][y].thereIsAnimal():
+        if board.matrix[x][y].animal.power == 8 or animal.power >= board.matrix[x][y].animal.power:
+            if board.matrix[startingX][startingY].kind == 2:
+                if board.matrix[x][y].kind == 2:
+                    return True
+                else:
+                    return False
+        else:
+            return False
+    return True
+
+
+def lionTigerMovementEndingPoint(animal, board, x, y, startingX, startingY):
+    pass
+
+
+def specialMovementAnimalsEndingPoint(animal, board, x, y, startingX, startingY):
+    if animal.power == 1:
+        return mouseMovementEndingPoint(animal, board, x, y, startingX, startingY)
+    else:
+        return lionTigerMovementEndingPoint(animal, board, x, y, startingX, startingY)
+
+
 def isValidEndingPoint(animal: Animal, board: Board, x: int, y: int, startingX: int, startingY: int):
     specialMovementAnimals = [1, 6, 7]
     if x <= len(board.matrix) and y <= len(board.matrix[0]):
@@ -12,13 +36,17 @@ def isValidEndingPoint(animal: Animal, board: Board, x: int, y: int, startingX: 
             if (x + 1 == startingX or x - 1 == startingX) is not (y + 1 == startingY or y - 1 == startingY):
                 if board.matrix[x][y].thereIsAnimal():
                     if animal.player != board.matrix[x][y].animal.player:
-                        if animal.power >= board.matrix[x][y].animal.power:
-                            if animal.power not in specialMovementAnimals:
-                                if board.matrix[x][y].kind != 2:  # water
+                        if animal.power not in specialMovementAnimals:
+                            if board.matrix[x][y].kind != 2:  # water
+                                if animal.power >= board.matrix[x][y].animal.power:
                                     return True
+                        else:
+                            return specialMovementAnimalsEndingPoint(animal, board, x, y, startingX, startingY)
                 elif animal.power not in specialMovementAnimals:
                     if board.matrix[x][y].kind != 2:  # water
                         return True
+                else:
+                    return specialMovementAnimalsEndingPoint(animal, board, x, y, startingX, startingY)
 
     return False
 
