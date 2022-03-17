@@ -4,8 +4,8 @@ from model.Cell import Cell
 class Board:
     def __init__(self, Animals1: list, Animals2: list):
         # Generate the board
-        self.matrix = [[Cell(1), Cell(1), Cell(3), Cell(5), Cell(3), Cell(1), Cell(1)],
-                       [Cell(1), Cell(1), Cell(1), Cell(3), Cell(1), Cell(1), Cell(1)],
+        self.matrix = [[Cell(1), Cell(1), Cell(5), Cell(6), Cell(5), Cell(1), Cell(1)],
+                       [Cell(1), Cell(1), Cell(1), Cell(5), Cell(1), Cell(1), Cell(1)],
                        [Cell(1), Cell(1), Cell(1), Cell(1), Cell(1), Cell(1), Cell(1)],
                        [Cell(1), Cell(2), Cell(2), Cell(1), Cell(2), Cell(2), Cell(1)],
                        [Cell(1), Cell(2), Cell(2), Cell(1), Cell(2), Cell(2), Cell(1)],
@@ -32,6 +32,6 @@ class Board:
         self.matrix[8][6].animal = Animals1[6]
         self.matrix[6][0].animal = Animals1[7]
 
-    def killAnimal(self, x1: int, y1: int):
-        if (self.matrix[x1][y1].thereIsAnimal()):
-            self.matrix[x1][y1].killAnimal()
+    #def killAnimal(self, x1: int, y1: int):
+    #    if (self.matrix[x1][y1].thereIsAnimal()):
+    #        self.matrix[x1][y1].killAnimal()

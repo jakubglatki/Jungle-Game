@@ -48,8 +48,7 @@ class HumanRoundController:
             # sp = "a7"
             x1 = int(sp[1]) - 1
             y1 = ord(sp[0].lower()) - 97
-            if (isValidStartingPoint(player, board, x1,
-                                     y1)):  # In this test we see if in the selected area there is one of your animal and if he can move
+            if (isValidStartingPoint(player, board, x1, y1)):  # In this test we see if in the selected area there is one of your animal and if he can move
                 tempAnimal = board.matrix[x1][y1].animal
                 flag = True
             else:
@@ -62,9 +61,7 @@ class HumanRoundController:
             # ep="a6"
             x2 = int(ep[1]) - 1
             y2 = ord(ep[0].lower()) - 97
-            if (isValidEndingPoint(tempAnimal, board, x2,
-                                   y2, x1,
-                                   y1)):  # In this test we see if: the animal can go there, if there is another weaker opponent animal (in case of one of yours or in case of stronger you can't), if there is some special rule applied
+            if (isValidEndingPoint(tempAnimal, board, x2, y2, x1, y1)):  # In this test we see if: the animal can go there, if there is another weaker opponent animal (in case of one of yours or in case of stronger you can't), if there is some special rule applied
                 flag = True
             else:
                 print("The selected ending point is incorrect.")
@@ -72,5 +69,4 @@ class HumanRoundController:
         # The movement is valid, now we have just to make it and verify if, at the end of the movement, the player have eaten something off the other one
         # In case in the ending point there is another animal, kill it
         movementController.killAnimal(board, x2, y2)
-        movementController.moveAnimal(tempAnimal, board, x2,
-                                      y2)  # to do, simply move the animal from (x1,y1) to (x2,y2)
+        movementController.moveAnimal(tempAnimal, board, x2, y2)  # to do, simply move the animal from (x1,y1) to (x2,y2)
