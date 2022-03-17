@@ -20,8 +20,8 @@ class BoardViewer:
         return boardView
 
     def putAnimalOnBoard(self, x: int, y: int, cell):
-        if self.board.matrix[x][y].Animal is not None:
-            return " " + self.board.matrix[x][y].Animal.fieldName + " "
+        if self.board.matrix[x][y].animal is not None:
+            return " " + self.board.matrix[x][y].animal.fieldName + " "
         else:
             return " XX " if cell.kind == 1 else " ~~ " if cell.kind == 2 else " ## " \
                 if cell.kind == 3 else " 00 " if cell.kind == 4 else " ** "
