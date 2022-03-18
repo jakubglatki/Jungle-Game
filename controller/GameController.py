@@ -35,19 +35,19 @@ class GameController:
         self.boardViewer.showBoard()
         return
 
-    def TestFinalGame(self, p1: Player, p2: Player, board: Board):
+    def testFinalGame(self, p1: Player, p2: Player, board: Board):
         if p1.alive == 0:
             print("Player 2 has won the game!")
             return True
         elif p2.alive == 0:
             print("Player 1 has won the game!")
             return True
-        elif board.matrix[0][3].thereIsAnimal and board.matrix[0][3].animal.player.number == 2:
-            print("Player 2 has won the game!")
-            return True
-        elif board.matrix[8][3].thereIsAnimal and board.matrix[8][3].animal.player.number == 1:
-            print("Player 1 has won the game!")
-            return True
+        elif board.matrix[0][3].thereIsAnimal() and board.matrix[0][3].animal.player.number == 1:
+                print("Player 1 has won the game!")
+                return True
+        elif board.matrix[8][3].thereIsAnimal() and board.matrix[8][3].animal.player.number == 2:
+                print("Player 2 has won the game!")
+                return True
         else:
             return False
 

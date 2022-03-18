@@ -48,5 +48,5 @@ while (gameController.testFinalGame(player1, player1, board) == False):
     else:
         actual = player1
     boardViewer.showBoard()
-    if (gameController.noPossibleMoveForPlayer(actual) == True):
-        actual.alive=0
+    #if (gameController.noPossibleMoveForPlayer(actual) == True):
+        # actual.alive=0

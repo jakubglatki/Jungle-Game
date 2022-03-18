@@ -24,4 +24,4 @@ class BoardViewer:
             return " " + self.board.matrix[x][y].animal.fieldName + " "
         else:
             return " XX " if cell.kind == 1 else " ~~ " if cell.kind == 2 else " ## " \
-                if cell.kind == 3 else " 00 " if cell.kind == 4 else " ** "
+                if (cell.kind == 3 or cell.kind == 5) else " ** "
