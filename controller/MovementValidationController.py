@@ -185,7 +185,7 @@ class MovementValidationController:
                     or self.isValidEndingPoint(animal, board, x, y + 1, x, y):
                 return True
         elif y + 1 == len(board.matrix[0]):
-            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x + 1, y, x, y)\
+            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x - 1, y, x, y)\
                     or self.isValidEndingPoint(animal, board, x, y - 1, x, y):
                 return True
         else:
