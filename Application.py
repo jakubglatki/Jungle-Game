@@ -38,15 +38,14 @@ gameController = GameController(boardViewer)
 gameController.chooseGameMode()
 humanRoundController = HumanRoundController()
 
-
-while (gameController.testFinalGame(player1, player1, board) == False):
+while (gameController.testFinalGame(player1, player2, board) == False):
     print("Turn of player" + str(actual.number))
-    if (actual.isABot == False):
+    if not actual.isABot:
         humanRoundController.round(actual, board)
-    if (actual == player1):
+    if actual == player1:
         actual = player2
     else:
         actual = player1
     boardViewer.showBoard()
-    #if (gameController.noPossibleMoveForPlayer(actual) == True):
-        # actual.alive=0
+    if not gameController.noPossibleMoveForPlayer(actual, board):
+        actual.alive = 0

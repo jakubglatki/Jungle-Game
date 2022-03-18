@@ -19,7 +19,7 @@ class Animal:
         self.x = x
         self.y = y
 
-    def gefX(self):
+    def getX(self):
         return self.x
 
     def getY(self):
