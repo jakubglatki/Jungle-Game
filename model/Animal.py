@@ -10,3 +10,17 @@ class Animal:
         self.y = y
         self.isAlive = True
 
+    def kill(self):
+        self.x = -1
+        self.y = -1
+        self.isAlive = False
+
+    def move(self, x:int, y:int):
+        self.x = x
+        self.y = y
+
+    def gefX(self):
+        return self.x
+
+    def getY(self):
+        return self.y

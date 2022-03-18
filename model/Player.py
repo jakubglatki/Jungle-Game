@@ -7,6 +7,9 @@ class Player:
         else: self.isABot=False
         self.animalCollection=None
 
+    def decreaseNumberOfAnimal(self):
+        self.alive = self.alive-1
+
 
 
 
