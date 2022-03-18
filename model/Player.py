@@ -1,12 +1,12 @@
 class Player:
-    def __init__(self, number: int, robot: str):
+    def __init__(self, number: int):
         self.number = number
         self.alive = 8
-        if robot == "IA":
-            self.isABot = True
-        else:
-            self.isABot = False
         self.animalCollection = None
+        self.isABot = False
 
     def decreaseNumberOfAnimal(self):
         self.alive = self.alive - 1
+
+    def switchToBot(self):
+        self.isABot = True

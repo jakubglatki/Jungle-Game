@@ -13,3 +13,5 @@ class MovementController:
         board.matrix[animal.getX()][animal.getY()].removeAnimal()
         board.matrix[x][y].addAnimal(animal)
         animal.move(x, y)
+
+

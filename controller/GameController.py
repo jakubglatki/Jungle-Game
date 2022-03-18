@@ -15,8 +15,6 @@ class GameController:
     humanRoundController = HumanRoundController()
     movementValidationController = MovementValidationController()
 
-    def __init__(self, boardViewer: BoardViewer):
-        self.boardViewer = boardViewer
 
     def chooseGameMode(self):
         gameViewer = GameViewer()
@@ -31,7 +29,23 @@ class GameController:
             self.ComputerVsComputer()
 
     def PlayerVsPlayer(self):
+        board = Board(False,False)
+        actual = board.getPlayer1()
+        self.boardViewer = BoardViewer(board)
         self.boardViewer.showBoard()
+
+        while (self.testFinalGame(board.getPlayer1(), board.getPlayer2(), board) == False):
+            print("Turn of player" + str(actual.number))
+            if not actual.isABot:
+                self.humanRoundController.round(actual, board)
+            if actual == board.getPlayer1():
+                actual = board.getPlayer2()
+            else:
+                actual = board.getPlayer2()
+            self.boardViewer.showBoard()
+            if not self.noPossibleMoveForPlayer(actual, board):
+                actual.alive = 0
+
         return
 
     def PlayerVsComputer(self):
