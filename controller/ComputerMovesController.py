@@ -8,7 +8,7 @@ from model.Player import Player
 def checkViableMovesOfAnimal(animal: Animal, board: Board, x: int, y: int,
                              movementValidationController: MovementValidationController,
                              movementController: MovementController):
-    validMoves = []
+    validMoves = [[]]
     if x == 0 and y == 0:
         if movementValidationController.isValidEndingPoint(animal, board, x + 1, y, x, y):
             validMoves += movementController.moveAnimal(animal, board, x + 1, y)
@@ -81,9 +81,9 @@ class ComputerMovesController:
     movementValidationController = MovementValidationController()
     movementController = MovementController()
 
-    def listOfPossibleMoves(self, player: Player, animal: Animal, board: Board, x: int, y: int):
+    def listOfPossibleMoves(self, player: Player, board: Board):
         viableMoves = []
         for animal in player.animalCollection:
             if animal.isAlive:
-                viableMoves += checkViableMovesOfAnimal(animal, board, x, y, self.movementValidationController, self.movementController)
+                viableMoves += checkViableMovesOfAnimal(animal, board, animal.x, animal.y, self.movementValidationController, self.movementController)
         return viableMoves

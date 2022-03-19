@@ -56,6 +56,5 @@ class HumanRoundController:
 
         # The movement is valid, now we have just to make it and verify if, at the end of the movement, the player have eaten something off the other one
         # In case in the ending point there is another animal, kill it
-        movementController.killAnimal(board, x2, y2)
         movementController.moveAnimal(tempAnimal, board, x2,
                                       y2)  # to do, simply move the animal from (x1,y1) to (x2,y2)
