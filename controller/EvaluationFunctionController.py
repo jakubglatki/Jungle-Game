@@ -9,15 +9,15 @@ class EvaluationFunctionController:
 #First evaluation function, it consider only the power of every animal and nothing else
     def evaluationFunction_onlyAnimalPower(self, state:State):
         value = 0
-        for animal in state.me.animalCollection:
+        for animal in state.currentPlayer.animalCollection:
             if animal.isAlive: value = value + animal.power
-        for animal in state.oppenent.animalCollection:
+        for animal in state.opponentPlayer.animalCollection:
             if animal.isAlive: value = value - animal.power
         return value
 
     def evaluationFunction_firstEvaluationFunction(self, state:State):
         #Dojo control if I am player1
-        if state.player1==True:
+        if state.currentPlayer.number==1:
             if state.board.getDojo2().thereIsAnimal() and state.board.getDojo2().animal.player==1:
                 value = math.inf
                 return value

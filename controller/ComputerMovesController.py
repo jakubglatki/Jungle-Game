@@ -4,6 +4,7 @@ from model.Animal import Animal
 from model.Board import Board
 from model.Move import Move
 from model.Player import Player
+from model.State import State
 
 
 def checkViableMovesOfAnimal(animal: Animal, board: Board, x: int, y: int,
@@ -83,14 +84,13 @@ class ComputerMovesController:
     movementController = MovementController()
 
     def listOfPossibleMoves(self, player: Player, board: Board):
-        directions = ['u','d','l','r']
+        directions = ['u', 'd', 'l', 'r']
         viableMoves = []
         for animal in player.animalCollection:
             if animal.isAlive:
                 for direction in directions:
                     ep = self.movementController.calculateMove(animal, board, direction)
                     if ep is not None:
-                        viableMoves += Move(animal.getX(),animal.getY(),int(ep[0]), int(ep[1]))
+                        viableMoves.append(Move(animal.getX(), animal.getY(), int(ep[0]), int(ep[1])))
 
-                viableMoves += checkViableMovesOfAnimal(animal, board, animal.x, animal.y, self.movementValidationController, self.movementController)
         return viableMoves

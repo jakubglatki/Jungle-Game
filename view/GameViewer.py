@@ -6,3 +6,10 @@ class GameViewer:
         print("2- Player vs Computer")
         print("3- Computer vs Computer")
         return int(input("\n--> "))
+
+    def showChoosingDifficultyMenu(self, number=""):
+        print(" Choose difficulty level of computer " + number)
+        print("1- Easy")
+        print("2- Medium")
+        print("3- Hard")
+        return int(input("\n--> "))
