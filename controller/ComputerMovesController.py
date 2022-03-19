@@ -11,7 +11,7 @@ def checkViableMovesOfAnimal(animal: Animal, board: Board, x: int, y: int,
     validMoves = []
     if x == 0 and y == 0:
         if movementValidationController.isValidEndingPoint(animal, board, x + 1, y, x, y):
-            validMoves += [movementController.moveAnimal(animal, board, x + 1, y),
+            validMoves += movementController.moveAnimal(animal, board, x + 1, y)
         if movementValidationController.isValidEndingPoint(animal, board, x, y + 1, x, y):
             validMoves += movementController.moveAnimal(animal, board, x, y + 1)
         return validMoves
