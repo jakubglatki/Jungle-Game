@@ -15,6 +15,9 @@ class GameController:
     humanRoundController = HumanRoundController()
     movementValidationController = MovementValidationController()
 
+    # 0- no winner, 1- Player1, 2- Player2
+    def __init__(self, winner=0):
+        self.winner = winner
 
     def chooseGameMode(self):
         gameViewer = GameViewer()
@@ -29,10 +32,10 @@ class GameController:
             self.ComputerVsComputer()
 
     def PlayerVsPlayer(self):
-        board = Board(False,False)
+        board = Board(False, False)
         actual = board.getPlayer1()
-        self.boardViewer = BoardViewer(board)
-        self.boardViewer.showBoard()
+        boardViewer = BoardViewer(board)
+        boardViewer.showBoard()
 
         while (self.testFinalGame(board.getPlayer1(), board.getPlayer2(), board) == False):
             print("Turn of player" + str(actual.number))
@@ -49,11 +52,15 @@ class GameController:
         return
 
     def PlayerVsComputer(self):
-        self.boardViewer.showBoard()
+        board = Board(True, False)
+        boardViewer = BoardViewer(board)
+        boardViewer.showBoard()
         return
 
     def ComputerVsComputer(self):
-        self.boardViewer.showBoard()
+        board = Board(True, True)
+        boardViewer = BoardViewer(board)
+        boardViewer.showBoard()
         return
 
     def testFinalGame(self, p1: Player, p2: Player, board: Board):
@@ -61,15 +68,19 @@ class GameController:
             print(WON_THE_GAME_2_NO_ANIMALS)
             return True
         elif p2.alive == 0:
+            self.winner = 1
             print(WON_THE_GAME_1_NO_ANIMALS)
             return True
         elif board.matrix[0][3].thereIsAnimal() and board.matrix[0][3].animal.player.number == 1:
+            self.winner = 1
             print(WON_THE_GAME_1)
             return True
         elif board.matrix[8][3].thereIsAnimal() and board.matrix[8][3].animal.player.number == 2:
+            self.winner = 2
             print(WON_THE_GAME_2)
             return True
         else:
+            self.winner = 0
             return False
 
     def noPossibleMoveForPlayer(self, player: Player, board: Board):
