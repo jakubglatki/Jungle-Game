@@ -11,9 +11,9 @@ class MovementController:
             board.matrix[x][y].animal.kill()
 
     def moveAnimal(self, animal: Animal, board: Board, x: int, y: int):
+        self.killAnimal(board, x, y)
         board.matrix[animal.getX()][animal.getY()].removeAnimal()
         board.matrix[x][y].addAnimal(animal)
-        self.killAnimal(board, x, y)
         animal.move(x, y)
 
     def calculateMove(self, animal: Animal, board: Board, string: str):
@@ -62,4 +62,3 @@ class MovementController:
 
         return None
 
-        return board

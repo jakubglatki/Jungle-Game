@@ -43,7 +43,6 @@ class MinimaxController:
         # The default test cuts off at depth d or at a terminal state
         cutoff_test = (cutoff_test or (lambda state, depth: depth > d or
                                 self.gameController.testFinalGame(state.currentPlayer, state.opponentPlayer, state.board)))
-        stateController = StateController(state)
         eval_fn = eval_fn or (lambda state: stateController.stateAfterMove())
         best_score = -math.inf
         beta = math.inf
