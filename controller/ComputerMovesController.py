@@ -2,6 +2,7 @@ from controller.MovementController import MovementController
 from controller.MovementValidationController import MovementValidationController
 from model.Animal import Animal
 from model.Board import Board
+from model.Move import Move
 from model.Player import Player
 
 
@@ -87,7 +88,9 @@ class ComputerMovesController:
         for animal in player.animalCollection:
             if animal.isAlive:
                 for direction in directions:
-                    if self.movementController.calculateMove(animal, board, direction) is not None:
-                        return
+                    ep = self.movementController.calculateMove(animal, board, direction)
+                    if ep is not None:
+                        viableMoves += Move(animal.getX(),animal.getY(),int(ep[0]), int(ep[1]))
+
                 viableMoves += checkViableMovesOfAnimal(animal, board, animal.x, animal.y, self.movementValidationController, self.movementController)
         return viableMoves
