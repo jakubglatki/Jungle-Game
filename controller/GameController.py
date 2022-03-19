@@ -41,7 +41,7 @@ class GameController:
             if actual == board.getPlayer1():
                 actual = board.getPlayer2()
             else:
-                actual = board.getPlayer2()
+                actual = board.getPlayer1()
             self.boardViewer.showBoard()
             if not self.noPossibleMoveForPlayer(actual, board):
                 actual.alive = 0
