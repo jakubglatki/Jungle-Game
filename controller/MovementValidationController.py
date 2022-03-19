@@ -6,12 +6,14 @@ from model.Player import Player
 def mouseMovementEndingPoint(animal, board, x, y, startingX, startingY):
     if (x + 1 == startingX or x - 1 == startingX) is not (y + 1 == startingY or y - 1 == startingY):
         if board.matrix[x][y].thereIsAnimal():
-            if board.matrix[x][y].animal.power == 8 or animal.power >= board.matrix[x][y].animal.power:
+            if board.matrix[x][y].animal.power == 8:
                 if board.matrix[startingX][startingY].kind == 2:
                     if board.matrix[x][y].kind == 2:
                         return True
                     else:
                         return False
+            elif animal.power >= board.matrix[x][y].animal.power:
+                return True
             else:
                 return False
     else:
@@ -134,10 +136,10 @@ class MovementValidationController:
         return False
 
     def isValidEndingPoint(self, animal: Animal, board: Board, x: int, y: int, startingX: int, startingY: int):
-        if checkIfIsWalkingIntoOwnTrap(animal, board, x, y, startingX, startingY):
-            return True
         specialMovementAnimals = [1, 6, 7]
-        if x <= len(board.matrix) and y <= len(board.matrix[0]):
+        if len(board.matrix) > x >= 0 and y < len(board.matrix[0]) and y >= 0:
+            if checkIfIsWalkingIntoOwnTrap(animal, board, x, y, startingX, startingY):
+                return True
             if (animal.player.number == 1 and board.matrix[x][y].kind != 4) or (
                     animal.player.number == 2 and board.matrix[x][y].kind != 6):
                 if board.matrix[x][y].thereIsAnimal():

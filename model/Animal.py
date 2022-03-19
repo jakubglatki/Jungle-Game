@@ -24,3 +24,9 @@ class Animal:
 
     def getY(self):
         return self.y
+
+    def isMe(self, name: str):
+        name = name.upper()
+        if self.fieldName == name: return True
+        return False
+
