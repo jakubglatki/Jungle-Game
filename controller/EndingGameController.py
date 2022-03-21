@@ -34,6 +34,6 @@ class EndingGameController:
     def noPossibleMoveForPlayer(self, player: Player, board: Board):
         for animal in player.animalCollection:
             if animal.isAlive:
-                if not self.movementValidationController.checkIfAnimalHasAnyViableMoves(animal, board, animal.x, animal.y):
+                if self.movementValidationController.checkIfAnimalHasAnyViableMoves(animal, board, animal.x, animal.y):
                     return True
         return False
