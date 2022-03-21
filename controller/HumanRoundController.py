@@ -20,7 +20,7 @@ class HumanRoundController:
         flag = False
         while (flag == False):
             x1 = -1
-            print("select the animal that you want to move: ")
+            print("select the animal that you want to move: (or type hint for a suggestion)")
             sp = str(input())
             # sp = "a7"
             a : Animal
@@ -40,7 +40,7 @@ class HumanRoundController:
         # second while for chosing a valid ending point
         flag = False
         while (flag == False):
-            print("select ending point of your move: ")
+            print("select ending point of your move: (u : up; d : down; r : right; l : left)")
             ep = str(input())
             # ep="a6"
             #x2 = int(ep[1]) - 1

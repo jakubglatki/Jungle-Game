@@ -68,11 +68,11 @@ class MinimaxController:
 
     def result(self, state: State, action: Move):
         # We are sure that the move is legal, so we have just to apply it to the state
-
-        self.movementController.moveAnimal(state.board.matrix[action.startingX][action.startingY].animal, state.board,
+        tempState = copy.deepcopy(state)
+        self.movementController.moveAnimal(tempState.board.matrix[action.startingX][action.startingY].animal, tempState.board,
                                            action.endingX, action.endingY)
         # TO DO: maybe a copy will be necessary
-        tempPlayer = state.currentPlayer
-        state.currentPlayer = state.opponentPlayer
-        state.opponentPlayer = tempPlayer
-        return state
+        tempPlayer = tempState.currentPlayer
+        tempState.currentPlayer = tempState.opponentPlayer
+        tempState.opponentPlayer = tempPlayer
+        return tempState
