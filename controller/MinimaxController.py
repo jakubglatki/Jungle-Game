@@ -17,7 +17,7 @@ class MinimaxController:
     evaluationFunctionController = EvaluationFunctionController()
     endingGameController = EndingGameController()
 
-    def alpha_beta_cutoff_search(self, state, d=1, cutoff_test=None, eval_fn=None):
+    def alpha_beta_cutoff_search(self, state, d=4, cutoff_test=None, eval_fn=None):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search and uses an evaluation function."""
 
@@ -74,7 +74,8 @@ class MinimaxController:
                 minimaxLastMoves.push(action)
                 value = min_value(self.result(state, action), best_score, beta, 1, minimaxLastMoves)
                 minimaxLastMoves.pop()
-                if value > best_score:
+                random = randint(0, 100)
+                if value > best_score or (value == best_score and random >= 80):
                     best_score = value
                     best_action = action
         return best_action

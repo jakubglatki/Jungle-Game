@@ -47,15 +47,25 @@ def lionTigerWaterInteractionEndingPoint(animal, board, x, y, startingX, startin
     if board.matrix[startingX + 1][startingY].kind == 2 and x == startingX + 4:
         if not checkIfThereIsMouseBlockingJump(board, startingX, startingY, True):
             return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
-    elif board.matrix[startingX - 1][startingY].kind == 2 and x == startingX - 4:
-        if not checkIfThereIsMouseBlockingJump(board, startingX - 4, startingY, True):
-            return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
-    elif board.matrix[startingX][startingY + 1].kind == 2 and y == startingY + 3:
-        if not checkIfThereIsMouseBlockingJump(board, startingX, startingY, False):
-            return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
-    elif board.matrix[startingX][startingY - 1].kind == 2 and y == startingY - 3:
-        if not checkIfThereIsMouseBlockingJump(board, startingX - 4, startingY, False):
-            return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
+        elif board.matrix[startingX - 1][startingY].kind == 2 and x == startingX - 4:
+            if not checkIfThereIsMouseBlockingJump(board, startingX - 4, startingY, True):
+                return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
+    try:
+        if board.matrix[startingX][startingY + 1].kind == 2 and y == startingY + 3:
+            if not checkIfThereIsMouseBlockingJump(board, startingX, startingY, False):
+                return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
+    except IndexError:
+        if board.matrix[startingX][startingY - 1].kind == 2 and y == startingY - 3:
+            if not checkIfThereIsMouseBlockingJump(board, startingX, startingY - 3, False):
+                return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
+    try:
+        if board.matrix[startingX][startingY - 1].kind == 2 and y == startingY - 3:
+            if not checkIfThereIsMouseBlockingJump(board, startingX, startingY - 3, False):
+                return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
+    except IndexError:
+        if board.matrix[startingX][startingY + 1].kind == 2 and y == startingY + 3:
+            if not checkIfThereIsMouseBlockingJump(board, startingX, startingY, False):
+                return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
 
 
 def checkIfIsNotNextToWater(board: Board, startingX: int, startingY: int):
@@ -163,35 +173,46 @@ class MovementValidationController:
 
     def checkIfAnimalHasAnyViableMoves(self, animal: Animal, board: Board, x: int, y: int):
         if x == 0 and y == 0:
-            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x, y + 1, x, y):
+            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x,
+                                                                                                 y + 1, x, y):
                 return True
         elif x == 0 and y + 1 == len(board.matrix[0]):
-            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x, y - 1, x, y):
+            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x,
+                                                                                                 y - 1, x, y):
                 return True
         elif x + 1 == len(board.matrix) and y == 0:
-            if self.isValidEndingPoint(animal, board, x - 1, y, x, y) or self.isValidEndingPoint(animal, board, x, y + 1, x, y):
+            if self.isValidEndingPoint(animal, board, x - 1, y, x, y) or self.isValidEndingPoint(animal, board, x,
+                                                                                                 y + 1, x, y):
                 return True
         elif x + 1 == len(board.matrix) and y + 1 == len(board.matrix[0]):
-            if self.isValidEndingPoint(animal, board, x - 1, y, x, y) or self.isValidEndingPoint(animal, board, x, y - 1, x, y):
+            if self.isValidEndingPoint(animal, board, x - 1, y, x, y) or self.isValidEndingPoint(animal, board, x,
+                                                                                                 y - 1, x, y):
                 return True
         elif x == 0:
-            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x, y - 1, x, y)\
+            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x,
+                                                                                                 y - 1, x, y) \
                     or self.isValidEndingPoint(animal, board, x, y + 1, x, y):
                 return True
         elif x + 1 == len(board.matrix):
-            if self.isValidEndingPoint(animal, board, x - 1, y, x, y) or self.isValidEndingPoint(animal, board, x, y - 1, x, y)\
+            if self.isValidEndingPoint(animal, board, x - 1, y, x, y) or self.isValidEndingPoint(animal, board, x,
+                                                                                                 y - 1, x, y) \
                     or self.isValidEndingPoint(animal, board, x, y + 1, x, y):
                 return True
         elif y == 0:
-            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x - 1, y, x, y)\
+            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x - 1,
+                                                                                                 y, x, y) \
                     or self.isValidEndingPoint(animal, board, x, y + 1, x, y):
                 return True
         elif y + 1 == len(board.matrix[0]):
-            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x - 1, y, x, y)\
+            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x - 1,
+                                                                                                 y, x, y) \
                     or self.isValidEndingPoint(animal, board, x, y - 1, x, y):
                 return True
         else:
-            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x - 1, y, x, y)\
-                    or self.isValidEndingPoint(animal, board, x, y + 1, x, y) or self.isValidEndingPoint(animal, board, x, y - 1, x, y):
+            if self.isValidEndingPoint(animal, board, x + 1, y, x, y) or self.isValidEndingPoint(animal, board, x - 1,
+                                                                                                 y, x, y) \
+                    or self.isValidEndingPoint(animal, board, x, y + 1, x, y) or self.isValidEndingPoint(animal, board,
+                                                                                                         x, y - 1, x,
+                                                                                                         y):
                 return True
         return False
