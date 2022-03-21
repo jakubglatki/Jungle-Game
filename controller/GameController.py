@@ -65,10 +65,9 @@ class GameController:
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(state.currentPlayer.number))
-            if state.currentPlayer.isABot:
-                move = self.minMaxController.alpha_beta_cutoff_search(state)
-                state.currentPlayer.lastMoves.addValue(move)
-                self.computerController.round(board, move)
+            move = self.minMaxController.alpha_beta_cutoff_search(state)
+            state.currentPlayer.lastMoves.addValue(move)
+            self.computerController.round(board, move)
             if state.currentPlayer == board.getPlayer1():
                 state.currentPlayer = board.getPlayer2()
                 state.opponentPlayer = board.getPlayer1()
