@@ -37,8 +37,7 @@ class GameController:
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(actual.number))
-            if not actual.isABot:
-                self.humanRoundController.round(actual, board)
+            self.humanRoundController.round(actual, board)
             if actual == board.getPlayer1():
                 actual = board.getPlayer2()
             else:
@@ -50,10 +49,27 @@ class GameController:
         return
 
     def PlayerVsComputer(self):
-        board = Board(True, False)
-        actual = board.getPlayer1()
+        board = Board(False, True)
         boardViewer = BoardViewer(board)
         boardViewer.showBoard()
+        state = State(board, board.getPlayer1(), board.getPlayer2())
+
+        while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
+            print("Turn of player" + str(state.currentPlayer.number))
+            if state.currentPlayer.isABot:
+                move = self.minMaxController.alpha_beta_cutoff_search(state)
+                state.currentPlayer.lastMoves.addValue(move)
+                self.computerController.round(state.board, move)
+            else: self.humanRoundController.round(state.currentPlayer, state.board)
+            if state.currentPlayer == state.board.getPlayer1():
+                state.currentPlayer = state.board.getPlayer2()
+                state.opponentPlayer = state.board.getPlayer1()
+            else:
+                state.currentPlayer = state.board.getPlayer1()
+                state.opponentPlayer = state.board.getPlayer2()
+            boardViewer.showBoard()
+            if not self.endingGameController.noPossibleMoveForPlayer(state.currentPlayer, board):
+                state.currentPlayer.alive = 0
         return
 
     def ComputerVsComputer(self):
@@ -68,14 +84,14 @@ class GameController:
             move = self.minMaxController.alpha_beta_cutoff_search(state)
             state.currentPlayer.lastMoves.addValue(move)
             self.computerController.round(board, move)
-            if state.currentPlayer == board.getPlayer1():
-                state.currentPlayer = board.getPlayer2()
-                state.opponentPlayer = board.getPlayer1()
+            if state.currentPlayer == state.board.getPlayer1():
+                state.currentPlayer = state.board.getPlayer2()
+                state.opponentPlayer = state.board.getPlayer1()
             else:
-                state.currentPlayer = board.getPlayer1()
-                state.opponentPlayer = board.getPlayer2()
+                state.currentPlayer = state.board.getPlayer1()
+                state.opponentPlayer = state.board.getPlayer2()
             boardViewer.showBoard()
-            if not self.endingGameController.noPossibleMoveForPlayer(state.currentPlayer, board):
+            if not self.endingGameController.noPossibleMoveForPlayer(state.currentPlayer, state.board):
                 state.currentPlayer.alive = 0
         return
 
