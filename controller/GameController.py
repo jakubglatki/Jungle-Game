@@ -5,7 +5,6 @@ from controller.MovementValidationController import MovementValidationController
 from model.State import State
 from view.BoardViewer import BoardViewer
 from view.GameViewer import GameViewer
-from model.Player import Player
 from model.Board import Board
 from controller.HumanRoundController import HumanRoundController
 
@@ -67,7 +66,7 @@ class GameController:
             print("Turn of player" + str(actual.number))
             if actual.isABot:
                 move = self.minMaxController.alpha_beta_cutoff_search(state)
-                self.humanRoundController.round(actual, board)
+                self.computerController.round(board, move)
             if actual == board.getPlayer1():
                 actual = board.getPlayer2()
             else:

@@ -9,7 +9,7 @@ from view.GameViewer import GameViewer
 
 class ComputerController:
 
-    def round(self, player: Player, board: Board, move: Move):
+    def round(self, board: Board, move: Move):
         # first while for choosing a valid starting point
         movementController = MovementController()
 

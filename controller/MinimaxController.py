@@ -1,3 +1,4 @@
+import copy
 import math
 
 from controller.ComputerMovesController import ComputerMovesController
@@ -14,8 +15,6 @@ class MinimaxController:
     evaluationFunctionController = EvaluationFunctionController()
     endingGameController = EndingGameController()
 
-
-
     def alpha_beta_cutoff_search(self, state, d=5, cutoff_test=None, eval_fn=None):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search and uses an evaluation function."""
@@ -25,8 +24,8 @@ class MinimaxController:
         # Functions used by alpha_beta
         def max_value(state, alpha, beta, depth):
             if cutoff_test(state, depth):
-                # return eval_fn(state)
-                return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
+                return eval_fn(state)
+                # return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
             value = -math.inf
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 value = max(value, min_value(self.result(state, action), alpha, beta, depth + 1))
@@ -37,8 +36,8 @@ class MinimaxController:
 
         def min_value(state, alpha, beta, depth):
             if cutoff_test(state, depth):
-                # return eval_fn(state)
-                return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
+                return eval_fn(state)
+                # return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
             value = math.inf
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 value = min(value, max_value(self.result(state, action), alpha, beta, depth + 1))
@@ -50,9 +49,13 @@ class MinimaxController:
         # Body of alpha_beta_cutoff_search starts here:
         # The default test cuts off at depth d or at a terminal state
         cutoff_test = (cutoff_test or (lambda state, depth: depth > d or
-                                self.endingGameController.testFinalGame(state.currentPlayer, state.opponentPlayer, state.board, False)
-                                       or self.endingGameController.noPossibleMoveForPlayer(state.currentPlayer, state.board)))
-        #eval_fn = eval_fn or (lambda state: self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state))
+                                                            self.endingGameController.testFinalGame(state.currentPlayer,
+                                                                                                    state.opponentPlayer,
+                                                                                                    state.board, False)
+                                                            or self.endingGameController.noPossibleMoveForPlayer(
+            state.currentPlayer, state.board)))
+        eval_fn = eval_fn or (
+            lambda state: self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state))
         best_score = -math.inf
         beta = math.inf
         best_action = None
@@ -63,12 +66,13 @@ class MinimaxController:
                 best_action = action
         return best_action
 
-    def result(self, state:State, action: Move):
-        #We are sure that the move is legal, so we have just to apply it to the state
-        self.movementController.moveAnimal(state.board.matrix[action.startingX][action.startingY].animal, state.board, action.endingX, action.endingY)
+    def result(self, state: State, action: Move):
+        # We are sure that the move is legal, so we have just to apply it to the state
+
+        self.movementController.moveAnimal(state.board.matrix[action.startingX][action.startingY].animal, state.board,
+                                           action.endingX, action.endingY)
         # TO DO: maybe a copy will be necessary
         tempPlayer = state.currentPlayer
         state.currentPlayer = state.opponentPlayer
-        state.opponentPlayer = state.currentPlayer
+        state.opponentPlayer = tempPlayer
         return state
-
