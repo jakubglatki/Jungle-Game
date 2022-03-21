@@ -2,6 +2,7 @@ from controller.MovementValidationController import MovementValidationController
 from model.Animal import Animal
 from model.Player import Player
 from model.Board import Board
+from controller.MinimaxController import  MinimaxController
 from controller.MovementController import MovementController
 from model.State import State
 
@@ -10,9 +11,11 @@ class HumanRoundController:
     movementController = MovementController()
     movementValidationController = MovementValidationController()
 
+
     def round(self, player: Player, board: Board):
         # first while for choosing a valid starting point
         movementController = MovementController()
+        minMaxController = MinimaxController()
         x1 = -1
         y1 = -1
         x2 = -1
@@ -23,11 +26,12 @@ class HumanRoundController:
             x1 = -1
             print("select the animal that you want to move: (or type hint for a suggestion)")
             sp = str(input())
-            #if sp == "hint" or sp == "HINT":
-                #if player == board.getPlayer1(): move = self.minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer1(),board.getPlayer2()))
-                #else: move = self.minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer1(),board.getPlayer2()))
-
-                #print("The suggested move is: "+)
+            if sp == "hint" or sp == "HINT":
+                if player == board.getPlayer1(): move = minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer1(),board.getPlayer2()))
+                else: move = minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer2(),board.getPlayer1()))
+                print("The suggested move is: "+move.animal.name+" in "+chr(move.endingY+97)+str(move.endingX+1))
+                print("select the animal that you want to move:")
+                sp = str(input())
 
             a : Animal
             for a in player.animalCollection:
@@ -48,7 +52,7 @@ class HumanRoundController:
         while (flag == False):
             print("select ending point of your move: (u : up; d : down; r : right; l : left)")
             ep = str(input())
-            # ep="a6"
+
             #x2 = int(ep[1]) - 1
             #y2 = ord(ep[0].lower()) - 97
             tempAnimal = board.matrix[x1][y1].animal
