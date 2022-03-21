@@ -27,6 +27,7 @@ class Animal:
 
     def isMe(self, name: str):
         name = name.upper()
-        if self.fieldName == name: return True
+        if self.fieldName == name or self.name == name or self.fieldName[0] == name:
+            return True
         return False
 
