@@ -63,16 +63,16 @@ class GameController:
         state = State(board, board.player1, board.player2)
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
-            print("Turn of player" + str(actual.number))
-            if actual.isABot:
+            print("Turn of player" + str(state.currentPlayer.number))
+            if state.currentPlayer.isABot:
                 move = self.minMaxController.alpha_beta_cutoff_search(state)
                 self.computerController.round(board, move)
-            if actual == board.getPlayer1():
-                actual = board.getPlayer2()
+            if state.currentPlayer == board.getPlayer1():
+                state.currentPlayer = board.getPlayer2()
             else:
-                actual = board.getPlayer1()
+                state.currentPlayer = board.getPlayer1()
             boardViewer.showBoard()
-            if not self.endingGameController.noPossibleMoveForPlayer(actual, board):
-                actual.alive = 0
+            if not self.endingGameController.noPossibleMoveForPlayer(state.currentPlayer, board):
+                state.currentPlayer.alive = 0
         return
 
