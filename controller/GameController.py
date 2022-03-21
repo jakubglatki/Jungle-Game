@@ -2,6 +2,7 @@ from controller.ComputerController import ComputerController
 from controller.EndingGameController import EndingGameController
 from controller.MinimaxController import MinimaxController
 from controller.MovementValidationController import MovementValidationController
+from model.LastMoves import LastMoves
 from model.State import State
 from view.BoardViewer import BoardViewer
 from view.GameViewer import GameViewer
@@ -66,11 +67,14 @@ class GameController:
             print("Turn of player" + str(state.currentPlayer.number))
             if state.currentPlayer.isABot:
                 move = self.minMaxController.alpha_beta_cutoff_search(state)
+                state.currentPlayer.lastMoves.addValue(move)
                 self.computerController.round(board, move)
             if state.currentPlayer == board.getPlayer1():
                 state.currentPlayer = board.getPlayer2()
+                state.opponentPlayer = board.getPlayer1()
             else:
                 state.currentPlayer = board.getPlayer1()
+                state.opponentPlayer = board.getPlayer2()
             boardViewer.showBoard()
             if not self.endingGameController.noPossibleMoveForPlayer(state.currentPlayer, board):
                 state.currentPlayer.alive = 0

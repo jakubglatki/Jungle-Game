@@ -42,8 +42,8 @@ class EvaluationFunctionController:
         for animal in state.opponentPlayer.animalCollection:
             if animal.isAlive:
                 value = value - animal.power
-                if animal.power==1: value = value + 5 #Mouse can stay in water and also eat Elephant, for sure has more value
-                if animal.power==6 or animal.power==7: value + 2  #Tiger and Lion have special move, add to them some more value
+                if animal.power==1: value = value - 5 #Mouse can stay in water and also eat Elephant, for sure has more value
+                if animal.power==6 or animal.power==7: value - 2  #Tiger and Lion have special move, add to them some more value
         return value
 
     #Now the idea is to give importance also in the positioning of each animal, creating some kind of "hot zone" in which some animals are stronger
