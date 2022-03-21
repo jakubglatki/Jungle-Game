@@ -47,9 +47,9 @@ def lionTigerWaterInteractionEndingPoint(animal, board, x, y, startingX, startin
     if board.matrix[startingX + 1][startingY].kind == 2 and x == startingX + 4:
         if not checkIfThereIsMouseBlockingJump(board, startingX, startingY, True):
             return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
-        elif board.matrix[startingX - 1][startingY].kind == 2 and x == startingX - 4:
-            if not checkIfThereIsMouseBlockingJump(board, startingX - 4, startingY, True):
-                return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
+    elif board.matrix[startingX - 1][startingY].kind == 2 and x == startingX - 4:
+        if not checkIfThereIsMouseBlockingJump(board, startingX - 4, startingY, True):
+            return checkIfThereIsAnimalBlockingWay(animal, board, x, y)
     try:
         if board.matrix[startingX][startingY + 1].kind == 2 and y == startingY + 3:
             if not checkIfThereIsMouseBlockingJump(board, startingX, startingY, False):
@@ -132,6 +132,11 @@ def checkIfIsWalkingIntoOwnTrap(animal, board, x, y, startingX, startingY):
     if (x + 1 == startingX or x - 1 == startingX) is not (y + 1 == startingY or y - 1 == startingY):
         if (animal.player.number == 1 and board.matrix[x][y].kind == 3) or (
                 animal.player.number == 2 and board.matrix[x][y].kind == 5):
+            if board.matrix[x][y].animal is not None:
+                if board.matrix[x][y].animal.player == animal.player:
+                    return False
+                else:
+                    return True
             return True
     return False
 

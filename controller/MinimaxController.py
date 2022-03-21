@@ -17,7 +17,7 @@ class MinimaxController:
     evaluationFunctionController = EvaluationFunctionController()
     endingGameController = EndingGameController()
 
-    def alpha_beta_cutoff_search(self, state, d=4, cutoff_test=None, eval_fn=None):
+    def alpha_beta_cutoff_search(self, state, d=3, cutoff_test=None, eval_fn=None):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search and uses an evaluation function."""
 
@@ -63,7 +63,7 @@ class MinimaxController:
                                                             or not self.endingGameController.noPossibleMoveForPlayer(
             state.currentPlayer, state.board)))
         eval_fn = eval_fn or (
-            lambda state: self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state))
+            lambda state: self.evaluationFunctionController.evaluationFunctionWithMeaningfulDistanceToDojo(state))
         minimaxLastMoves = LastMoves(d)
         best_score = -math.inf
         beta = math.inf
@@ -86,7 +86,6 @@ class MinimaxController:
         self.movementController.moveAnimal(tempState.board.matrix[action.startingX][action.startingY].animal,
                                            tempState.board,
                                            action.endingX, action.endingY)
-        # TO DO: maybe a copy will be necessary
         tempPlayer = tempState.currentPlayer
         tempState.currentPlayer = tempState.opponentPlayer
         tempState.opponentPlayer = tempPlayer
