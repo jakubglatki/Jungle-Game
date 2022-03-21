@@ -3,6 +3,7 @@ from model.Animal import Animal
 from model.Player import Player
 from model.Board import Board
 from controller.MovementController import MovementController
+from model.State import State
 
 
 class HumanRoundController:
@@ -22,7 +23,12 @@ class HumanRoundController:
             x1 = -1
             print("select the animal that you want to move: (or type hint for a suggestion)")
             sp = str(input())
-            # sp = "a7"
+            #if sp == "hint" or sp == "HINT":
+                #if player == board.getPlayer1(): move = self.minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer1(),board.getPlayer2()))
+                #else: move = self.minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer1(),board.getPlayer2()))
+
+                #print("The suggested move is: "+)
+
             a : Animal
             for a in player.animalCollection:
                 if a.isAlive and a.isMe(sp):

@@ -3,13 +3,13 @@ from model.Move import Move
 
 class LastMoves:
     def __init__(self, n = None):
-        if n == None: self.n = 10 #save the last 10 moves
+        if n == None: self.n = 5 #save the last 5 moves
         else: self.n = n
         self.actual = 0
         self.list = []
 
     def addValue(self,move: Move):
-        self.list.append(Move(move.endingX, move.endingY, move.startingX, move.startingY))
+        self.list.append(Move(move.endingX, move.endingY, move.startingX, move.startingY,move.animal))
         if self.actual == self.n: self.list.pop(0)
         else: self.actual = self.actual + 1
 
@@ -23,7 +23,8 @@ class LastMoves:
 
     def isARecentMove(self, m : Move):
         for move in self.list:
-            if move.compareCouples(m.startingX,m.startingY,m.endingX,m.endingY): return True
+            if move == m:
+                return True
         return False
 
 
