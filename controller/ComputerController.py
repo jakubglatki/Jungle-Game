@@ -14,7 +14,7 @@ class ComputerController:
         movementController = MovementController()
 
         x1 = move.startingX
-        y1 = move.endingX
+        y1 = move.startingY
 
         x2 = move.endingX
         y2 = move.endingY
