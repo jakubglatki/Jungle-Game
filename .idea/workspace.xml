@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="first end-work and first evaluation functions">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/HumanRoundController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/HumanRoundController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/MinimaxController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MinimaxController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Animal.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Animal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Board.py" afterDir="false" />
-    </list>
+    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="New movement style" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647560858907</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="New movement style">
+      <created>1647878304581</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1647878304581</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +224,8 @@
     <MESSAGE value="#changed way of displaying the board" />
     <MESSAGE value="#organized code in Board and Cell classes" />
     <MESSAGE value="first almost-working version" />
-    <option name="LAST_COMMIT_MESSAGE" value="first almost-working version" />
+    <MESSAGE value="New movement style" />
+    <option name="LAST_COMMIT_MESSAGE" value="New movement style" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -247,6 +249,11 @@
           <url>file://$PROJECT_DIR$/controller/ComputerMovesController.py</url>
           <line>95</line>
           <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
