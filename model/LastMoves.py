@@ -23,7 +23,7 @@ class LastMoves:
 
     def isARecentMove(self, m : Move):
         for move in self.list:
-            if move == m:
+            if move.animal == m.animal and move.compareCouples(m.startingX,m.startingY,m.endingX,m.endingY):
                 return True
         return False
 

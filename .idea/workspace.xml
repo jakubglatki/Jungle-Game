@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="New movement style">
+    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="I want to cry">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ComputerMovesController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ComputerMovesController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/HumanRoundController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/HumanRoundController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/LastMoves.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/LastMoves.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Move.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Move.py" afterDir="false" />
     </list>
@@ -230,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647888894629</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="I want to cry">
+      <created>1647893064502</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1647893064502</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +271,8 @@
     <MESSAGE value="#organized code in Board and Cell classes" />
     <MESSAGE value="first almost-working version" />
     <MESSAGE value="New movement style" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="I want to cry" />
+    <option name="LAST_COMMIT_MESSAGE" value="I want to cry" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -282,19 +288,15 @@
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/controller/GameController.py</url>
-          <line>70</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/model/LastMoves.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/model/LastMoves.py</url>
           <line>26</line>
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <condition expression="m.startingX == 2 and m.startingY == 0 and m.endingX == 1 and m.endingY == 0 and self.actual != 0 and self.n != 3" language="Python" mode="CODE_FRAGMENT" />
+          <url>file://$PROJECT_DIR$/model/LastMoves.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
