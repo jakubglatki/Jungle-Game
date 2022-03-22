@@ -31,3 +31,5 @@ class Animal:
             return True
         return False
 
+    #def notMenaced(self, state: State):
+
