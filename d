@@ -20,6 +20,7 @@ class MinimaxController:
     def alpha_beta_cutoff_search(self, state, d=3, cutoff_test=None, eval_fn=None):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search and uses an evaluation function."""
+
         # Functions used by alpha_beta
         def max_value(state, alpha, beta, depth, lastMoves):
             if cutoff_test(state, depth):
@@ -74,6 +75,8 @@ class MinimaxController:
                 value = min_value(self.result(state, action), best_score, beta, 1, minimaxLastMoves)
                 minimaxLastMoves.pop()
                 random = randint(0, 100)
+                if value == math.inf:
+                    return action
                 if value > best_score or (value == best_score and random >= 80):
                     best_score = value
                     best_action = action
@@ -85,7 +88,15 @@ class MinimaxController:
         self.movementController.moveAnimal(tempState.board.matrix[action.startingX][action.startingY].animal,
                                            tempState.board,
                                            action.endingX, action.endingY)
+        #tempState = self.changePlayer(state)
         tempPlayer = tempState.currentPlayer
         tempState.currentPlayer = tempState.opponentPlayer
         tempState.opponentPlayer = tempPlayer
         return tempState
+
+    # def changePlayer(self, state: State):
+    #     tempState = copy.deepcopy(state)
+    #     tempPlayer = tempState.currentPlayer
+    #     tempState.currentPlayer = tempState.opponentPlayer
+    #     tempState.opponentPlayer = tempPlayer
+    #     return tempState

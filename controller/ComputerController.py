@@ -22,7 +22,7 @@ class ComputerController:
         # The movement is valid, now we have just to make it and verify if, at the end of the movement, the player have eaten something off the other one
         # In case in the ending point there is another animal, kill it
         movementController.moveAnimal(board.matrix[x1][y1].animal, board, x2, y2)  # to do, simply move the animal from (x1,y1) to (x2,y2)
-        print("The computer move is: "+move.animal.name+" in "+chr(move.endingY+97)+str(move.endingX+1)+ "\n")
+        print("The computer move is: "+move.animal.name+" to "+chr(move.endingY+97)+str(move.endingX+1)+ "\n")
 
 
 

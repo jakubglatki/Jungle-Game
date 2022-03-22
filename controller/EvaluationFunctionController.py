@@ -2,7 +2,7 @@ import math
 
 from model.State import State
 
-cellValuePlayer1 = [[4, 7, 12, 10000, 12, 7, 4],
+cellValuePlayer1 = [[4, 7, 12, math.inf, 12, 7, 4],
                     [3, 6, 8, 12, 8, 6, 4],
                     [3, 5, 7, 9, 7, 5, 3],
                     [2, 3, 4, 6, 4, 3, 2],
@@ -20,7 +20,7 @@ cellValuePlayer2 = [[0, 0, 0, 0, 0, 0, 0],
                     [2, 3, 4, 6, 4, 3, 2],
                     [3, 5, 7, 9, 7, 5, 3],
                     [3, 6, 8, 12, 8, 6, 4],
-                    [4, 7, 12, 10000, 12, 7, 4]]
+                    [4, 7, 12, -math.inf, 12, 7, 4]]
 
 
 class EvaluationFunctionController:
