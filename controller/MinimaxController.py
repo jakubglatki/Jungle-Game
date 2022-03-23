@@ -27,8 +27,7 @@ class MinimaxController:
             value = -math.inf
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 minimaxLastMoves.max += 1
-                if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
-                        action) == False:
+                if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(action) == False:
                     minimaxLastMoves.push(action)
                     value = max(value, min_value(self.result(state, action), alpha, beta, depth + 1, minimaxLastMoves))
                     minimaxLastMoves.pop()
@@ -43,8 +42,7 @@ class MinimaxController:
             value = math.inf
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 minimaxLastMoves.max += 1
-                if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
-                        action) == False:
+                if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(action) == False:
                     minimaxLastMoves.push(action)
                     value = min(value, max_value(self.result(state, action), alpha, beta, depth + 1, minimaxLastMoves))
                     minimaxLastMoves.pop()
@@ -66,8 +64,7 @@ class MinimaxController:
         beta = math.inf
         best_action = None
         for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
-            if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
-                    action) == False:
+            if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(action) == False:
                 minimaxLastMoves.push(action)
                 value = min_value(self.result(state, action), best_score, beta, 1, minimaxLastMoves)
                 action.depth = minimaxLastMoves.actual
