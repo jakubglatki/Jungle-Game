@@ -18,14 +18,12 @@ class MinimaxController:
     endingGameController = EndingGameController()
 
     def alpha_beta_cutoff_search(self, state, difficulty=3, d=3, cutoff_test=None, eval_fn=None):
-        """Search game to determine best action; use alpha-beta pruning.
-        This version cuts off search and uses an evaluation function."""
-        # Functions used by alpha_beta
+        if difficulty == 1:
+            d = 2
+
         def max_value(state, alpha, beta, depth, minimaxLastMoves):
-            #DA TESTARE COSA FA SUL CUTOFF, CI METTE TROPPO TEMPO ANCHE QUANDO SONO DAVANTI AL DOJO, NON HA SENSO
             if cutoff_test(state, depth):
                 return eval_fn(state)
-                # return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
             value = -math.inf
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
@@ -41,7 +39,6 @@ class MinimaxController:
         def min_value(state, alpha, beta, depth, minimaxLastMoves):
             if cutoff_test(state, depth):
                 return eval_fn(state)
-                # return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
             value = math.inf
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
@@ -54,8 +51,6 @@ class MinimaxController:
                     beta = min(beta, value)
             return value
 
-        # Body of alpha_beta_cutoff_search starts here:
-        # The default test cuts off at depth d or at a terminal state
         cutoff_test = (cutoff_test or (lambda state, depth: depth > d or
                                                             self.endingGameController.testFinalGame(state.currentPlayer,
                                                                                                     state.opponentPlayer,
@@ -76,15 +71,13 @@ class MinimaxController:
                 action.depth = minimaxLastMoves.actual
                 minimaxLastMoves.pop()
                 random = randint(0, 100)
-                if difficulty == 1 and random > 90:
-                    return action
-                if value > best_score or (value == best_score and random >= 80) or best_action is None or (value == best_score and action.depth < best_action.depth):
+                if value > best_score or (value == best_score and random >= 80) or best_action is None or (
+                        value == best_score and action.depth < best_action.depth):
                     best_score = value
                     best_action = action
         return best_action
 
     def result(self, state: State, action: Move):
-        # We are sure that the move is legal, so we have just to apply it to the state
         tempState = copy.deepcopy(state)
         self.movementController.moveAnimal(tempState.board.matrix[action.startingX][action.startingY].animal,
                                            tempState.board,
