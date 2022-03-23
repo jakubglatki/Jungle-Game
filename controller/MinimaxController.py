@@ -17,7 +17,7 @@ class MinimaxController:
     evaluationFunctionController = EvaluationFunctionController()
     endingGameController = EndingGameController()
 
-    def alpha_beta_cutoff_search(self, state, d=3, cutoff_test=None, eval_fn=None):
+    def alpha_beta_cutoff_search(self, state, d=2, cutoff_test=None, eval_fn=None):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search and uses an evaluation function."""
 
