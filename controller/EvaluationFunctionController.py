@@ -269,7 +269,7 @@ class EvaluationFunctionController:
                             elif animal.name == "LION": value += cellValueLion2[animal.getX()][animal.getY()]
                             elif animal.name == "ELEPHANT": value += cellValueElephant2[animal.getX()][animal.getY()]
 
-                    for animal in state.playerWhoNotMoves.animalCollection:
+        for animal in state.playerWhoNotMoves.animalCollection:
                         if animal.isAlive:
                             value -= opponentCellValue[animal.getX()][animal.getY()] * 2/3
                             if state.opponentPlayer.number == 1:
