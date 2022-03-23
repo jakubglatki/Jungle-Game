@@ -20,7 +20,7 @@ class Board:
         p1 = Animal("PANTHER", "P1", 5, self.player1, 6, 3)
         t1 = Animal("TIGER", "T1", 6, self.player1, 8, 0)
         #to change
-        l1 = Animal("LION", "L1", 7, self.player1, 5, 6)
+        l1 = Animal("LION", "L1", 7, self.player1, 3, 3)
         e1 = Animal("ELEPHANT", "E1", 8, self.player1, 6, 0)
         m2 = Animal("MOUSE", "M2", 1, self.player2, 2, 0)
         c2 = Animal("CAT", "C2", 2, self.player2, 1, 5)
@@ -67,7 +67,7 @@ class Board:
         self.matrix[6][3].animal = self.Animals1[4]
         self.matrix[8][0].animal = self.Animals1[5]
         #to change
-        self.matrix[5][6].animal = self.Animals1[6]
+        self.matrix[3][3].animal = self.Animals1[6]
         self.matrix[6][0].animal = self.Animals1[7]
 
     def getDojo1(self):
