@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="JungleBot 1.0">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/EvaluationFunctionController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EvaluationFunctionController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GameController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/MinimaxController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MinimaxController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Animal.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Animal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/LastMoves.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/LastMoves.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,21 +298,16 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/model/LastMoves.py</url>
-          <line>26</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <condition expression="m.startingX == 2 and m.startingY == 0 and m.endingX == 1 and m.endingY == 0 and self.actual != 0 and self.n != 3" language="Python" mode="CODE_FRAGMENT" />
           <url>file://$PROJECT_DIR$/model/LastMoves.py</url>
-          <line>24</line>
+          <line>25</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <condition expression="state.board.matrix[8][3].animal != None" language="Python" />
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <condition expression="state.board.matrix[0][3].animal != None and depth == 1" language="Python" />
           <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
-          <line>42</line>
+          <line>43</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
@@ -317,15 +316,11 @@
           <line>26</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/controller/HumanRoundController.py</url>
-          <line>31</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/controller/HumanRoundController.py</url>
-          <line>29</line>
-          <option name="timeStamp" value="58" />
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <condition expression="action.animal.fieldName == &quot;W2&quot; and action.startingX == 8 and action.endingX == 8 and action.startingY == 4 and action.endingY == 3" language="Python" mode="CODE_FRAGMENT" />
+          <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
+          <line>76</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -1,5 +1,6 @@
 from model.Player import Player
 
+
 class Animal:
     def __init__(self,name: str, fieldName: str, power: int,player: Player, x: int, y: int):
         self.name = name
@@ -31,5 +32,13 @@ class Animal:
             return True
         return False
 
-    #def notMenaced(self, state: State):
+    def inOpponentDojo(self):
+        if self.player.number==1:
+            if self.x == 0 and (self.y == 2 or self.y == 4): return True
+            elif self.x == 1 and self.y == 3: return True
+        else:
+            if self.x == 8 and (self.y == 2 or self.y == 4): return True
+            elif self.x == 7 and self.y == 3: return True
+        return False
+
 

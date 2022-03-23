@@ -17,17 +17,18 @@ class MinimaxController:
     evaluationFunctionController = EvaluationFunctionController()
     endingGameController = EndingGameController()
 
-    def alpha_beta_cutoff_search(self, state, d=2, cutoff_test=None, eval_fn=None):
+    def alpha_beta_cutoff_search(self, state, d=3, cutoff_test=None, eval_fn=None):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search and uses an evaluation function."""
 
         # Functions used by alpha_beta
-        def max_value(state, alpha, beta, depth, minimaxlastMoves):
+        def max_value(state, alpha, beta, depth, minimaxLastMoves):
             #DA TESTARE COSA FA SUL CUTOFF, CI METTE TROPPO TEMPO ANCHE QUANDO SONO DAVANTI AL DOJO, NON HA SENSO
             if cutoff_test(state, depth):
                 return eval_fn(state)
                 # return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
             value = -math.inf
+            #if depth > minimaxLastMoves.max: minimaxLastMoves.max == depth
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
                         action) == False:
@@ -39,11 +40,12 @@ class MinimaxController:
                     alpha = max(alpha, value)
             return value
 
-        def min_value(state, alpha, beta, depth, minimaxlastMoves):
+        def min_value(state, alpha, beta, depth, minimaxLastMoves):
             if cutoff_test(state, depth):
                 return eval_fn(state)
                 # return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
             value = math.inf
+            #if depth > minimaxLastMoves.max: minimaxLastMoves.max == depth
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
                         action) == False:
@@ -73,13 +75,15 @@ class MinimaxController:
             if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
                     action) == False:
                 minimaxLastMoves.push(action)
+                #minimaxLastMoves.max = 0
                 value = min_value(self.result(state, action), best_score, beta, 1, minimaxLastMoves)
-                action.depth = minimaxLastMoves.actual
+                #action.depth = minimaxLastMoves.max
                 minimaxLastMoves.pop()
                 random = randint(0, 100)
-                if value > best_score or (value == best_score and random >= 80) or best_action==None or (value == best_score and action.depth<best_action.depth):
+                if value > best_score or (value == best_score and random >= 80) or best_action==None:
                     best_score = value
                     best_action = action
+
         return best_action
 
     def result(self, state: State, action: Move):

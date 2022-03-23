@@ -1,3 +1,5 @@
+import time
+
 from controller.ComputerController import ComputerController
 from controller.EndingGameController import EndingGameController
 from controller.MinimaxController import MinimaxController
@@ -85,7 +87,11 @@ class GameController:
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(state.currentPlayer.number))
+
+            tic = time.perf_counter()
             move = self.minMaxController.alpha_beta_cutoff_search(state)
+            toc = time.perf_counter()
+            print(f"The computer has calculated the move in {toc - tic:0.4f} seconds!")
             self.computerController.round(board, move)
             state.currentPlayer.lastMoves.addValue(move)
             if state.currentPlayer == state.board.getPlayer1():

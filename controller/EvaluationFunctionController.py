@@ -2,7 +2,7 @@ import math
 
 from model.State import State
 
-cellValuePlayer1 = [[4, 7, 12, math.inf, 12, 7, 4],
+cellValuePlayer1 = [[4, 7, 12, 1000, 12, 7, 4],
                     [3, 6, 8, 12, 8, 6, 4],
                     [3, 5, 7, 9, 7, 5, 3],
                     [2, 3, 4, 6, 4, 3, 2],
@@ -20,9 +20,9 @@ cellValuePlayer2 = [[0, 0, 0, 0, 0, 0, 0],
                     [2, 3, 4, 6, 4, 3, 2],
                     [3, 5, 7, 9, 7, 5, 3],
                     [3, 6, 8, 12, 8, 6, 4],
-                    [4, 7, 12, math.inf, 12, 7, 4]]
+                    [4, 7, 12, 1000, 12, 7, 4]]
 
-cellValueMouse1 = [[12, 13, 50, 100, 50, 13, 12],
+cellValueMouse1 = [[12, 13, 50, 1000, 50, 13, 12],
                     [11, 12, 13, 50, 13, 12, 11],
                     [10, 11, 12, 13, 12, 11, 10],
                     [9, 11, 12, 12, 12, 11, 9],
@@ -40,9 +40,9 @@ cellValueMouse2 = [[4, 6, 5, 7, 5, 6, 4],
                    [9, 11, 12, 12, 12, 11, 9],
                    [10, 11, 12, 13, 12, 11, 10],
                    [11, 12, 13, 50, 13, 12, 11],
-                   [12, 13, 50, 100, 50, 13, 12]]
+                   [12, 13, 50, 1000, 50, 13, 12]]
 
-cellValueCat1 = [[11, 12, 50, 100, 50, 12, 11],
+cellValueCat1 = [[11, 12, 50, 1000, 50, 12, 11],
                     [10, 11, 13, 50, 13, 11, 10],
                     [9, 10, 11, 12, 11, 10, 9],
                     [8, 0, 0, 11, 0, 0, 8],
@@ -60,9 +60,9 @@ cellValueCat2 = [[4, 9, 4, 11, 4, 9, 4],
                  [8, 0, 0, 11, 0, 0, 8],
                  [9, 10, 11, 12, 11, 10, 9],
                  [10, 11, 13, 50, 13, 11, 10],
-                 [11, 12, 50, 100, 50, 12, 11]]
+                 [11, 12, 50, 1000, 50, 12, 11]]
 
-cellValueDog1 = [[11, 12, 50, 100, 50, 12, 11],
+cellValueDog1 = [[11, 12, 50, 1000, 50, 12, 11],
                     [10, 11, 13, 50, 13, 11, 10],
                     [9, 10, 11, 12, 11, 10, 9],
                     [8, 0, 0, 11, 0, 0, 8],
@@ -80,9 +80,9 @@ cellValueDog2 = [[4, 8, 5, 10, 5, 8, 4],
                  [8, 0, 0, 11, 0, 0, 8],
                  [9, 10, 11, 12, 11, 10, 9],
                  [10, 11, 13, 50, 13, 11, 10],
-                 [11, 12, 50, 100, 50, 12, 11]]
+                 [11, 12, 50, 1000, 50, 12, 11]]
 
-cellValueWolf1 = [[12, 13, 50, 100, 50, 13, 12],
+cellValueWolf1 = [[12, 13, 50, 1000, 50, 13, 12],
                     [11, 12, 13, 50, 13, 12, 11],
                     [10, 11, 12, 13, 12, 11, 10],
                     [9, 0, 0, 12, 0, 0, 9],
@@ -100,9 +100,9 @@ cellValueWolf2 = [[3, 5, 4, 6, 4, 5, 3],
                   [9, 0, 0, 12, 0, 0, 9],
                   [10, 11, 12, 13, 12, 11, 10],
                   [11, 12, 13, 50, 13, 12, 11],
-                  [12, 13, 50, 100, 50, 13, 12]]
+                  [12, 13, 50, 1000, 50, 13, 12]]
 
-cellValuePanther1 = [[13, 14, 50, 100, 50, 14, 13],
+cellValuePanther1 = [[13, 14, 50, 1000, 50, 14, 13],
                     [12, 13, 14, 50, 14, 13, 12],
                     [11, 12, 13, 14, 13, 12, 11],
                     [10, 0, 0, 12, 0, 0, 10],
@@ -120,67 +120,67 @@ cellValuePanther2 = [[2, 4, 3, 4, 3, 4, 2],
                      [10, 0, 0, 12, 0, 0, 10],
                      [11, 12, 13, 14, 13, 12, 11],
                      [12, 13, 14, 50, 14, 13, 12],
-                     [13, 14, 50, 100, 50, 14, 13]]
+                     [13, 14, 50, 1000, 50, 14, 13]]
 
-cellValueTiger1 = [[14, 15, 50, 100, 50, 15, 14],
+cellValueTiger1 = [[14, 15, 50, 1000, 50, 15, 14],
                     [14, 15, 16, 50, 16, 15, 14],
                     [13, 14, 15, 15, 15, 14, 13],
                     [12, 0, 0, 11, 0, 0, 12],
                     [11, 0, 0, 10, 0, 0, 11],
                     [10, 0, 0, 11, 0, 0, 10],
                     [6, 10, 10, 9, 10, 10, 6],
-                    [2, 3, 4, 2, 4, 3, 2],
-                    [1, 3, 2, 2, 2, 3, 1]]
+                    [2, 3, 5, 2, 5, 3, 2],
+                    [1, 4, 2, 2, 2, 5, 1]]
 
-cellValueTiger2 = [[1, 3, 2, 2, 2, 3, 1],
-                   [2, 3, 4, 2, 4, 3, 2],
+cellValueTiger2 = [[1, 4, 2, 2, 2, 4, 1],
+                   [2, 3, 5, 2, 5, 3, 2],
                    [6, 10, 10, 9, 10, 10, 6],
                    [10, 0, 0, 11, 0, 0, 10],
                    [11, 0, 0, 10, 0, 0, 11],
                    [12, 0, 0, 11, 0, 0, 12],
                    [13, 14, 15, 15, 15, 14, 13],
                    [14, 15, 16, 50, 16, 15, 14],
-                   [14, 15, 50, 100, 50, 15, 14]]
+                   [14, 15, 50, 1000, 50, 15, 14]]
 
-cellValueLion1 = [[14, 15, 50, 100, 50, 15, 14],
+cellValueLion1 = [[14, 15, 50, 1000, 50, 15, 14],
                     [14, 15, 16, 50, 16, 15, 14],
                     [13, 14, 15, 15, 15, 14, 13],
                     [12, 0, 0, 11, 0, 0, 12],
                     [11, 0, 0, 10, 0, 0, 11],
                     [10, 0, 0, 11, 0, 0, 10],
                     [6, 10, 10, 9, 10, 10, 6],
-                    [2, 3, 4, 2, 4, 3, 2],
-                    [1, 3, 2, 2, 2, 3, 1]]
+                    [2, 3, 5, 2, 5, 3, 2],
+                    [1, 4, 2, 2, 2, 4, 1]]
 
-cellValueLion2 = [[1, 3, 2, 2, 2, 3, 1],
-                   [2, 3, 4, 2, 4, 3, 2],
+cellValueLion2 = [[1, 4, 2, 2, 2, 4, 1],
+                   [2, 3, 5, 2, 5, 3, 2],
                    [6, 10, 10, 9, 10, 10, 6],
                    [10, 0, 0, 11, 0, 0, 10],
                    [11, 0, 0, 10, 0, 0, 11],
                    [12, 0, 0, 11, 0, 0, 12],
                    [13, 14, 15, 15, 15, 14, 13],
                    [14, 15, 16, 50, 16, 15, 14],
-                   [14, 15, 50, 100, 50, 15, 14]]
+                   [14, 15, 50, 1000, 50, 15, 14]]
 
-cellValueElephant1 = [[16, 17, 50, 100, 50, 17, 16],
+cellValueElephant1 = [[16, 17, 50, 1000, 50, 17, 16],
                     [15, 16, 17, 50, 17, 16, 15],
                     [14, 15, 16, 17, 16, 15, 14],
                     [13, 0, 0, 14, 0, 0, 13],
                     [12, 0, 0, 13, 0, 0, 12],
                     [11, 0, 0, 12, 0, 0, 11],
                     [8, 5, 6, 8, 6, 5, 8],
-                    [2, 2, 3, 3, 3, 2, 2],
-                    [0, 2, 2, 4, 2, 2, 0]]
+                    [2, 2, 5, 3, 5, 2, 2],
+                    [0, 4, 2, 4, 2, 4, 0]]
 
-cellValueElephant2 = [[0, 2, 2, 4, 2, 2, 0],
-                      [2, 2, 3, 3, 3, 2, 2],
+cellValueElephant2 = [[0, 4, 2, 4, 2, 4, 0],
+                      [2, 2, 5, 3, 5, 2, 2],
                       [8, 5, 6, 8, 6, 5, 8],
                       [11, 0, 0, 12, 0, 0, 11],
                       [12, 0, 0, 13, 0, 0, 12],
                       [13, 0, 0, 14, 0, 0, 13],
                       [14, 15, 16, 17, 16, 15, 14],
                       [15, 16, 17, 50, 17, 16, 15],
-                      [16, 17, 50, 100, 50, 17, 16]]
+                      [16, 17, 50, 1000, 50, 17, 16]]
 
 
 
@@ -202,18 +202,18 @@ class EvaluationFunctionController:
         # Dojo control if I am player1
         # if state.currentPlayer.number == 1:
         #     if state.board.getDojo2().thereIsAnimal() and state.board.getDojo2().animal.player == 1:
-        #         value = math.inf
+        #         value = 1000
         #         return value
         #     if state.board.getDojo1().thereIsAnimal() and state.board.getDojo1().animal.player == 2:
-        #         value = -math.inf
+        #         value = -1000
         #         return value
         # # Dojo control if I am player2
         # else:
         #     if state.board.getDojo1().thereIsAnimal() and state.board.getDojo1().animal.player == 2:
-        #         value = math.inf
+        #         value = 1000
         #         return value
         #     if state.board.getDojo2().thereIsAnimal() and state.board.getDojo2().animal.player == 1:
-        #         value = -math.inf
+        #         value = -1000
         #         return value
 
         value = 0
@@ -249,8 +249,9 @@ class EvaluationFunctionController:
 
         for animal in state.playerWhoMoves.animalCollection:
                     if animal.isAlive: #and doesnt' have a opponent animal in the adiacent square  through the not menaced function inside animal
-                        value += cellValue[animal.getX()][animal.getY()]
+
                         if state.playerWhoMoves.number == 1:
+                            #value += cellValuePlayer1[animal.getX()][animal.getY()]
                             if animal.name == "MOUSE": value += cellValueMouse1[animal.getX()][animal.getY()]
                             elif animal.name == "CAT": value += cellValueCat1[animal.getX()][animal.getY()]
                             elif animal.name == "DOG": value += cellValueDog1[animal.getX()][animal.getY()]
@@ -260,6 +261,7 @@ class EvaluationFunctionController:
                             elif animal.name == "LION": value += cellValueLion1[animal.getX()][animal.getY()]
                             elif animal.name == "ELEPHANT": value += cellValueElephant1[animal.getX()][animal.getY()]
                         else:
+                            #value += cellValuePlayer2[animal.getX()][animal.getY()]
                             if animal.name == "MOUSE": value += cellValueMouse2[animal.getX()][animal.getY()]
                             elif animal.name == "CAT": value += cellValueCat2[animal.getX()][animal.getY()]
                             elif animal.name == "DOG": value += cellValueDog2[animal.getX()][animal.getY()]
@@ -271,8 +273,9 @@ class EvaluationFunctionController:
 
         for animal in state.playerWhoNotMoves.animalCollection:
                         if animal.isAlive:
-                            value -= opponentCellValue[animal.getX()][animal.getY()] * 2/3
+
                             if state.opponentPlayer.number == 1:
+                                #value -= cellValuePlayer1[animal.getX()][animal.getY()] * 2/3
                                 if animal.name == "MOUSE": value -= cellValueMouse1[animal.getX()][animal.getY()]/2
                                 elif animal.name == "CAT": value -= cellValueCat1[animal.getX()][animal.getY()]/2
                                 elif animal.name == "DOG": value -= cellValueDog1[animal.getX()][animal.getY()]/2
@@ -282,6 +285,7 @@ class EvaluationFunctionController:
                                 elif animal.name == "LION": value -= cellValueLion1[animal.getX()][animal.getY()]/2
                                 elif animal.name == "ELEPHANT": value -= cellValueElephant1[animal.getX()][animal.getY()]/2
                             else:
+                                #value -= cellValuePlayer2[animal.getX()][animal.getY()] * 2/3
                                 if animal.name == "MOUSE": value -= cellValueMouse2[animal.getX()][animal.getY()]/2
                                 elif animal.name == "CAT": value -= cellValueCat2[animal.getX()][animal.getY()]/2
                                 elif animal.name == "DOG": value -= cellValueDog2[animal.getX()][animal.getY()]/2
@@ -291,5 +295,76 @@ class EvaluationFunctionController:
                                 elif animal.name == "LION": value -= cellValueLion2[animal.getX()][animal.getY()]/2
                                 elif animal.name == "ELEPHANT": value -= cellValueElephant2[animal.getX()][animal.getY()]/2
         return value
+
+    def evaluationFunctionWithIsMenacedFunction(self,state:State):
+
+        finalvalue = 0
+        for animal in state.playerWhoMoves.animalCollection:
+            if animal.isAlive:
+                value = 0
+                if animal.power == 1:
+                    value += animal.power + 5  # Mouse can stay in water and also eat Elephant, for sure has more value
+                elif animal.power == 6 or animal.power == 7:
+                    value += animal.power + 2
+                else:
+                    value += animal.power
+                if state.playerWhoMoves.number == 1:
+                            #value += cellValuePlayer1[animal.getX()][animal.getY()]
+                            if animal.name == "MOUSE": value += cellValueMouse1[animal.getX()][animal.getY()]
+                            elif animal.name == "CAT": value += cellValueCat1[animal.getX()][animal.getY()]
+                            elif animal.name == "DOG": value += cellValueDog1[animal.getX()][animal.getY()]
+                            elif animal.name == "WOLF": value += cellValueWolf1[animal.getX()][animal.getY()]
+                            elif animal.name == "PANTHER": value += cellValuePanther1[animal.getX()][animal.getY()]
+                            elif animal.name == "TIGER": value += cellValueTiger1[animal.getX()][animal.getY()]
+                            elif animal.name == "LION": value += cellValueLion1[animal.getX()][animal.getY()]
+                            elif animal.name == "ELEPHANT": value += cellValueElephant1[animal.getX()][animal.getY()]
+                            else:
+                            #value += cellValuePlayer2[animal.getX()][animal.getY()]
+                                if animal.name == "MOUSE": value += cellValueMouse2[animal.getX()][animal.getY()]
+                                elif animal.name == "CAT": value += cellValueCat2[animal.getX()][animal.getY()]
+                                elif animal.name == "DOG": value += cellValueDog2[animal.getX()][animal.getY()]
+                                elif animal.name == "WOLF": value += cellValueWolf2[animal.getX()][animal.getY()]
+                                elif animal.name == "PANTHER": value += cellValuePanther2[animal.getX()][animal.getY()]
+                                elif animal.name == "TIGER": value += cellValueTiger2[animal.getX()][animal.getY()]
+                                elif animal.name == "LION": value += cellValueLion2[animal.getX()][animal.getY()]
+                                elif animal.name == "ELEPHANT": value += cellValueElephant2[animal.getX()][animal.getY()]
+                if state.board.isMenaced(animal): value = value*(3/5)
+                finalvalue += value
+
+
+        for animal in state.playerWhoNotMoves.animalCollection:
+            if animal.isAlive:
+                value = 0
+                if animal.power == 1:
+                    value -= animal.power + 5  # Mouse can stay in water and also eat Elephant, for sure has more value
+                elif animal.power == 6 or animal.power == 7:
+                    value -= animal.power + 2
+                else:
+                    value -= animal.power
+                if state.opponentPlayer.number == 1:
+                                #value -= cellValuePlayer1[animal.getX()][animal.getY()] * 2/3
+                                if animal.name == "MOUSE": value -= cellValueMouse1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "CAT": value -= cellValueCat1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "DOG": value -= cellValueDog1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "WOLF": value -= cellValueWolf1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "PANTHER": value -= cellValuePanther1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "TIGER": value -= cellValueTiger1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "LION": value -= cellValueLion1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "ELEPHANT": value -= cellValueElephant1[animal.getX()][animal.getY()]/2
+                                else:
+                                #value -= cellValuePlayer2[animal.getX()][animal.getY()] * 2/3
+                                    if animal.name == "MOUSE": value -= cellValueMouse2[animal.getX()][animal.getY()]/2
+                                    elif animal.name == "CAT": value -= cellValueCat2[animal.getX()][animal.getY()]/2
+                                    elif animal.name == "DOG": value -= cellValueDog2[animal.getX()][animal.getY()]/2
+                                    elif animal.name == "WOLF": value -= cellValueWolf2[animal.getX()][animal.getY()]/2
+                                    elif animal.name == "PANTHER": value -= cellValuePanther2[animal.getX()][animal.getY()]/2
+                                    elif animal.name == "TIGER": value -= cellValueTiger2[animal.getX()][animal.getY()]/2
+                                    elif animal.name == "LION": value -= cellValueLion2[animal.getX()][animal.getY()]/2
+                                    elif animal.name == "ELEPHANT": value -= cellValueElephant2[animal.getX()][animal.getY()]/2
+            finalvalue+=value
+
+
+        return finalvalue
+
 
 
