@@ -17,11 +17,11 @@ class MinimaxController:
     evaluationFunctionController = EvaluationFunctionController()
     endingGameController = EndingGameController()
 
-    def alpha_beta_cutoff_search(self, state, d=3, cutoff_test=None, eval_fn=None):
+    def alpha_beta_cutoff_search(self, state, difficulty=3, d=3, cutoff_test=None, eval_fn=None):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search and uses an evaluation function."""
         # Functions used by alpha_beta
-        def max_value(state, alpha, beta, depth, minimaxlastMoves):
+        def max_value(state, alpha, beta, depth, minimaxLastMoves):
             #DA TESTARE COSA FA SUL CUTOFF, CI METTE TROPPO TEMPO ANCHE QUANDO SONO DAVANTI AL DOJO, NON HA SENSO
             if cutoff_test(state, depth):
                 return eval_fn(state)
@@ -38,7 +38,7 @@ class MinimaxController:
                     alpha = max(alpha, value)
             return value
 
-        def min_value(state, alpha, beta, depth, minimaxlastMoves):
+        def min_value(state, alpha, beta, depth, minimaxLastMoves):
             if cutoff_test(state, depth):
                 return eval_fn(state)
                 # return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
@@ -76,6 +76,8 @@ class MinimaxController:
                 action.depth = minimaxLastMoves.actual
                 minimaxLastMoves.pop()
                 random = randint(0, 100)
+                if difficulty == 1 and random > 90:
+                    return action
                 if value > best_score or (value == best_score and random >= 80) or best_action is None or (value == best_score and action.depth < best_action.depth):
                     best_score = value
                     best_action = action

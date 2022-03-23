@@ -2,7 +2,8 @@ from model.LastMoves import LastMoves
 
 
 class Player:
-    def __init__(self, number: int):
+    def __init__(self, number: int, difficulty=3):
+        self.difficulty = difficulty
         self.number = number
         self.alive = 8
         self.animalCollection = None

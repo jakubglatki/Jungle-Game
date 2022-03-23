@@ -2,7 +2,7 @@ import math
 
 from model.State import State
 
-cellValuePlayer1 = [[4, 7, 12, math.inf, 12, 7, 4],
+cellValuePlayer1 = [[4, 7, 12, 1000, 12, 7, 4],
                     [3, 6, 8, 12, 8, 6, 4],
                     [3, 5, 7, 9, 7, 5, 3],
                     [2, 3, 4, 6, 4, 3, 2],
@@ -20,7 +20,7 @@ cellValuePlayer2 = [[0, 0, 0, 0, 0, 0, 0],
                     [2, 3, 4, 6, 4, 3, 2],
                     [3, 5, 7, 9, 7, 5, 3],
                     [3, 6, 8, 12, 8, 6, 4],
-                    [4, 7, 12, math.inf, 12, 7, 4]]
+                    [4, 7, 12, 1000, 12, 7, 4]]
 
 cellValueMouse1 = [[12, 13, 50, 1000, 50, 13, 12],
                    [11, 12, 13, 50, 13, 12, 11],
@@ -244,7 +244,7 @@ class EvaluationFunctionController:
 
         for animal in state.playerWhoMoves.animalCollection:
             if animal.isAlive:  # and doesnt' have a opponent animal in the adiacent square  through the not menaced function inside animal
-                value += cellValue[animal.getX()][animal.getY()]
+                #value += cellValue[animal.getX()][animal.getY()]
                 if state.playerWhoMoves.number == 1:
                     if animal.name == "MOUSE":
                         value += cellValueMouse1[animal.getX()][animal.getY()]
@@ -282,7 +282,7 @@ class EvaluationFunctionController:
 
         for animal in state.playerWhoNotMoves.animalCollection:
             if animal.isAlive:
-                value -= opponentCellValue[animal.getX()][animal.getY()] * 2 / 3
+                #value -= opponentCellValue[animal.getX()][animal.getY()] * 2 / 3
                 if state.opponentPlayer.number == 1:
                     if animal.name == "MOUSE":
                         value -= cellValueMouse1[animal.getX()][animal.getY()] / 2

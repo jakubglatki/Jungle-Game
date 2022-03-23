@@ -16,10 +16,11 @@ class GameController:
     computerController = ComputerController()
     endingGameController = EndingGameController()
     minMaxController = MinimaxController()
+    gameViewer = GameViewer()
+
 
     def chooseGameMode(self):
-        gameViewer = GameViewer()
-        mode = gameViewer.showChoosingGameModeMenu()
+        mode = self.gameViewer.showChoosingGameModeMenu()
         print("\n")
 
         if mode == 1:
@@ -51,8 +52,9 @@ class GameController:
     def PlayerVsComputer(self):
         board = Board(False, True)
         boardViewer = BoardViewer(board)
+        board.player2.difficulty = self.gameViewer.showChoosingDifficultyMenu()
         boardViewer.showBoard()
-        state = State(board, board.getPlayer1(), board.getPlayer2())
+        state = State(board, board.player1, board.player2, board.player1, board.player2)
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(state.currentPlayer.number))
@@ -74,14 +76,15 @@ class GameController:
 
     def ComputerVsComputer(self):
         board = Board(True, True)
-        actual = board.getPlayer1()
         boardViewer = BoardViewer(board)
+        board.player1.difficulty = self.gameViewer.showChoosingDifficultyMenu("1")
+        board.player2.difficulty = self.gameViewer.showChoosingDifficultyMenu("2")
         boardViewer.showBoard()
         state = State(board, board.player1, board.player2, board.player1, board.player2)
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(state.currentPlayer.number))
-            move = self.minMaxController.alpha_beta_cutoff_search(state)
+            move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
             self.computerController.round(board, move)
             state.currentPlayer.lastMoves.addValue(move)
             if state.currentPlayer == state.board.getPlayer1():
