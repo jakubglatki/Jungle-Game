@@ -4,6 +4,7 @@ class Move:
         self.startingY = startingY
         self.endingX = endingX
         self.endingY = endingY
+        self.depth = 0
         if animal != None: self.animal = animal
 
     def compareCouples(self, x1:int, y1:int, x2:int, y2:int):

@@ -27,8 +27,8 @@ class HumanRoundController:
             print("select the animal that you want to move: (or type hint for a suggestion)")
             sp = str(input())
             if sp == "hint" or sp == "HINT":
-                if player == board.getPlayer1(): move = minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer1(),board.getPlayer2()))
-                else: move = minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer2(),board.getPlayer1()))
+                if player == board.getPlayer1(): move = minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer1(),board.getPlayer2(),board.getPlayer1(),board.getPlayer2()))
+                else: move = minMaxController.alpha_beta_cutoff_search(State(board, board.getPlayer2(),board.getPlayer1(),board.getPlayer2(),board.getPlayer1()))
                 print("The suggested move is: "+move.animal.name+" in "+chr(move.endingY+97)+str(move.endingX+1))
                 print("select the animal that you want to move:")
                 sp = str(input())

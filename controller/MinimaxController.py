@@ -32,7 +32,7 @@ class MinimaxController:
                 if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
                         action) == False:
                     minimaxLastMoves.push(action)
-                    value = max(value, -min_value(self.result(state, action), alpha, beta, depth + 1, minimaxLastMoves))
+                    value = max(value, min_value(self.result(state, action), alpha, beta, depth + 1, minimaxLastMoves))
                     minimaxLastMoves.pop()
                     if value >= beta:
                         return value
@@ -73,10 +73,11 @@ class MinimaxController:
             if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
                     action) == False:
                 minimaxLastMoves.push(action)
-                value = -min_value(self.result(state, action), best_score, beta, 1, minimaxLastMoves)
+                value = min_value(self.result(state, action), best_score, beta, 1, minimaxLastMoves)
+                action.depth = minimaxLastMoves.actual
                 minimaxLastMoves.pop()
                 random = randint(0, 100)
-                if value > best_score or (value == best_score and random >= 80):
+                if value > best_score or (value == best_score and random >= 80) or best_action==None or (value == best_score and action.depth<best_action.depth):
                     best_score = value
                     best_action = action
         return best_action

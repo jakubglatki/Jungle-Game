@@ -2,7 +2,7 @@ import math
 
 from model.State import State
 
-cellValuePlayer1 = [[4, 7, 12, 10000, 12, 7, 4],
+cellValuePlayer1 = [[4, 7, 12, math.inf, 12, 7, 4],
                     [3, 6, 8, 12, 8, 6, 4],
                     [3, 5, 7, 9, 7, 5, 3],
                     [2, 3, 4, 6, 4, 3, 2],
@@ -20,7 +20,7 @@ cellValuePlayer2 = [[0, 0, 0, 0, 0, 0, 0],
                     [2, 3, 4, 6, 4, 3, 2],
                     [3, 5, 7, 9, 7, 5, 3],
                     [3, 6, 8, 12, 8, 6, 4],
-                    [4, 7, 12, 10000, 12, 7, 4]]
+                    [4, 7, 12, math.inf, 12, 7, 4]]
 
 cellValueMouse1 = [[12, 13, 50, 100, 50, 13, 12],
                     [11, 12, 13, 50, 13, 12, 11],
@@ -192,9 +192,9 @@ class EvaluationFunctionController:
     # First evaluation function, it consider only the power of every animal and nothing else
     def evaluationFunction_onlyAnimalPower(self, state: State):
         value = 0
-        for animal in state.currentPlayer.animalCollection:
+        for animal in state.playerWhoMoves.animalCollection:
             if animal.isAlive: value = value + animal.power
-        for animal in state.opponentPlayer.animalCollection:
+        for animal in state.playerWhoNotMoves.animalCollection:
             if animal.isAlive: value = value - animal.power
         return value
 
@@ -217,7 +217,7 @@ class EvaluationFunctionController:
         #         return value
 
         value = 0
-        for animal in state.currentPlayer.animalCollection:
+        for animal in state.playerWhoMoves.animalCollection:
             if animal.isAlive:
                 if animal.power == 1:
                     value += animal.power + 5  # Mouse can stay in water and also eat Elephant, for sure has more value
@@ -225,7 +225,7 @@ class EvaluationFunctionController:
                     value += animal.power + 2
                 else:
                     value += animal.power
-        for animal in state.opponentPlayer.animalCollection:
+        for animal in state.playerWhoNotMoves.animalCollection:
             if animal.isAlive:
                 if animal.power == 1:
                     value -= animal.power + 5  # Mouse can stay in water and also eat Elephant, for sure has more value
@@ -239,7 +239,7 @@ class EvaluationFunctionController:
 
     def evaluationFunctionWithMeaningfulDistanceToDojo(self, state: State):
         value = self.evaluationFunction_firstEvaluationFunction(state)
-        if state.currentPlayer.number == 1:
+        if state.playerWhoMoves.number == 1:
             cellValue = cellValuePlayer1
             opponentCellValue = cellValuePlayer2
         else:
@@ -247,10 +247,10 @@ class EvaluationFunctionController:
             opponentCellValue = cellValuePlayer1
 
 
-        for animal in state.currentPlayer.animalCollection:
+        for animal in state.playerWhoMoves.animalCollection:
                     if animal.isAlive: #and doesnt' have a opponent animal in the adiacent square  through the not menaced function inside animal
                         value += cellValue[animal.getX()][animal.getY()]
-                        if state.currentPlayer.number == 1:
+                        if state.playerWhoMoves.number == 1:
                             if animal.name == "MOUSE": value += cellValueMouse1[animal.getX()][animal.getY()]
                             elif animal.name == "CAT": value += cellValueCat1[animal.getX()][animal.getY()]
                             elif animal.name == "DOG": value += cellValueDog1[animal.getX()][animal.getY()]
@@ -269,7 +269,7 @@ class EvaluationFunctionController:
                             elif animal.name == "LION": value += cellValueLion2[animal.getX()][animal.getY()]
                             elif animal.name == "ELEPHANT": value += cellValueElephant2[animal.getX()][animal.getY()]
 
-                    for animal in state.opponentPlayer.animalCollection:
+                    for animal in state.playerWhoNotMoves.animalCollection:
                         if animal.isAlive:
                             value -= opponentCellValue[animal.getX()][animal.getY()] * 2/3
                             if state.opponentPlayer.number == 1:
