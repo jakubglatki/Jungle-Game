@@ -22,7 +22,8 @@ class MinimaxController:
         This version cuts off search and uses an evaluation function."""
 
         # Functions used by alpha_beta
-        def max_value(state, alpha, beta, depth, lastMoves):
+        def max_value(state, alpha, beta, depth, minimaxlastMoves):
+            #DA TESTARE COSA FA SUL CUTOFF, CI METTE TROPPO TEMPO ANCHE QUANDO SONO DAVANTI AL DOJO, NON HA SENSO
             if cutoff_test(state, depth):
                 return eval_fn(state)
                 # return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
@@ -31,14 +32,14 @@ class MinimaxController:
                 if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
                         action) == False:
                     minimaxLastMoves.push(action)
-                    value = max(value, min_value(self.result(state, action), alpha, beta, depth + 1, minimaxLastMoves))
+                    value = max(value, -min_value(self.result(state, action), alpha, beta, depth + 1, minimaxLastMoves))
                     minimaxLastMoves.pop()
                     if value >= beta:
                         return value
                     alpha = max(alpha, value)
             return value
 
-        def min_value(state, alpha, beta, depth, lastMoves):
+        def min_value(state, alpha, beta, depth, minimaxlastMoves):
             if cutoff_test(state, depth):
                 return eval_fn(state)
                 # return self.evaluationFunctionController.evaluationFunction_firstEvaluationFunction(state)
@@ -72,7 +73,7 @@ class MinimaxController:
             if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
                     action) == False:
                 minimaxLastMoves.push(action)
-                value = min_value(self.result(state, action), best_score, beta, 1, minimaxLastMoves)
+                value = -min_value(self.result(state, action), best_score, beta, 1, minimaxLastMoves)
                 minimaxLastMoves.pop()
                 random = randint(0, 100)
                 if value > best_score or (value == best_score and random >= 80):

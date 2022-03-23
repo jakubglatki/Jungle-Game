@@ -246,52 +246,50 @@ class EvaluationFunctionController:
             cellValue = cellValuePlayer2
             opponentCellValue = cellValuePlayer1
 
-        for j in range(len(state.board.matrix[0])):
-            for i in range(len(state.board.matrix)):
-                for animal in state.currentPlayer.animalCollection:
-                    if state.board.matrix[i][j].animal is not None and state.board.matrix[i][j].animal == animal: #and doesnt' have a opponent animal in the adiacent square  through the not menaced function inside animal
-                        value += cellValue[i][j]
+
+        for animal in state.currentPlayer.animalCollection:
+                    if animal.isAlive: #and doesnt' have a opponent animal in the adiacent square  through the not menaced function inside animal
+                        value += cellValue[animal.getX()][animal.getY()]
                         if state.currentPlayer.number == 1:
-                            if animal.name == "MOUSE": value += cellValueMouse1[i][j]
-                            elif animal.name == "CAT": value += cellValueCat1[i][j]
-                            elif animal.name == "DOG": value += cellValueDog1[i][j]
-                            elif animal.name == "WOLF": value += cellValueWolf1[i][j]
-                            elif animal.name == "PANTHER": value += cellValuePanther1[i][j]
-                            elif animal.name == "TIGER": value += cellValueTiger1[i][j]
-                            elif animal.name == "LION": value += cellValueLion1[i][j]
-                            elif animal.name == "ELEPHANT": value += cellValueElephant1[i][j]
+                            if animal.name == "MOUSE": value += cellValueMouse1[animal.getX()][animal.getY()]
+                            elif animal.name == "CAT": value += cellValueCat1[animal.getX()][animal.getY()]
+                            elif animal.name == "DOG": value += cellValueDog1[animal.getX()][animal.getY()]
+                            elif animal.name == "WOLF": value += cellValueWolf1[animal.getX()][animal.getY()]
+                            elif animal.name == "PANTHER": value += cellValuePanther1[animal.getX()][animal.getY()]
+                            elif animal.name == "TIGER": value += cellValueTiger1[animal.getX()][animal.getY()]
+                            elif animal.name == "LION": value += cellValueLion1[animal.getX()][animal.getY()]
+                            elif animal.name == "ELEPHANT": value += cellValueElephant1[animal.getX()][animal.getY()]
                         else:
-                            if animal.name == "MOUSE": value += cellValueMouse2[i][j]
-                            elif animal.name == "CAT": value += cellValueCat2[i][j]
-                            elif animal.name == "DOG": value += cellValueDog2[i][j]
-                            elif animal.name == "WOLF": value += cellValueWolf2[i][j]
-                            elif animal.name == "PANTHER": value += cellValuePanther2[i][j]
-                            elif animal.name == "TIGER": value += cellValueTiger2[i][j]
-                            elif animal.name == "LION": value += cellValueLion2[i][j]
-                            elif animal.name == "ELEPHANT": value += cellValueElephant2[i][j]
+                            if animal.name == "MOUSE": value += cellValueMouse2[animal.getX()][animal.getY()]
+                            elif animal.name == "CAT": value += cellValueCat2[animal.getX()][animal.getY()]
+                            elif animal.name == "DOG": value += cellValueDog2[animal.getX()][animal.getY()]
+                            elif animal.name == "WOLF": value += cellValueWolf2[animal.getX()][animal.getY()]
+                            elif animal.name == "PANTHER": value += cellValuePanther2[animal.getX()][animal.getY()]
+                            elif animal.name == "TIGER": value += cellValueTiger2[animal.getX()][animal.getY()]
+                            elif animal.name == "LION": value += cellValueLion2[animal.getX()][animal.getY()]
+                            elif animal.name == "ELEPHANT": value += cellValueElephant2[animal.getX()][animal.getY()]
 
-                for animal in state.opponentPlayer.animalCollection:
-                    if state.board.matrix[i][j].animal is not None and state.board.matrix[i][j].animal == animal:
-                        value -= opponentCellValue[i][j] * 2/3
-                        if state.opponentPlayer.number == 1:
-                            if animal.name == "MOUSE": value -= cellValueMouse1[i][j]/2
-                            elif animal.name == "CAT": value -= cellValueCat1[i][j]/2
-                            elif animal.name == "DOG": value -= cellValueDog1[i][j]/2
-                            elif animal.name == "WOLF": value -= cellValueWolf1[i][j]/2
-                            elif animal.name == "PANTHER": value -= cellValuePanther1[i][j]/2
-                            elif animal.name == "TIGER": value -= cellValueTiger1[i][j]/2
-                            elif animal.name == "LION": value -= cellValueLion1[i][j]/2
-                            elif animal.name == "ELEPHANT": value -= cellValueElephant1[i][j]/2
-                        else:
-                            if animal.name == "MOUSE": value -= cellValueMouse2[i][j]/2
-                            elif animal.name == "CAT": value -= cellValueCat2[i][j]/2
-                            elif animal.name == "DOG": value -= cellValueDog2[i][j]/2
-                            elif animal.name == "WOLF": value -= cellValueWolf2[i][j]/2
-                            elif animal.name == "PANTHER": value -= cellValuePanther2[i][j]/2
-                            elif animal.name == "TIGER": value -= cellValueTiger2[i][j]/2
-                            elif animal.name == "LION": value -= cellValueLion2[i][j]/2
-                            elif animal.name == "ELEPHANT": value -= cellValueElephant2[i][j]/2
-
+                    for animal in state.opponentPlayer.animalCollection:
+                        if animal.isAlive:
+                            value -= opponentCellValue[animal.getX()][animal.getY()] * 2/3
+                            if state.opponentPlayer.number == 1:
+                                if animal.name == "MOUSE": value -= cellValueMouse1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "CAT": value -= cellValueCat1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "DOG": value -= cellValueDog1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "WOLF": value -= cellValueWolf1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "PANTHER": value -= cellValuePanther1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "TIGER": value -= cellValueTiger1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "LION": value -= cellValueLion1[animal.getX()][animal.getY()]/2
+                                elif animal.name == "ELEPHANT": value -= cellValueElephant1[animal.getX()][animal.getY()]/2
+                            else:
+                                if animal.name == "MOUSE": value -= cellValueMouse2[animal.getX()][animal.getY()]/2
+                                elif animal.name == "CAT": value -= cellValueCat2[animal.getX()][animal.getY()]/2
+                                elif animal.name == "DOG": value -= cellValueDog2[animal.getX()][animal.getY()]/2
+                                elif animal.name == "WOLF": value -= cellValueWolf2[animal.getX()][animal.getY()]/2
+                                elif animal.name == "PANTHER": value -= cellValuePanther2[animal.getX()][animal.getY()]/2
+                                elif animal.name == "TIGER": value -= cellValueTiger2[animal.getX()][animal.getY()]/2
+                                elif animal.name == "LION": value -= cellValueLion2[animal.getX()][animal.getY()]/2
+                                elif animal.name == "ELEPHANT": value -= cellValueElephant2[animal.getX()][animal.getY()]/2
         return value
 
 
