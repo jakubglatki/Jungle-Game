@@ -95,7 +95,6 @@ class GameController:
             move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
             toc = time.perf_counter()
             print(f"The computer has calculated the move in {toc - tic:0.4f} seconds!")
-            move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
             self.computerController.round(board, move)
             state.currentPlayer.lastMoves.addValue(move)
             if state.currentPlayer == state.board.getPlayer1():

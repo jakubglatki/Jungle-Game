@@ -58,7 +58,7 @@ class MinimaxController:
                                                             or not self.endingGameController.noPossibleMoveForPlayer(
             state.currentPlayer, state.board)))
         eval_fn = eval_fn or (
-            lambda state: self.evaluationFunctionController.evaluationFunctionWithMeaningfulDistanceToDojo(state))
+            lambda state: self.evaluationFunctionController.evaluationFunctionWithIsMenacedFunction(state))
         minimaxLastMoves = LastMoves(d)
         best_score = -math.inf
         beta = math.inf

@@ -8,8 +8,8 @@ class Board:
         # Generate the board
         self.player1 = Player(1)
         self.player2 = Player(2)
-        if isPlayer1Bot==True: self.player1.switchToBot()
-        if isPlayer2Bot==True: self.player2.switchToBot()
+        if isPlayer1Bot == True: self.player1.switchToBot()
+        if isPlayer2Bot == True: self.player2.switchToBot()
 
         m1 = Animal("MOUSE", "M1", 1, self.player1, 6, 6)
         c1 = Animal("CAT", "C1", 2, self.player1, 7, 1)
@@ -75,16 +75,22 @@ class Board:
         return self.player2
 
     def isMenaced(self, animal: Animal):
-        x = self.getX()
-        y = self.getY()
-        if x!=0 and self[x-1][y].thereIsAnimal() and self[x-1][y].animal.player != self.player and (self[x-1][y].animal.power or self.inOpponentDojo())>=self.power: return True
-        if x!=len(self.matrix) and self[x+1][y].thereIsAnimal() and self[x-1][y].animal.player != self.player and (self[x-1][y].animal.power>=self.power or self.inOpponentDojo()): return True
-        if y!=0 and self[x][y-1].thereIsAnimal() and self[x-1][y].animal.player != self.player and (self[x-1][y].animal.power>=self.power or self.inOpponentDojo()): return True
-        if y != len(self.matrix[0]) and self[x][y+1].thereIsAnimal() and self[x-1][y].animal.player != self.player and (self[x-1][y].animal.power>=self.power or self.inOpponentDojo()): return True
+        x = animal.getX()
+        y = animal.getY()
+        if x != 0 and self.matrix[x - 1][y].thereIsAnimal() and self.matrix[x - 1][
+            y].animal.player != animal.player and (
+                self.matrix[x - 1][y].animal.power >= animal.power or animal.inOpponentDojo()): return True
+        if x + 1 != len(self.matrix) and self.matrix[x + 1][y].thereIsAnimal() and self.matrix[x + 1][
+            y].animal.player != animal.player and (
+                self.matrix[x + 1][y].animal.power >= animal.power or animal.inOpponentDojo()): return True
+        if y != 0 and self.matrix[x][y - 1].thereIsAnimal() and self.matrix[x][
+            y - 1].animal.player != animal.player and (
+                self.matrix[x][y - 1].animal.power >= animal.power or animal.inOpponentDojo()): return True
+        if y + 1 != len(self.matrix[0]) and self.matrix[x][y + 1].thereIsAnimal() and self.matrix[x][
+            y + 1].animal.player != animal.player and (
+                self.matrix[x][y + 1].animal.power >= animal.power or animal.inOpponentDojo()): return True
         return False
 
-
-
-    #def killAnimal(self, x1: int, y1: int):
+    # def killAnimal(self, x1: int, y1: int):
     #    if (self.matrix[x1][y1].thereIsAnimal()):
     #        self.matrix[x1][y1].killAnimal()
