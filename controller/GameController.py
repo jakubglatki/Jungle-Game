@@ -77,7 +77,7 @@ class GameController:
         actual = board.getPlayer1()
         boardViewer = BoardViewer(board)
         boardViewer.showBoard()
-        state = State(board, board.player1, board.player2)
+        state = State(board, board.player1, board.player2, board.player1, board.player2)
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(state.currentPlayer.number))
@@ -87,11 +87,15 @@ class GameController:
             if state.currentPlayer == state.board.getPlayer1():
                 state.currentPlayer = state.board.getPlayer2()
                 state.opponentPlayer = state.board.getPlayer1()
+                state.playerWhoMoves = state.currentPlayer
+                state.playerWhoNotMoves = state.opponentPlayer
             else:
                 state.currentPlayer = state.board.getPlayer1()
                 state.opponentPlayer = state.board.getPlayer2()
+                state.playerWhoMoves = state.currentPlayer
+                state.playerWhoNotMoves = state.opponentPlayer
             boardViewer.showBoard()
-            if not self.endingGameController.noPossibleMoveForPlayer(state.currentPlayer, state.board):
-                state.currentPlayer.alive = 0
+            if not self.endingGameController.noPossibleMoveForPlayer(state.playerWhoMoves, state.board):
+                state.playerWhoMoves.alive = 0
         return
 
