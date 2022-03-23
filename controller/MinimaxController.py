@@ -26,6 +26,7 @@ class MinimaxController:
                 return eval_fn(state)
             value = -math.inf
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
+                minimaxLastMoves.max += 1
                 if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
                         action) == False:
                     minimaxLastMoves.push(action)
@@ -41,6 +42,7 @@ class MinimaxController:
                 return eval_fn(state)
             value = math.inf
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
+                minimaxLastMoves.max += 1
                 if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
                         action) == False:
                     minimaxLastMoves.push(action)
@@ -75,6 +77,7 @@ class MinimaxController:
                     best_score = value
                     best_action = action
 
+        print(str(minimaxLastMoves.max))
         return best_action
 
     def result(self, state: State, action: Move):

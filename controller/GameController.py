@@ -87,14 +87,18 @@ class GameController:
         board.player2.difficulty = self.gameViewer.showChoosingDifficultyMenu("2")
         boardViewer.showBoard()
         state = State(board, board.player1, board.player2, board.player1, board.player2)
+        turns = 0
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(state.currentPlayer.number))
 
+            turns+=1
             tic = time.perf_counter()
             move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
             toc = time.perf_counter()
             print(f"The computer has calculated the move in {toc - tic:0.4f} seconds!")
+            state.currentPlayer.clock += (toc - tic)
+            state.currentPlayer.nclock += 1
             self.computerController.round(board, move)
             state.currentPlayer.lastMoves.addValue(move)
             if state.currentPlayer == state.board.getPlayer1():
@@ -110,5 +114,72 @@ class GameController:
             boardViewer.showBoard()
             if not self.endingGameController.noPossibleMoveForPlayer(state.playerWhoMoves, state.board):
                 state.playerWhoMoves.alive = 0
+        print(str(turns))
+        state.currentPlayer.showTimeInfo()
+        state.opponentPlayer.showTimeInfo()
         return
+
+    def researchMode(self):
+        n = 100
+        actual = 0
+        nwins1 = 0
+        nwins2 = 0
+        avgTime1 = 0
+        avgTime2 = 0
+        avgTurns = 0
+        while actual != n:
+            board = Board(True, True)
+            boardViewer = BoardViewer(board)
+            board.player1.difficulty = self.gameViewer.showChoosingDifficultyMenu("1")
+            board.player2.difficulty = self.gameViewer.showChoosingDifficultyMenu("2")
+            boardViewer.showBoard()
+            state = State(board, board.player1, board.player2, board.player1, board.player2)
+            turns = 0
+
+            while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
+                print("Turn of player" + str(state.currentPlayer.number))
+
+                turns+=1
+                tic = time.perf_counter()
+                move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
+                toc = time.perf_counter()
+                print(f"The computer has calculated the move in {toc - tic:0.4f} seconds!")
+                state.currentPlayer.clock += (toc - tic)
+                state.currentPlayer.nclock += 1
+                self.computerController.round(board, move)
+                state.currentPlayer.lastMoves.addValue(move)
+                if state.currentPlayer == state.board.getPlayer1():
+                    state.currentPlayer = state.board.getPlayer2()
+                    state.opponentPlayer = state.board.getPlayer1()
+                    state.playerWhoMoves = state.currentPlayer
+                    state.playerWhoNotMoves = state.opponentPlayer
+                else:
+                    state.currentPlayer = state.board.getPlayer1()
+                    state.opponentPlayer = state.board.getPlayer2()
+                    state.playerWhoMoves = state.currentPlayer
+                    state.playerWhoNotMoves = state.opponentPlayer
+                boardViewer.showBoard()
+                if not self.endingGameController.noPossibleMoveForPlayer(state.playerWhoMoves, state.board):
+                    state.playerWhoMoves.alive = 0
+            actual += 1
+            print(str(turns))
+            state.currentPlayer.showTimeInfo()
+            state.opponentPlayer.showTimeInfo()
+            if state.currentPlayer.number == 1: avgTime1+=(state.currentPlayer.clock/state.currentPlayer.nclock); avgTime2+=(state.opponentPlayer.clock/state.opponentPlayer.nclock);
+            else: avgTime2+=(state.currentPlayer.clock/state.currentPlayer.nclock); avgTime1+=(state.opponentPlayer.clock/state.opponentPlayer.nclock);
+            avgTurns+=turns
+            if state.currentPlayer.victories == 1:
+                if state.currentPlayer.number == 1: nwins1 += 1
+                else: nwins2 += 1
+            if state.opponentPlayer.victories == 1:
+                if state.opponentPlayer.number == 1: nwins1 += 1
+                else: nwins2 += 1
+        avgTime1 = avgTime1/n
+        avgTime2 = avgTime2/n
+        avgTurns = turns/n
+
+
+        return
+
+
 
