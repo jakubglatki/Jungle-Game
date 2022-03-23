@@ -7,6 +7,7 @@ class LastMoves:
         else: self.n = n
         self.actual = 0
         self.list = []
+        self.max = 0
 
     def addValue(self,move: Move):
         self.list.append(Move(move.endingX, move.endingY, move.startingX, move.startingY,move.animal))

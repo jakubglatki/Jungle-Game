@@ -74,3 +74,17 @@ class Board:
     def getPlayer2(self):
         return self.player2
 
+    def isMenaced(self, animal: Animal):
+        x = self.getX()
+        y = self.getY()
+        if x!=0 and self[x-1][y].thereIsAnimal() and self[x-1][y].animal.player != self.player and (self[x-1][y].animal.power or self.inOpponentDojo())>=self.power: return True
+        if x!=len(self.matrix) and self[x+1][y].thereIsAnimal() and self[x-1][y].animal.player != self.player and (self[x-1][y].animal.power>=self.power or self.inOpponentDojo()): return True
+        if y!=0 and self[x][y-1].thereIsAnimal() and self[x-1][y].animal.player != self.player and (self[x-1][y].animal.power>=self.power or self.inOpponentDojo()): return True
+        if y != len(self.matrix[0]) and self[x][y+1].thereIsAnimal() and self[x-1][y].animal.player != self.player and (self[x-1][y].animal.power>=self.power or self.inOpponentDojo()): return True
+        return False
+
+
+
+    #def killAnimal(self, x1: int, y1: int):
+    #    if (self.matrix[x1][y1].thereIsAnimal()):
+    #        self.matrix[x1][y1].killAnimal()

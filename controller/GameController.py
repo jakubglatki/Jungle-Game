@@ -1,3 +1,5 @@
+import time
+
 from controller.ComputerController import ComputerController
 from controller.EndingGameController import EndingGameController
 from controller.MinimaxController import MinimaxController
@@ -66,9 +68,13 @@ class GameController:
             if state.currentPlayer == state.board.getPlayer1():
                 state.currentPlayer = state.board.getPlayer2()
                 state.opponentPlayer = state.board.getPlayer1()
+                state.playerWhoMoves = state.currentPlayer
+                state.playerWhoNotMoves = state.opponentPlayer
             else:
                 state.currentPlayer = state.board.getPlayer1()
                 state.opponentPlayer = state.board.getPlayer2()
+                state.playerWhoMoves = state.currentPlayer
+                state.playerWhoNotMoves = state.opponentPlayer
             boardViewer.showBoard()
             if not self.endingGameController.noPossibleMoveForPlayer(state.currentPlayer, board):
                 state.currentPlayer.alive = 0
@@ -84,6 +90,11 @@ class GameController:
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(state.currentPlayer.number))
+
+            tic = time.perf_counter()
+            move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
+            toc = time.perf_counter()
+            print(f"The computer has calculated the move in {toc - tic:0.4f} seconds!")
             move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
             self.computerController.round(board, move)
             state.currentPlayer.lastMoves.addValue(move)

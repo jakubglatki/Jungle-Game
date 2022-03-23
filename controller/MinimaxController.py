@@ -71,10 +71,10 @@ class MinimaxController:
                 action.depth = minimaxLastMoves.actual
                 minimaxLastMoves.pop()
                 random = randint(0, 100)
-                if value > best_score or (value == best_score and random >= 80) or best_action is None or (
-                        value == best_score and action.depth < best_action.depth):
+                if value > best_score or (value == best_score and random >= 80) or best_action==None:
                     best_score = value
                     best_action = action
+
         return best_action
 
     def result(self, state: State, action: Move):
