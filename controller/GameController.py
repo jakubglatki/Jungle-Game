@@ -133,12 +133,16 @@ class GameController:
         avgTime2 = 0
         avgTurns = 0
         difficultyp1 = self.gameViewer.showChoosingDifficultyMenu("1")
+        depthp1 = self.gameViewer.showChoosingDepthMenu("1")
         difficultyp2 = self.gameViewer.showChoosingDifficultyMenu("2")
+        depthp2 = self.gameViewer.showChoosingDepthMenu("2")
         while actual != n:
             board = Board(True, True)
             boardViewer = BoardViewer(board)
             board.player1.difficulty = difficultyp1
             board.player2.difficulty = difficultyp2
+            board.player1.depth = depthp1
+            board.player2.depth = depthp2
             boardViewer.showBoard()
             state = State(board, board.player1, board.player2, board.player1, board.player2)
             turns = 0

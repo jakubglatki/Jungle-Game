@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="JungleBot 1.2 (fixed evaluationFile with TotalValue)">
       <change beforePath="$PROJECT_DIR$/controller/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GameController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/MinimaxController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MinimaxController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/LastMoves.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/LastMoves.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/HumanRoundController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/HumanRoundController.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
