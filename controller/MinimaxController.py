@@ -73,7 +73,8 @@ class MinimaxController:
                 action.depth = minimaxLastMoves.depth
                 minimaxLastMoves.depth = 0
                 minimaxLastMoves.pop()
-                if value > best_score or best_action is None or (
+                random = randint(0, 100)
+                if value > best_score or (value == best_score and random > 80) or best_action is None or (
                         value == math.inf and action.depth == 0):
                     best_score = value
                     best_action = action

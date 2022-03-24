@@ -125,7 +125,7 @@ class GameController:
         return
 
     def researchMode(self):
-        n = 5
+        n = 10
         actual = 0
         nwins1 = 0
         nwins2 = 0
