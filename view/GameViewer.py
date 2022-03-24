@@ -5,6 +5,7 @@ class GameViewer:
         print("1- Player vs Player")
         print("2- Player vs Computer")
         print("3- Computer vs Computer")
+        print("4. Research mode")
         return int(input("\n--> "))
 
     def showChoosingDifficultyMenu(self, number=""):

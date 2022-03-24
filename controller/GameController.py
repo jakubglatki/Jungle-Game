@@ -31,6 +31,8 @@ class GameController:
             self.PlayerVsComputer()
         elif mode == 3:
             self.ComputerVsComputer()
+        elif mode == 4:
+            self.researchMode()
 
     def PlayerVsPlayer(self):
         board = Board(False, False)
@@ -120,18 +122,20 @@ class GameController:
         return
 
     def researchMode(self):
-        n = 100
+        n = 10
         actual = 0
         nwins1 = 0
         nwins2 = 0
         avgTime1 = 0
         avgTime2 = 0
         avgTurns = 0
+        difficultyp1 = self.gameViewer.showChoosingDifficultyMenu("1")
+        difficultyp2 = self.gameViewer.showChoosingDifficultyMenu("2")
         while actual != n:
             board = Board(True, True)
             boardViewer = BoardViewer(board)
-            board.player1.difficulty = self.gameViewer.showChoosingDifficultyMenu("1")
-            board.player2.difficulty = self.gameViewer.showChoosingDifficultyMenu("2")
+            board.player1.difficulty = difficultyp1
+            board.player2.difficulty = difficultyp2
             boardViewer.showBoard()
             state = State(board, board.player1, board.player2, board.player1, board.player2)
             turns = 0
@@ -177,6 +181,14 @@ class GameController:
         avgTime1 = avgTime1/n
         avgTime2 = avgTime2/n
         avgTurns = turns/n
+        print("Games played: "+str(actual))
+        print("Games won by player 1: "+str(nwins1))
+        print("Average time for moving player 1: "+str(avgTime1))
+        print("Games won by player 2: "+str(nwins2))
+        print("Average time for moving player 2: "+str(avgTime2))
+        print("Average number of turns in a game: "+str(avgTurns))
+
+
 
 
         return
