@@ -449,9 +449,11 @@ class EvaluationFunctionController:
             lionBoard2 = cellValueLion2
             elephantBoard2 = cellValueElephant2
 
+        totalValue = 0
         value = 0
         for animal in state.playerWhoMoves.animalCollection:
             if animal.isAlive:
+                value = 0
                 if difficulty == 3:
                     if animal.power == 1:
                         value += animal.power * 100 + 400  # Mouse can stay in water and also eat Elephant, for sure has more value
@@ -502,7 +504,8 @@ class EvaluationFunctionController:
                             value += lionBoard2[animal.getX()][animal.getY()]
                         elif animal.name == "ELEPHANT":
                             value += elephantBoard2[animal.getX()][animal.getY()]
-                #if state.board.isMenaced(animal): value = value * (3 / 5)
+            if state.board.isMenaced(animal): value = value * (3 / 5)
+            totalValue += value
 
 
         for animal in state.playerWhoNotMoves.animalCollection:
@@ -558,5 +561,7 @@ class EvaluationFunctionController:
                             value -= lionBoard2[animal.getX()][animal.getY()]
                         elif animal.name == "ELEPHANT":
                             value -= elephantBoard2[animal.getX()][animal.getY()]
+                            value -= elephantBoard2[animal.getX()][animal.getY()] / 2
+            totalValue += value
 
         return value

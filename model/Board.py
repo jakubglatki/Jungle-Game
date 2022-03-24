@@ -62,6 +62,7 @@ class Board:
         self.matrix[8][6].animal = self.Animals1[6]
         self.matrix[6][0].animal = self.Animals1[7]
 
+
     def getDojo1(self):
         return self.matrix[8][3]
 

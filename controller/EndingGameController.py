@@ -13,18 +13,22 @@ class EndingGameController:
 
     def testFinalGame(self, p1: Player, p2: Player, board: Board, calledFromGameController: bool):
         if p1.alive == 0:
+            p2.victories += 1
             if calledFromGameController:
                 print(WON_THE_GAME_2_NO_ANIMALS)
             return True
         elif p2.alive == 0:
+            p1.victories += 1
             if calledFromGameController:
                 print(WON_THE_GAME_1_NO_ANIMALS)
             return True
         elif board.matrix[0][3].thereIsAnimal() and board.matrix[0][3].animal.player.number == 1:
+            p1.victories += 1
             if calledFromGameController:
                 print(WON_THE_GAME_1)
             return True
         elif board.matrix[8][3].thereIsAnimal() and board.matrix[8][3].animal.player.number == 2:
+            p2.victories += 1
             if calledFromGameController:
                 print(WON_THE_GAME_2)
             return True
