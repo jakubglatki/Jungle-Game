@@ -573,7 +573,7 @@ class EvaluationFunctionController:
 
     def evaluationFunctionWithIsMenacedFunctionWithoutEnemyDiminuition(self, state: State, difficulty: int):
 
-        if difficulty == 3:
+        if difficulty == 4:
             mouseBoard1 = hardCellValueMouse1
             catBoard1 = hardCellValueCat1
             dogBoard1 = hardCellValueDog1
@@ -590,7 +590,7 @@ class EvaluationFunctionController:
             tigerBoard2 = hardCellValueTiger2
             lionBoard2 = hardCellValueLion2
             elephantBoard2 = hardCellValueElephant2
-        else:
+        elif difficulty == 3:
             mouseBoard1 = cellValueMouse1
             catBoard1 = cellValueCat1
             dogBoard1 = cellValueDog1
@@ -607,11 +607,29 @@ class EvaluationFunctionController:
             tigerBoard2 = cellValueTiger2
             lionBoard2 = cellValueLion2
             elephantBoard2 = cellValueElephant2
+        else:
+            mouseBoard1 = cellValue1
+            catBoard1 = cellValue1
+            dogBoard1 = cellValue1
+            wolfBoard1 = cellValue1
+            pantherBoard1 = cellValue1
+            tigerBoard1 = cellValue1
+            lionBoard1 = cellValue1
+            elephantBoard1 = cellValue1
+            mouseBoard2 = cellValue2
+            catBoard2 = cellValue2
+            dogBoard2 = cellValue2
+            wolfBoard2 = cellValue2
+            pantherBoard2 = cellValue2
+            tigerBoard2 = cellValue2
+            lionBoard2 = cellValue2
+            elephantBoard2 = cellValue2
+
 
         totalValue = 0
         value = 0
         if difficulty == 2:
-            powerIncrease = 10
+            powerIncrease = 100
         else:
             powerIncrease = 1000
 

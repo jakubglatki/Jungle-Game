@@ -12,7 +12,8 @@ class GameViewer:
         print(" Choose difficulty level of computer " + number)
         print("1- Easy")
         print("2- Medium")
-        print("3- Hard")
+        print("3- Hard 1")
+        print("4- Hard 2")
         return int(input("\n--> "))
 
     def showChoosingDepthMenu(self, number=""):
