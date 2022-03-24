@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="JungleBot 1.0">
+    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="JungleBot 1.2 (fixed evaluationFile with TotalValue)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/EndingGameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EndingGameController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/EvaluationFunctionController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EvaluationFunctionController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GameController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/MinimaxController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MinimaxController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/GameViewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/GameViewer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648035174708</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="JungleBot 1.2 (fixed evaluationFile with TotalValue)">
+      <created>1648068721955</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1648068721955</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +296,8 @@
     <MESSAGE value="I want to cry" />
     <MESSAGE value="Alleggerita funzione di valutazione" />
     <MESSAGE value="JungleBot 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="JungleBot 1.0" />
+    <MESSAGE value="JungleBot 1.2 (fixed evaluationFile with TotalValue)" />
+    <option name="LAST_COMMIT_MESSAGE" value="JungleBot 1.2 (fixed evaluationFile with TotalValue)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -317,7 +323,7 @@
         <line-breakpoint suspend="THREAD" type="python-line">
           <condition expression="action.animal.fieldName == &quot;W2&quot; and action.startingX == 8 and action.endingX == 8 and action.startingY == 4 and action.endingY == 3" language="Python" mode="CODE_FRAGMENT" />
           <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
-          <line>70</line>
+          <line>68</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
