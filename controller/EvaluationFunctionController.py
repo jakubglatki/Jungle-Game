@@ -611,11 +611,11 @@ class EvaluationFunctionController:
                 value = 0
                 if difficulty == 3:
                     if animal.power == 1:
-                        value += animal.power * 100 + 400  # Mouse can stay in water and also eat Elephant, for sure has more value
+                        value += animal.power * 1000 + 4000  # Mouse can stay in water and also eat Elephant, for sure has more value
                     elif animal.power == 6 or animal.power == 7 or animal.power == 8:
-                        value += animal.power * 100 + 200
+                        value += animal.power * 1000 + 2000
                     else:
-                        value += animal.power * 100
+                        value += animal.power * 1000
                 else:
                     if animal.power == 1:
                         value += animal.power + 5  # Mouse can stay in water and also eat Elephant, for sure has more value
@@ -667,11 +667,11 @@ class EvaluationFunctionController:
                 value = 0
                 if difficulty == 3:
                     if animal.power == 1:
-                        value -= animal.power * 100 + 400  # Mouse can stay in water and also eat Elephant, for sure has more value
+                        value -= animal.power * 1000 + 4000  # Mouse can stay in water and also eat Elephant, for sure has more value
                     elif animal.power == 6 or animal.power == 7 or animal.power == 8:
-                        value -= animal.power * 100 + 200
+                        value -= animal.power * 1000 + 2000
                     else:
-                        value -= animal.power * 100
+                        value -= animal.power * 1000
                 else:
                     if animal.power == 1:
                         value -= animal.power + 5  # Mouse can stay in water and also eat Elephant, for sure has more value

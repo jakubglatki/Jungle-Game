@@ -92,7 +92,3 @@ class Board:
             y + 1].animal.player != animal.player and (
                 self.matrix[x][y + 1].animal.power >= animal.power or animal.inOpponentDojo()): return True
         return False
-
-    # def killAnimal(self, x1: int, y1: int):
-    #    if (self.matrix[x1][y1].thereIsAnimal()):
-    #        self.matrix[x1][y1].killAnimal()

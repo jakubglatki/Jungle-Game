@@ -25,10 +25,11 @@ class MinimaxController:
             if cutoff_test(state, depth):
                 return eval_fn(state)
             value = -math.inf
-            if depth>minimaxLastMoves.depth: minimaxLastMoves.depth = depth
+            if depth > minimaxLastMoves.depth: minimaxLastMoves.depth = depth
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 minimaxLastMoves.max += 1
-                if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(action) == False:
+                if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
+                        action) == False:
                     minimaxLastMoves.push(action)
                     value = max(value, min_value(self.result(state, action), alpha, beta, depth + 1, minimaxLastMoves))
                     minimaxLastMoves.pop()
@@ -41,10 +42,11 @@ class MinimaxController:
             if cutoff_test(state, depth):
                 return eval_fn(state)
             value = math.inf
-            if depth>minimaxLastMoves.depth: minimaxLastMoves.depth = depth
+            if depth > minimaxLastMoves.depth: minimaxLastMoves.depth = depth
             for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
                 minimaxLastMoves.max += 1
-                if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(action) == False:
+                if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
+                        action) == False:
                     minimaxLastMoves.push(action)
                     value = min(value, max_value(self.result(state, action), alpha, beta, depth + 1, minimaxLastMoves))
                     minimaxLastMoves.pop()
@@ -66,18 +68,20 @@ class MinimaxController:
         beta = math.inf
         best_action = None
         for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
-            if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(action) == False:
+            if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
+                    action) == False:
                 minimaxLastMoves.push(action)
                 value = min_value(self.result(state, action), best_score, beta, 1, minimaxLastMoves)
                 action.depth = minimaxLastMoves.depth
                 minimaxLastMoves.depth = 0
                 minimaxLastMoves.pop()
                 random = randint(0, 100)
-                if value > best_score or (value == best_score and random >= 80) or best_action==None or (value == math.inf and action.depth==0):
+                if value > best_score or (value == best_score and random >= 80) or best_action == None or (
+                        value == math.inf and action.depth == 0):
                     best_score = value
                     best_action = action
-                    if best_action.depth == 0 and best_score == math.inf: return best_action
-
+                    if best_action.depth == 0 and best_score == math.inf:
+                        return best_action
 
         print(str(minimaxLastMoves.max))
         return best_action
