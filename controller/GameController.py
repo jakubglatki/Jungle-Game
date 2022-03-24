@@ -125,7 +125,7 @@ class GameController:
         return
 
     def researchMode(self):
-        n = 10
+        n = 5
         actual = 0
         nwins1 = 0
         nwins2 = 0
@@ -149,7 +149,7 @@ class GameController:
 
                 turns += 1
                 tic = time.perf_counter()
-                move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
+                move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty, state.currentPlayer.depth)
                 toc = time.perf_counter()
                 print(f"The computer has calculated the move in {toc - tic:0.4f} seconds!")
                 state.currentPlayer.clock += (toc - tic)
