@@ -562,7 +562,7 @@ class EvaluationFunctionController:
                             value -= elephantBoard2[animal.getX()][animal.getY()] / 2
             totalValue += value
 
-        return value
+        return totalValue
 
     def evaluationFunctionWithIsMenacedFunctionWithoutEnemyDiminuition(self, state: State, difficulty: int):
 
@@ -714,4 +714,4 @@ class EvaluationFunctionController:
                             value -= elephantBoard2[animal.getX()][animal.getY()] / 2
             totalValue += value
 
-        return value
+        return totalValue
