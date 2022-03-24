@@ -293,21 +293,21 @@ class EvaluationFunctionController:
 
     def evaluationFunction_firstEvaluationFunction(self, state: State):
         # Dojo control if I am player1
-        # if state.currentPlayer.number == 1:
-        #     if state.board.getDojo2().thereIsAnimal() and state.board.getDojo2().animal.player == 1:
-        #         value = math.inf
-        #         return value
-        #     if state.board.getDojo1().thereIsAnimal() and state.board.getDojo1().animal.player == 2:
-        #         value = -math.inf
-        #         return value
-        # # Dojo control if I am player2
-        # else:
-        #     if state.board.getDojo1().thereIsAnimal() and state.board.getDojo1().animal.player == 2:
-        #         value = math.inf
-        #         return value
-        #     if state.board.getDojo2().thereIsAnimal() and state.board.getDojo2().animal.player == 1:
-        #         value = -math.inf
-        #         return value
+        if state.playerWhoMoves.number == 1:
+            if state.board.getDojo2().thereIsAnimal() and state.board.getDojo2().animal.player == 1:
+                value = math.inf
+                return value
+            if state.board.getDojo1().thereIsAnimal() and state.board.getDojo1().animal.player == 2:
+                value = -math.inf
+                return value
+        # Dojo control if I am player2
+        else:
+            if state.board.getDojo1().thereIsAnimal() and state.board.getDojo1().animal.player == 2:
+                value = math.inf
+                return value
+            if state.board.getDojo2().thereIsAnimal() and state.board.getDojo2().animal.player == 1:
+                value = -math.inf
+                return value
 
         value = 0
         for animal in state.playerWhoMoves.animalCollection:
@@ -416,6 +416,9 @@ class EvaluationFunctionController:
         return value
 
     def evaluationFunctionWithIsMenacedFunction(self, state: State, difficulty: int):
+
+        if difficulty == 1:
+            return self.evaluationFunction_firstEvaluationFunction(state)
 
         if difficulty == 3:
             mouseBoard1 = hardCellValueMouse1
@@ -587,7 +590,7 @@ class EvaluationFunctionController:
             tigerBoard2 = hardCellValueTiger2
             lionBoard2 = hardCellValueLion2
             elephantBoard2 = hardCellValueElephant2
-        elif difficulty == 2:
+        else:
             mouseBoard1 = cellValueMouse1
             catBoard1 = cellValueCat1
             dogBoard1 = cellValueDog1
@@ -604,30 +607,11 @@ class EvaluationFunctionController:
             tigerBoard2 = cellValueTiger2
             lionBoard2 = cellValueLion2
             elephantBoard2 = cellValueElephant2
-        else:
-            mouseBoard1 = cellValue1
-            catBoard1 = cellValue1
-            dogBoard1 = cellValue1
-            wolfBoard1 = cellValue1
-            pantherBoard1 = cellValue1
-            tigerBoard1 = cellValue1
-            lionBoard1 = cellValue1
-            elephantBoard1 = cellValue1
-            mouseBoard2 = cellValue2
-            catBoard2 = cellValue2
-            dogBoard2 = cellValue2
-            wolfBoard2 = cellValue2
-            pantherBoard2 = cellValue2
-            tigerBoard2 = cellValue2
-            lionBoard2 = cellValue2
-            elephantBoard2 = cellValue2
 
         totalValue = 0
         value = 0
-        if difficulty == 1:
-            powerIncrease = 1
-        elif difficulty == 2:
-            powerIncrease = 100
+        if difficulty == 2:
+            powerIncrease = 10
         else:
             powerIncrease = 1000
 
