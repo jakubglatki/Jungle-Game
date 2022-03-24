@@ -450,7 +450,6 @@ class EvaluationFunctionController:
             elephantBoard2 = cellValueElephant2
 
         totalValue = 0
-        value = 0
         for animal in state.playerWhoMoves.animalCollection:
             if animal.isAlive:
                 value = 0
@@ -486,27 +485,27 @@ class EvaluationFunctionController:
                         value += lionBoard1[animal.getX()][animal.getY()]
                     elif animal.name == "ELEPHANT":
                         value += elephantBoard1[animal.getX()][animal.getY()]
-                    else:
-                        # value += cellValuePlayer2[animal.getX()][animal.getY()]
-                        if animal.name == "MOUSE":
-                            value += mouseBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "CAT":
-                            value += catBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "DOG":
-                            value += dogBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "WOLF":
-                            value += wolfBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "PANTHER":
-                            value += pantherBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "TIGER":
-                            value += tigerBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "LION":
-                            value += lionBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "ELEPHANT":
-                            value += elephantBoard2[animal.getX()][animal.getY()]
-            if state.board.isMenaced(animal): value = value * (3 / 5)
-            totalValue += value
-
+                else:
+                    # value += cellValuePlayer2[animal.getX()][animal.getY()]
+                    if animal.name == "MOUSE":
+                        value += mouseBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "CAT":
+                        value += catBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "DOG":
+                        value += dogBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "WOLF":
+                        value += wolfBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "PANTHER":
+                        value += pantherBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "TIGER":
+                        value += tigerBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "LION":
+                        value += lionBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "ELEPHANT":
+                        value += elephantBoard2[animal.getX()][animal.getY()]
+                if state.board.isMenaced(animal):
+                    value = value * (3 / 5)
+                totalValue += value
 
         for animal in state.playerWhoNotMoves.animalCollection:
             if animal.isAlive:
@@ -543,25 +542,24 @@ class EvaluationFunctionController:
                         value -= lionBoard1[animal.getX()][animal.getY()]
                     elif animal.name == "ELEPHANT":
                         value -= elephantBoard1[animal.getX()][animal.getY()]
-                    else:
-                        # value -= cellValuePlayer2[animal.getX()][animal.getY()] * 2/3
-                        if animal.name == "MOUSE":
-                            value -= mouseBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "CAT":
-                            value -= catBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "DOG":
-                            value -= dogBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "WOLF":
-                            value -= wolfBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "PANTHER":
-                            value -= pantherBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "TIGER":
-                            value -= tigerBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "LION":
-                            value -= lionBoard2[animal.getX()][animal.getY()]
-                        elif animal.name == "ELEPHANT":
-                            value -= elephantBoard2[animal.getX()][animal.getY()]
-                            value -= elephantBoard2[animal.getX()][animal.getY()] / 2
-            totalValue += value
+                else:
+                    # value -= cellValuePlayer2[animal.getX()][animal.getY()] * 2/3
+                    if animal.name == "MOUSE":
+                        value -= mouseBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "CAT":
+                        value -= catBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "DOG":
+                        value -= dogBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "WOLF":
+                        value -= wolfBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "PANTHER":
+                        value -= pantherBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "TIGER":
+                        value -= tigerBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "LION":
+                        value -= lionBoard2[animal.getX()][animal.getY()]
+                    elif animal.name == "ELEPHANT":
+                        value -= elephantBoard2[animal.getX()][animal.getY()]
+                totalValue += value
 
-        return value
+        return totalValue
