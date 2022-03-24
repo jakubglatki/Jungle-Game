@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="JungleBot 1.2 (fixed evaluationFile with TotalValue)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/EvaluationFunctionController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EvaluationFunctionController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GameController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/GameViewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/GameViewer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/MinimaxController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MinimaxController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/LastMoves.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/LastMoves.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="claudio" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -302,29 +302,11 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <condition expression="m.startingX == 2 and m.startingY == 0 and m.endingX == 1 and m.endingY == 0 and self.actual != 0 and self.n != 3" language="Python" mode="CODE_FRAGMENT" />
-          <url>file://$PROJECT_DIR$/model/LastMoves.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <condition expression="state.board.matrix[0][3].animal != None and depth == 1" language="Python" />
+          <condition expression="action.depth == 0 and value == math.inf" language="Python" />
           <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <condition expression="state.board.matrix[8][3].animal != None" language="Python" />
-          <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <condition expression="action.animal.fieldName == &quot;W2&quot; and action.startingX == 8 and action.endingX == 8 and action.startingY == 4 and action.endingY == 3" language="Python" mode="CODE_FRAGMENT" />
-          <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
-          <line>68</line>
-          <option name="timeStamp" value="63" />
+          <line>73</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

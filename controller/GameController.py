@@ -20,7 +20,6 @@ class GameController:
     minMaxController = MinimaxController()
     gameViewer = GameViewer()
 
-
     def chooseGameMode(self):
         mode = self.gameViewer.showChoosingGameModeMenu()
         print("\n")
@@ -66,7 +65,8 @@ class GameController:
                 move = self.minMaxController.alpha_beta_cutoff_search(state)
                 state.currentPlayer.lastMoves.addValue(move)
                 self.computerController.round(state.board, move)
-            else: self.humanRoundController.round(state.currentPlayer, state.board)
+            else:
+                self.humanRoundController.round(state.currentPlayer, state.board)
             if state.currentPlayer == state.board.getPlayer1():
                 state.currentPlayer = state.board.getPlayer2()
                 state.opponentPlayer = state.board.getPlayer1()
@@ -94,7 +94,7 @@ class GameController:
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(state.currentPlayer.number))
 
-            turns+=1
+            turns += 1
             tic = time.perf_counter()
             move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
             toc = time.perf_counter()
@@ -140,10 +140,11 @@ class GameController:
             state = State(board, board.player1, board.player2, board.player1, board.player2)
             turns = 0
 
-            while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
+            while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board,
+                                                           True) == False):
                 print("Turn of player" + str(state.currentPlayer.number))
 
-                turns+=1
+                turns += 1
                 tic = time.perf_counter()
                 move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
                 toc = time.perf_counter()
@@ -169,29 +170,31 @@ class GameController:
             print(str(turns))
             state.currentPlayer.showTimeInfo()
             state.opponentPlayer.showTimeInfo()
-            if state.currentPlayer.number == 1: avgTime1+=(state.currentPlayer.clock/state.currentPlayer.nclock); avgTime2+=(state.opponentPlayer.clock/state.opponentPlayer.nclock);
-            else: avgTime2+=(state.currentPlayer.clock/state.currentPlayer.nclock); avgTime1+=(state.opponentPlayer.clock/state.opponentPlayer.nclock);
-            avgTurns+=turns
+            if state.currentPlayer.number == 1:
+                avgTime1 += (state.currentPlayer.clock / state.currentPlayer.nclock); avgTime2 += (
+                            state.opponentPlayer.clock / state.opponentPlayer.nclock);
+            else:
+                avgTime2 += (state.currentPlayer.clock / state.currentPlayer.nclock); avgTime1 += (
+                            state.opponentPlayer.clock / state.opponentPlayer.nclock);
+            avgTurns += turns
             if state.currentPlayer.victories == 1:
-                if state.currentPlayer.number == 1: nwins1 += 1
-                else: nwins2 += 1
+                if state.currentPlayer.number == 1:
+                    nwins1 += 1
+                else:
+                    nwins2 += 1
             if state.opponentPlayer.victories == 1:
-                if state.opponentPlayer.number == 1: nwins1 += 1
-                else: nwins2 += 1
-        avgTime1 = avgTime1/n
-        avgTime2 = avgTime2/n
-        avgTurns = turns/n
-        print("Games played: "+str(actual))
-        print("Games won by player 1: "+str(nwins1))
-        print("Average time for moving player 1: "+str(avgTime1))
-        print("Games won by player 2: "+str(nwins2))
-        print("Average time for moving player 2: "+str(avgTime2))
-        print("Average number of turns in a game: "+str(avgTurns*n))
-
-
-
+                if state.opponentPlayer.number == 1:
+                    nwins1 += 1
+                else:
+                    nwins2 += 1
+        avgTime1 = avgTime1 / n
+        avgTime2 = avgTime2 / n
+        avgTurns = turns / n
+        print("Games played: " + str(actual))
+        print("Games won by player 1: " + str(nwins1))
+        print("Average time for moving player 1: " + str(avgTime1))
+        print("Games won by player 2: " + str(nwins2))
+        print("Average time for moving player 2: " + str(avgTime2))
+        print("Average number of turns in a game: " + str(avgTurns))
 
         return
-
-
-
