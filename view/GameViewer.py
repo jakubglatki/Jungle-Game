@@ -14,3 +14,7 @@ class GameViewer:
         print("2- Medium")
         print("3- Hard")
         return int(input("\n--> "))
+
+    def showChoosingDepthMenu(self, number=""):
+        print(" Choose depth level of computer " + number)
+        return int(input("\n--> "))

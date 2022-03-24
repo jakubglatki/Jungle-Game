@@ -56,13 +56,14 @@ class GameController:
         board = Board(False, True)
         boardViewer = BoardViewer(board)
         board.player2.difficulty = self.gameViewer.showChoosingDifficultyMenu()
+        board.player2.depth = self.gameViewer.showChoosingDepthMenu()
         boardViewer.showBoard()
         state = State(board, board.player1, board.player2, board.player1, board.player2)
 
         while (self.endingGameController.testFinalGame(board.getPlayer1(), board.getPlayer2(), board, True) == False):
             print("Turn of player" + str(state.currentPlayer.number))
             if state.currentPlayer.isABot:
-                move = self.minMaxController.alpha_beta_cutoff_search(state)
+                move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty, state.currentPlayer.depth)
                 state.currentPlayer.lastMoves.addValue(move)
                 self.computerController.round(state.board, move)
             else:
@@ -86,7 +87,9 @@ class GameController:
         board = Board(True, True)
         boardViewer = BoardViewer(board)
         board.player1.difficulty = self.gameViewer.showChoosingDifficultyMenu("1")
+        board.player1.depth = self.gameViewer.showChoosingDepthMenu("1")
         board.player2.difficulty = self.gameViewer.showChoosingDifficultyMenu("2")
+        board.player2.depth = self.gameViewer.showChoosingDepthMenu("2")
         boardViewer.showBoard()
         state = State(board, board.player1, board.player2, board.player1, board.player2)
         turns = 0
@@ -96,7 +99,7 @@ class GameController:
 
             turns += 1
             tic = time.perf_counter()
-            move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty)
+            move = self.minMaxController.alpha_beta_cutoff_search(state, state.currentPlayer.difficulty, state.currentPlayer.depth)
             toc = time.perf_counter()
             print(f"The computer has calculated the move in {toc - tic:0.4f} seconds!")
             state.currentPlayer.clock += (toc - tic)

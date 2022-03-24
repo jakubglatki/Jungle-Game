@@ -17,9 +17,7 @@ class MinimaxController:
     evaluationFunctionController = EvaluationFunctionController()
     endingGameController = EndingGameController()
 
-    def alpha_beta_cutoff_search(self, state, difficulty=3, d=3, cutoff_test=None, eval_fn=None):
-        if difficulty == 1:
-            d = 2
+    def alpha_beta_cutoff_search(self, state, difficulty, d, cutoff_test=None, eval_fn=None):
 
         def max_value(state, alpha, beta, depth, minimaxLastMoves):
             if cutoff_test(state, depth):
