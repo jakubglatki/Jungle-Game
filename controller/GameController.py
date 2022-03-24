@@ -186,7 +186,7 @@ class GameController:
         print("Average time for moving player 1: "+str(avgTime1))
         print("Games won by player 2: "+str(nwins2))
         print("Average time for moving player 2: "+str(avgTime2))
-        print("Average number of turns in a game: "+str(avgTurns))
+        print("Average number of turns in a game: "+str(avgTurns*n))
 
 
 
