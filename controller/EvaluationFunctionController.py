@@ -1,6 +1,8 @@
+import math
+
 from model.State import State
 
-cellValuePlayer1 = [[4, 7, 12, 1000, 12, 7, 4],
+cellValuePlayer1 = [[4, 7, 12, math.inf, 12, 7, 4],
                     [3, 6, 8, 12, 8, 6, 4],
                     [3, 5, 7, 9, 7, 5, 3],
                     [2, 3, 4, 6, 4, 3, 2],
@@ -18,9 +20,9 @@ cellValuePlayer2 = [[0, 0, 0, 0, 0, 0, 0],
                     [2, 3, 4, 6, 4, 3, 2],
                     [3, 5, 7, 9, 7, 5, 3],
                     [3, 6, 8, 12, 8, 6, 4],
-                    [4, 7, 12, 1000, 12, 7, 4]]
+                    [4, 7, 12, math.inf, 12, 7, 4]]
 
-cellValueMouse1 = [[12, 13, 50, 1000, 50, 13, 12],
+cellValueMouse1 = [[12, 13, 50, math.inf, 50, 13, 12],
                    [11, 12, 13, 50, 13, 12, 11],
                    [10, 11, 12, 13, 12, 11, 10],
                    [9, 11, 12, 12, 12, 11, 9],
@@ -38,9 +40,9 @@ cellValueMouse2 = [[4, 6, 5, 7, 5, 6, 4],
                    [9, 11, 12, 12, 12, 11, 9],
                    [10, 11, 12, 13, 12, 11, 10],
                    [11, 12, 13, 50, 13, 12, 11],
-                   [12, 13, 50, 1000, 50, 13, 12]]
+                   [12, 13, 50, math.inf, 50, 13, 12]]
 
-cellValueCat1 = [[11, 12, 50, 1000, 50, 12, 11],
+cellValueCat1 = [[11, 12, 50, math.inf, 50, 12, 11],
                  [10, 11, 13, 50, 13, 11, 10],
                  [9, 10, 11, 12, 11, 10, 9],
                  [8, 0, 0, 11, 0, 0, 8],
@@ -58,9 +60,9 @@ cellValueCat2 = [[4, 9, 4, 11, 4, 9, 4],
                  [8, 0, 0, 11, 0, 0, 8],
                  [9, 10, 11, 12, 11, 10, 9],
                  [10, 11, 13, 50, 13, 11, 10],
-                 [11, 12, 50, 1000, 50, 12, 11]]
+                 [11, 12, 50, math.inf, 50, 12, 11]]
 
-cellValueDog1 = [[11, 12, 50, 1000, 50, 12, 11],
+cellValueDog1 = [[11, 12, 50, math.inf, 50, 12, 11],
                  [10, 11, 13, 50, 13, 11, 10],
                  [9, 10, 11, 12, 11, 10, 9],
                  [8, 0, 0, 11, 0, 0, 8],
@@ -78,9 +80,9 @@ cellValueDog2 = [[4, 8, 5, 10, 5, 8, 4],
                  [8, 0, 0, 11, 0, 0, 8],
                  [9, 10, 11, 12, 11, 10, 9],
                  [10, 11, 13, 50, 13, 11, 10],
-                 [11, 12, 50, 1000, 50, 12, 11]]
+                 [11, 12, 50, math.inf, 50, 12, 11]]
 
-cellValueWolf1 = [[12, 13, 50, 1000, 50, 13, 12],
+cellValueWolf1 = [[12, 13, 50, math.inf, 50, 13, 12],
                   [11, 12, 13, 50, 13, 12, 11],
                   [10, 11, 12, 13, 12, 11, 10],
                   [9, 0, 0, 12, 0, 0, 9],
@@ -98,9 +100,9 @@ cellValueWolf2 = [[3, 5, 4, 6, 4, 5, 3],
                   [9, 0, 0, 12, 0, 0, 9],
                   [10, 11, 12, 13, 12, 11, 10],
                   [11, 12, 13, 50, 13, 12, 11],
-                  [12, 13, 50, 1000, 50, 13, 12]]
+                  [12, 13, 50, math.inf, 50, 13, 12]]
 
-cellValuePanther1 = [[13, 14, 50, 1000, 50, 14, 13],
+cellValuePanther1 = [[13, 14, 50, math.inf, 50, 14, 13],
                      [12, 13, 14, 50, 14, 13, 12],
                      [11, 12, 13, 14, 13, 12, 11],
                      [10, 0, 0, 12, 0, 0, 10],
@@ -118,9 +120,9 @@ cellValuePanther2 = [[2, 4, 3, 4, 3, 4, 2],
                      [10, 0, 0, 12, 0, 0, 10],
                      [11, 12, 13, 14, 13, 12, 11],
                      [12, 13, 14, 50, 14, 13, 12],
-                     [13, 14, 50, 1000, 50, 14, 13]]
+                     [13, 14, 50, math.inf, 50, 14, 13]]
 
-cellValueTiger1 = [[14, 15, 50, 1000, 50, 15, 14],
+cellValueTiger1 = [[14, 15, 50, math.inf, 50, 15, 14],
                    [14, 15, 16, 50, 16, 15, 14],
                    [13, 14, 15, 15, 15, 14, 13],
                    [12, 0, 0, 11, 0, 0, 12],
@@ -138,9 +140,9 @@ cellValueTiger2 = [[1, 4, 2, 2, 2, 4, 1],
                    [12, 0, 0, 11, 0, 0, 12],
                    [13, 14, 15, 15, 15, 14, 13],
                    [14, 15, 16, 50, 16, 15, 14],
-                   [14, 15, 50, 1000, 50, 15, 14]]
+                   [14, 15, 50, math.inf, 50, 15, 14]]
 
-cellValueLion1 = [[14, 15, 50, 1000, 50, 15, 14],
+cellValueLion1 = [[14, 15, 50, math.inf, 50, 15, 14],
                   [14, 15, 16, 50, 16, 15, 14],
                   [13, 14, 15, 15, 15, 14, 13],
                   [12, 0, 0, 11, 0, 0, 12],
@@ -158,9 +160,9 @@ cellValueLion2 = [[1, 3, 2, 2, 2, 3, 1],
                   [12, 0, 0, 11, 0, 0, 12],
                   [13, 14, 15, 15, 15, 14, 13],
                   [14, 15, 16, 50, 16, 15, 14],
-                  [14, 15, 50, 1000, 50, 15, 14]]
+                  [14, 15, 50, math.inf, 50, 15, 14]]
 
-cellValueElephant1 = [[16, 17, 50, 1000, 50, 17, 16],
+cellValueElephant1 = [[16, 17, 50, math.inf, 50, 17, 16],
                       [15, 16, 17, 50, 17, 16, 15],
                       [14, 15, 16, 17, 16, 15, 14],
                       [13, 0, 0, 14, 0, 0, 13],
@@ -178,9 +180,9 @@ cellValueElephant2 = [[0, 4, 2, 4, 2, 4, 0],
                       [13, 0, 0, 14, 0, 0, 13],
                       [14, 15, 16, 17, 16, 15, 14],
                       [15, 16, 17, 50, 17, 16, 15],
-                      [16, 17, 50, 1000, 50, 17, 16]]
+                      [16, 17, 50, math.inf, 50, 17, 16]]
 
-hardCellValueMouse1 = [[11, 13, 50, 100000, 50, 13, 13],
+hardCellValueMouse1 = [[11, 13, 50, math.inf, 50, 13, 13],
                        [11, 12, 13, 50, 13, 13, 13],
                        [10, 11, 11, 13, 13, 13, 13],
                        [8, 9, 9, 11, 12, 12, 13],
@@ -192,7 +194,7 @@ hardCellValueMouse1 = [[11, 13, 50, 100000, 50, 13, 13],
 
 hardCellValueMouse2 = list(reversed(hardCellValueMouse1))
 
-hardCellValueCat1 = [[11, 15, 50, 100000, 50, 15, 11],
+hardCellValueCat1 = [[11, 15, 50, math.inf, 50, 15, 11],
                      [11, 11, 15, 50, 15, 11, 11],
                      [10, 11, 11, 15, 11, 11, 10],
                      [10, 0, 0, 10, 0, 0, 8],
@@ -204,7 +206,7 @@ hardCellValueCat1 = [[11, 15, 50, 100000, 50, 15, 11],
 
 hardCellValueCat2 = list(reversed(hardCellValueCat1))
 
-hardCellValueDog1 = [[11, 15, 50, 100000, 50, 15, 11],
+hardCellValueDog1 = [[11, 15, 50, math.inf, 50, 15, 11],
                      [10, 11, 15, 50, 15, 11, 10],
                      [9, 10, 11, 15, 11, 10, 9],
                      [9, 0, 0, 10, 0, 0, 9],
@@ -216,7 +218,7 @@ hardCellValueDog1 = [[11, 15, 50, 100000, 50, 15, 11],
 
 hardCellValueDog2 = list(reversed(hardCellValueDog1))
 
-hardCellValueWolf1 = [[11, 15, 50, 100000, 50, 15, 11],
+hardCellValueWolf1 = [[11, 15, 50, math.inf, 50, 15, 11],
                       [10, 11, 15, 50, 15, 11, 10],
                       [9, 10, 11, 15, 11, 10, 9],
                       [9, 0, 0, 10, 0, 0, 9],
@@ -228,7 +230,7 @@ hardCellValueWolf1 = [[11, 15, 50, 100000, 50, 15, 11],
 
 hardCellValueWolf2 = list(reversed(hardCellValueWolf1))
 
-hardCellValuePanther1 = [[14, 15, 50, 100000, 50, 15, 14],
+hardCellValuePanther1 = [[14, 15, 50, math.inf, 50, 15, 14],
                          [13, 14, 15, 50, 15, 14, 13],
                          [13, 13, 14, 15, 14, 13, 13],
                          [12, 0, 0, 15, 0, 0, 12],
@@ -240,7 +242,7 @@ hardCellValuePanther1 = [[14, 15, 50, 100000, 50, 15, 14],
 
 hardCellValuePanther2 = list(reversed(hardCellValuePanther1))
 
-hardCellValueTiger1 = [[25, 30, 50, 100000, 50, 30, 25],
+hardCellValueTiger1 = [[25, 30, 50, math.inf, 50, 30, 25],
                        [25, 25, 30, 50, 30, 25, 25],
                        [18, 20, 20, 30, 20, 20, 18],
                        [15, 0, 0, 15, 0, 0, 15],
@@ -252,7 +254,7 @@ hardCellValueTiger1 = [[25, 30, 50, 100000, 50, 30, 25],
 
 hardCellValueTiger2 = list(reversed(hardCellValueTiger1))
 
-hardCellValueLion1 = [[25, 30, 50, 100000, 50, 30, 25],
+hardCellValueLion1 = [[25, 30, 50, math.inf, 50, 30, 25],
                       [25, 25, 30, 50, 30, 25, 25],
                       [18, 20, 20, 30, 20, 20, 18],
                       [15, 0, 0, 15, 0, 0, 15],
@@ -264,7 +266,7 @@ hardCellValueLion1 = [[25, 30, 50, 100000, 50, 30, 25],
 
 hardCellValueLion2 = list(reversed(hardCellValueLion1))
 
-hardCellValueElephant1 = [[25, 30, 50, 100000, 50, 30, 25],
+hardCellValueElephant1 = [[25, 30, 50, math.inf, 50, 30, 25],
                           [25, 25, 30, 50, 30, 25, 25],
                           [18, 20, 20, 30, 20, 20, 18],
                           [16, 0, 0, 16, 0, 0, 16],
@@ -292,18 +294,18 @@ class EvaluationFunctionController:
         # Dojo control if I am player1
         # if state.currentPlayer.number == 1:
         #     if state.board.getDojo2().thereIsAnimal() and state.board.getDojo2().animal.player == 1:
-        #         value = 1000
+        #         value = math.inf
         #         return value
         #     if state.board.getDojo1().thereIsAnimal() and state.board.getDojo1().animal.player == 2:
-        #         value = -1000
+        #         value = -math.inf
         #         return value
         # # Dojo control if I am player2
         # else:
         #     if state.board.getDojo1().thereIsAnimal() and state.board.getDojo1().animal.player == 2:
-        #         value = 1000
+        #         value = math.inf
         #         return value
         #     if state.board.getDojo2().thereIsAnimal() and state.board.getDojo2().animal.player == 1:
-        #         value = -1000
+        #         value = -math.inf
         #         return value
 
         value = 0
