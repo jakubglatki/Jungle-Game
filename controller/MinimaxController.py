@@ -23,11 +23,11 @@ class MinimaxController:
             if cutoff_test(state, depth):
                 return eval_fn(state)
             value = -math.inf
-            if depth > minimaxLastMoves.depth: minimaxLastMoves.depth = depth
-            for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board):
+            if depth > minimaxLastMoves.depth: minimaxLastMoves.depth = depth  #This This is to count the number of moves that must be made to reach the state. The function is only useful in case the player is close to winning, in this way he will go to choose the set of moves that leads him faster to victory.
+            for action in self.computerMovesController.listOfPossibleMoves(state.currentPlayer, state.board): #Generate all possible moves that a player can do
                 minimaxLastMoves.max += 1
                 if state.currentPlayer.lastMoves.isARecentMove(action) == False and minimaxLastMoves.isARecentMove(
-                        action) == False:
+                        action) == False: #Second pruning, if the moving player has already made that move recently or within the branch we are analyzing the player makes a move that brings him back to the initial state, let's eliminate that move since it is certainly not convenient.
                     minimaxLastMoves.push(action)
                     value = max(value, min_value(self.result(state, action), alpha, beta, depth + 1, minimaxLastMoves))
                     minimaxLastMoves.pop()
@@ -84,7 +84,7 @@ class MinimaxController:
         print(str(minimaxLastMoves.max))
         return best_action
 
-    def result(self, state: State, action: Move):
+    def result(self, state: State, action: Move):  #This function generate the new state of the game
         tempState = copy.deepcopy(state)
         self.movementController.moveAnimal(tempState.board.matrix[action.startingX][action.startingY].animal,
                                            tempState.board,

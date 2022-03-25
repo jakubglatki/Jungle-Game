@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="JungleBot 1.2 (fixed evaluationFile with TotalValue)">
-      <change beforePath="$PROJECT_DIR$/controller/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GameController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/HumanRoundController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/HumanRoundController.py" afterDir="false" />
+    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="#repaired the evaluation function tabulation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/MinimaxController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MinimaxController.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="claudio" />
+        <entry key="$PROJECT_DIR$" value="test_branch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -300,11 +300,29 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <condition expression="m.startingX == 2 and m.startingY == 0 and m.endingX == 1 and m.endingY == 0 and self.actual != 0 and self.n != 3" language="Python" mode="CODE_FRAGMENT" />
+          <url>file://$PROJECT_DIR$/model/LastMoves.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <condition expression="action.depth == 0 and value == math.inf" language="Python" />
+          <condition expression="state.board.matrix[0][3].animal != None and depth == 1" language="Python" />
           <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
-          <line>73</line>
-          <option name="timeStamp" value="65" />
+          <line>41</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <condition expression="state.board.matrix[8][3].animal != None" language="Python" />
+          <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <condition expression="action.animal.fieldName == &quot;W2&quot; and action.startingX == 8 and action.endingX == 8 and action.startingY == 4 and action.endingY == 3" language="Python" mode="CODE_FRAGMENT" />
+          <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -318,8 +336,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/JungleGame$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1647271459684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
+    <SUITE FILE_PATH="coverage/JungleGame$Application32.coverage" NAME="Application32 Coverage Results" MODIFIED="1648049271702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JungleGame$BoardViewer.coverage" NAME="Application Coverage Results" MODIFIED="1647285089560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/JungleGame$Application.coverage" NAME="Application Coverage Results" MODIFIED="1647691313896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JungleGame$Application.coverage" NAME="Application Coverage Results" MODIFIED="1648124770342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JungleGame$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1647271540277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
