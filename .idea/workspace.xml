@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="#repaired the evaluation function tabulation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/MinimaxController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MinimaxController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GameController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Board.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648068721955</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="#repaired the evaluation function tabulation">
+      <created>1648209940656</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1648209940656</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +303,8 @@
     <MESSAGE value="Alleggerita funzione di valutazione" />
     <MESSAGE value="JungleBot 1.0" />
     <MESSAGE value="JungleBot 1.2 (fixed evaluationFile with TotalValue)" />
-    <option name="LAST_COMMIT_MESSAGE" value="JungleBot 1.2 (fixed evaluationFile with TotalValue)" />
+    <MESSAGE value="#repaired the evaluation function tabulation" />
+    <option name="LAST_COMMIT_MESSAGE" value="#repaired the evaluation function tabulation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
