@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="#repaired the evaluation function tabulation">
+    <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="First commit post Friday">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GameController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Board.py" afterDir="false" />
@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="test_branch" />
+        <entry key="$PROJECT_DIR$" value="claudio" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -263,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648209940656</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="First commit post Friday">
+      <created>1648485827255</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1648485827255</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +311,8 @@
     <MESSAGE value="JungleBot 1.0" />
     <MESSAGE value="JungleBot 1.2 (fixed evaluationFile with TotalValue)" />
     <MESSAGE value="#repaired the evaluation function tabulation" />
-    <option name="LAST_COMMIT_MESSAGE" value="#repaired the evaluation function tabulation" />
+    <MESSAGE value="First commit post Friday" />
+    <option name="LAST_COMMIT_MESSAGE" value="First commit post Friday" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -314,24 +322,6 @@
           <url>file://$PROJECT_DIR$/model/LastMoves.py</url>
           <line>25</line>
           <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <condition expression="state.board.matrix[0][3].animal != None and depth == 1" language="Python" />
-          <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <condition expression="state.board.matrix[8][3].animal != None" language="Python" />
-          <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <condition expression="action.animal.fieldName == &quot;W2&quot; and action.startingX == 8 and action.endingX == 8 and action.startingY == 4 and action.endingY == 3" language="Python" mode="CODE_FRAGMENT" />
-          <url>file://$PROJECT_DIR$/controller/MinimaxController.py</url>
-          <line>70</line>
-          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
