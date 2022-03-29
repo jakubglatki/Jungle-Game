@@ -2,45 +2,25 @@ import math
 
 from model.State import State
 
-cellValue1 = [[4, 7, 12, 100, 12, 7, 4],
-              [3, 6, 8, 12, 8, 6, 4],
-              [3, 5, 7, 9, 7, 5, 3],
-              [2, 3, 4, 6, 4, 3, 2],
-              [2, 2, 3, 5, 3, 2, 2],
-              [1, 2, 2, 4, 2, 2, 1],
-              [0, 1, 2, 3, 2, 1, 0],
-              [0, 0, 1, 2, 1, 0, 0],
-              [0, 0, 0, 0, 0, 0, 0]]
+cellValue1 = [[4, 12, 100, 12, 4],
+              [3, 8, 12, 8, 4],
+              [3, 7, 9, 7, 3],
+              [2, 3, 5, 3, 2],
+              [1, 2, 4, 2, 1],
+              [0, 1, 2, 1, 0],
+              [0, 0, 0, 0, 0]]
 
-cellValue2 = [[0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 1, 2, 1, 0, 0],
-              [0, 1, 2, 3, 2, 1, 0],
-              [1, 2, 2, 4, 2, 2, 1],
-              [2, 2, 3, 5, 3, 2, 2],
-              [2, 3, 4, 6, 4, 3, 2],
-              [3, 5, 7, 9, 7, 5, 3],
-              [3, 6, 8, 12, 8, 6, 4],
-              [4, 7, 12, 100, 12, 7, 4]]
+cellValue2 = list(reversed(cellValue1))
 
-cellValueMouse1 = [[12, 13, 50, math.inf, 50, 13, 12],
-                   [11, 12, 13, 50, 13, 12, 11],
-                   [10, 11, 12, 13, 12, 11, 10],
-                   [9, 11, 12, 12, 12, 11, 9],
-                   [8, 10, 11, 11, 11, 10, 8],
-                   [7, 9, 10, 10, 10, 9, 7],
-                   [6, 7, 8, 9, 8, 7, 6],
-                   [5, 6, 7, 8, 7, 6, 5],
-                   [4, 6, 5, 7, 5, 6, 4]]
+cellValueMouse1 = [[12, 50, math.inf, 50, 12],
+                   [11, 13, 50, 13, 11],
+                   [10, 12, 13, 12, 10],
+                   [8, 11, 11, 11, 8],
+                   [6, 8, 9, 8, 6],
+                   [5, 7, 8, 7, 5],
+                   [4, 5, 7, 5, 4]]
 
-cellValueMouse2 = [[4, 6, 5, 7, 5, 6, 4],
-                   [5, 6, 7, 8, 7, 6, 5],
-                   [6, 7, 8, 9, 8, 7, 6],
-                   [7, 9, 10, 10, 10, 9, 7],
-                   [8, 10, 11, 11, 11, 10, 8],
-                   [9, 11, 12, 12, 12, 11, 9],
-                   [10, 11, 12, 13, 12, 11, 10],
-                   [11, 12, 13, 50, 13, 12, 11],
-                   [12, 13, 50, math.inf, 50, 13, 12]]
+cellValueMouse2 = list(reversed(cellValueMouse1))
 
 cellValueCat1 = [[11, 12, 50, math.inf, 50, 12, 11],
                  [10, 11, 13, 50, 13, 11, 10],
@@ -102,25 +82,15 @@ cellValueWolf2 = [[3, 5, 4, 6, 4, 5, 3],
                   [11, 12, 13, 50, 13, 12, 11],
                   [12, 13, 50, math.inf, 50, 13, 12]]
 
-cellValuePanther1 = [[13, 14, 50, math.inf, 50, 14, 13],
-                     [12, 13, 14, 50, 14, 13, 12],
-                     [11, 12, 13, 14, 13, 12, 11],
-                     [10, 0, 0, 12, 0, 0, 10],
-                     [9, 0, 0, 11, 0, 0, 9],
-                     [8, 0, 0, 10, 0, 0, 8],
-                     [6, 4, 4, 7, 4, 4, 6],
-                     [3, 4, 5, 3, 5, 4, 3],
-                     [2, 4, 3, 4, 3, 4, 2]]
+cellValuePanther1 = [[13, 50, math.inf, 50, 13],
+                     [12, 14, 50, 14, 12],
+                     [11, 13, 14, 13, 11],
+                     [9, 0, 11, 0, 9],
+                     [6, 4, 7, 4, 6],
+                     [3, 5, 3, 5, 3],
+                     [2, 3, 4, 3, 2]]
 
-cellValuePanther2 = [[2, 4, 3, 4, 3, 4, 2],
-                     [3, 4, 5, 3, 5, 4, 3],
-                     [6, 4, 4, 7, 4, 4, 6],
-                     [8, 0, 0, 10, 0, 0, 8],
-                     [9, 0, 0, 11, 0, 0, 9],
-                     [10, 0, 0, 12, 0, 0, 10],
-                     [11, 12, 13, 14, 13, 12, 11],
-                     [12, 13, 14, 50, 14, 13, 12],
-                     [13, 14, 50, math.inf, 50, 14, 13]]
+cellValuePanther2 = list(reversed(cellValuePanther1))
 
 cellValueTiger1 = [[14, 15, 50, math.inf, 50, 15, 14],
                    [14, 15, 16, 50, 16, 15, 14],
@@ -142,55 +112,33 @@ cellValueTiger2 = [[1, 4, 2, 2, 2, 4, 1],
                    [14, 15, 16, 50, 16, 15, 14],
                    [14, 15, 50, math.inf, 50, 15, 14]]
 
-cellValueLion1 = [[14, 15, 50, math.inf, 50, 15, 14],
-                  [14, 15, 16, 50, 16, 15, 14],
-                  [13, 14, 15, 15, 15, 14, 13],
-                  [12, 0, 0, 11, 0, 0, 12],
-                  [11, 0, 0, 10, 0, 0, 11],
-                  [10, 0, 0, 11, 0, 0, 10],
-                  [6, 10, 10, 9, 10, 10, 6],
-                  [2, 3, 4, 2, 4, 3, 2],
-                  [1, 3, 2, 2, 2, 3, 1]]
+cellValueLion1 = [[14, 50, math.inf, 50, 14],
+                  [14, 16, 50, 16, 14],
+                  [13, 15, 15, 15, 13],
+                  [11, 0, 10, 0, 11],
+                  [6, 10, 9, 10, 6],
+                  [2, 4, 2, 4, 2],
+                  [1, 2, 2, 2, 1]]
 
-cellValueLion2 = [[1, 3, 2, 2, 2, 3, 1],
-                  [2, 3, 4, 2, 4, 3, 2],
-                  [6, 10, 10, 9, 10, 10, 6],
-                  [10, 0, 0, 11, 0, 0, 10],
-                  [11, 0, 0, 10, 0, 0, 11],
-                  [12, 0, 0, 11, 0, 0, 12],
-                  [13, 14, 15, 15, 15, 14, 13],
-                  [14, 15, 16, 50, 16, 15, 14],
-                  [14, 15, 50, math.inf, 50, 15, 14]]
+cellValueLion2 = list(reversed(cellValueLion1))
 
-cellValueElephant1 = [[16, 17, 50, math.inf, 50, 17, 16],
-                      [15, 16, 17, 50, 17, 16, 15],
-                      [14, 15, 16, 17, 16, 15, 14],
-                      [13, 0, 0, 14, 0, 0, 13],
-                      [12, 0, 0, 13, 0, 0, 12],
-                      [11, 0, 0, 12, 0, 0, 11],
-                      [8, 5, 6, 8, 6, 5, 8],
-                      [2, 2, 3, 3, 3, 2, 2],
-                      [0, 2, 2, 4, 2, 2, 0]]
+cellValueElephant1 = [[16, 50, math.inf, 50, 16],
+                      [15, 17, 50, 17, 15],
+                      [14, 16, 17, 16, 14],
+                      [12, 0, 13, 0, 12],
+                      [8, 6, 8, 6, 8],
+                      [2, 3, 3, 3, 2],
+                      [0, 2, 4, 2, 0]]
 
-cellValueElephant2 = [[0, 4, 2, 4, 2, 4, 0],
-                      [2, 2, 5, 3, 5, 2, 2],
-                      [8, 5, 6, 8, 6, 5, 8],
-                      [11, 0, 0, 12, 0, 0, 11],
-                      [12, 0, 0, 13, 0, 0, 12],
-                      [13, 0, 0, 14, 0, 0, 13],
-                      [14, 15, 16, 17, 16, 15, 14],
-                      [15, 16, 17, 50, 17, 16, 15],
-                      [16, 17, 50, math.inf, 50, 17, 16]]
+cellValueElephant2 = list(reversed(cellValueElephant1))
 
-hardCellValueMouse1 = [[11, 13, 50, math.inf, 50, 13, 13],
-                       [11, 12, 13, 50, 13, 13, 13],
-                       [10, 11, 11, 13, 13, 13, 13],
-                       [8, 9, 9, 11, 12, 12, 13],
-                       [8, 9, 9, 11, 12, 12, 12],
-                       [8, 9, 9, 10, 12, 12, 11],
-                       [8, 8, 8, 9, 10, 10, 10],
-                       [8, 8, 8, 9, 9, 9, 9],
-                       [8, 8, 8, 0, 8, 8, 8]]
+hardCellValueMouse1 = [[11, 50, math.inf, 50, 13],
+                       [11, 13, 50, 13, 13],
+                       [10, 11, 13, 13, 13],
+                       [8, 9, 11, 12, 12],
+                       [8, 8, 9, 10, 10],
+                       [8, 8, 9, 9, 9],
+                       [8, 8, 0, 8, 8]]
 
 hardCellValueMouse2 = list(reversed(hardCellValueMouse1))
 
@@ -230,15 +178,13 @@ hardCellValueWolf1 = [[11, 15, 50, math.inf, 50, 15, 11],
 
 hardCellValueWolf2 = list(reversed(hardCellValueWolf1))
 
-hardCellValuePanther1 = [[14, 15, 50, math.inf, 50, 15, 14],
-                         [13, 14, 15, 50, 15, 14, 13],
-                         [13, 13, 14, 15, 14, 13, 13],
-                         [12, 0, 0, 15, 0, 0, 12],
-                         [11, 0, 0, 14, 0, 0, 11],
-                         [10, 0, 0, 13, 0, 0, 10],
-                         [9, 9, 9, 10, 10, 9, 9],
-                         [9, 9, 9, 9, 9, 9, 9],
-                         [9, 9, 9, 0, 9, 9, 9]]
+hardCellValuePanther1 = [[14, 50, math.inf, 50, 14],
+                         [13, 15, 50, 15, 13],
+                         [13, 14, 15, 14, 13],
+                         [11, 0, 14, 0, 11],
+                         [9, 9, 10, 10, 9],
+                         [9, 9, 9, 9, 9],
+                         [9, 9, 0, 9, 9]]
 
 hardCellValuePanther2 = list(reversed(hardCellValuePanther1))
 
@@ -254,30 +200,25 @@ hardCellValueTiger1 = [[25, 30, 50, math.inf, 50, 30, 25],
 
 hardCellValueTiger2 = list(reversed(hardCellValueTiger1))
 
-hardCellValueLion1 = [[25, 30, 50, math.inf, 50, 30, 25],
-                      [25, 25, 30, 50, 30, 25, 25],
-                      [18, 20, 20, 30, 20, 20, 18],
-                      [15, 0, 0, 15, 0, 0, 15],
-                      [15, 0, 0, 15, 0, 0, 15],
-                      [15, 0, 0, 15, 0, 0, 15],
-                      [14, 16, 16, 14, 16, 16, 14],
-                      [12, 12, 12, 12, 12, 14, 12],
-                      [10, 12, 12, 0, 12, 12, 10]]
+hardCellValueLion1 = [[25, 50, math.inf, 50, 25],
+                      [25, 30, 50, 30, 25],
+                      [18, 20, 30, 20, 18],
+                      [15, 0, 15, 0, 15],
+                      [14, 16, 14, 16, 14],
+                      [12, 12, 12, 12, 12],
+                      [10, 12, 0, 12, 10]]
 
 hardCellValueLion2 = list(reversed(hardCellValueLion1))
 
-hardCellValueElephant1 = [[25, 30, 50, math.inf, 50, 30, 25],
-                          [25, 25, 30, 50, 30, 25, 25],
-                          [18, 20, 20, 30, 20, 20, 18],
-                          [16, 0, 0, 16, 0, 0, 16],
-                          [14, 0, 0, 14, 0, 0, 14],
-                          [12, 0, 0, 12, 0, 0, 12],
-                          [10, 15, 14, 14, 14, 14, 12],
-                          [11, 11, 11, 11, 11, 11, 11],
-                          [11, 11, 11, 0, 11, 11, 11]]
+hardCellValueElephant1 = [[25, 50, math.inf, 50, 25],
+                          [25, 30, 50, 30, 25],
+                          [18, 20, 30, 20, 18],
+                          [14, 0, 14, 0, 14],
+                          [10, 14, 14, 14, 12],
+                          [11, 11, 11, 11, 11],
+                          [11, 11, 0, 11, 11]]
 
 hardCellValueElephant2 = list(reversed(hardCellValueElephant1))
-
 
 
 class EvaluationFunctionController:
@@ -314,7 +255,7 @@ class EvaluationFunctionController:
             if animal.isAlive:
                 if animal.power == 1:
                     value += animal.power + 5  # Mouse can stay in water and also eat Elephant, for sure has more value
-                elif animal.power == 6 or animal.power == 7:
+                elif animal.power == 7:
                     value += animal.power + 2
                 else:
                     value += animal.power
@@ -322,7 +263,7 @@ class EvaluationFunctionController:
             if animal.isAlive:
                 if animal.power == 1:
                     value -= animal.power + 5  # Mouse can stay in water and also eat Elephant, for sure has more value
-                elif animal.power == 6 or animal.power == 7:
+                elif animal.power == 7:
                     value -= animal.power + 2
                 else:
                     value -= animal.power
@@ -575,28 +516,16 @@ class EvaluationFunctionController:
 
         if difficulty == 4:
             mouseBoard1 = hardCellValueMouse1
-            catBoard1 = hardCellValueCat1
-            dogBoard1 = hardCellValueDog1
-            wolfBoard1 = hardCellValueWolf1
             pantherBoard1 = hardCellValuePanther1
-            tigerBoard1 = hardCellValueTiger1
             lionBoard1 = hardCellValueLion1
             elephantBoard1 = hardCellValueElephant1
             mouseBoard2 = hardCellValueMouse2
-            catBoard2 = hardCellValueCat2
-            dogBoard2 = hardCellValueDog2
-            wolfBoard2 = hardCellValueWolf2
             pantherBoard2 = hardCellValuePanther2
-            tigerBoard2 = hardCellValueTiger2
             lionBoard2 = hardCellValueLion2
             elephantBoard2 = hardCellValueElephant2
         elif difficulty == 3:
             mouseBoard1 = cellValueMouse1
-            catBoard1 = cellValueCat1
-            dogBoard1 = cellValueDog1
-            wolfBoard1 = cellValueWolf1
             pantherBoard1 = cellValuePanther1
-            tigerBoard1 = cellValueTiger1
             lionBoard1 = cellValueLion1
             elephantBoard1 = cellValueElephant1
             mouseBoard2 = cellValueMouse2
@@ -624,7 +553,6 @@ class EvaluationFunctionController:
             tigerBoard2 = cellValue2
             lionBoard2 = cellValue2
             elephantBoard2 = cellValue2
-
 
         totalValue = 0
         value = 0
