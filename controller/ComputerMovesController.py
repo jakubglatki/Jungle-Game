@@ -91,6 +91,8 @@ class ComputerMovesController:
                 for direction in directions:
                     ep = self.movementController.calculateMove(animal, board, direction)
                     if ep is not None:
-                        viableMoves.append(Move(animal.getX(), animal.getY(), int(ep[0]), int(ep[1]), animal))
-
+                        try:
+                            viableMoves.append(Move(animal.getX(), animal.getY(), int(ep[0]), int(ep[1]), animal))
+                        except ValueError:
+                            continue
         return viableMoves

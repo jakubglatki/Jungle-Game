@@ -23,7 +23,7 @@ class MovementController:
         if string == "r": x = animal.getX(); y = animal.getY()+1
         if string == "l": x = animal.getX(); y = animal.getY()-1
         if string == "d": x = animal.getX()+1; y = animal.getY()
-        specialMovementAnimals = [1, 6, 7]
+        specialMovementAnimals = [1, 7]
         if x < len(board.matrix) and x >= 0 and y < len(board.matrix[0]) and y >= 0:
             if checkIfIsWalkingIntoOwnTrap(animal, board, x, y, animal.getX(), animal.getY()):
                 return str(x)+str(y)
