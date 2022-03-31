@@ -22,12 +22,12 @@ class EndingGameController:
             if calledFromGameController:
                 print(WON_THE_GAME_1_NO_ANIMALS)
             return True
-        elif board.matrix[0][3].thereIsAnimal() and board.matrix[0][3].animal.player.number == 1:
+        elif board.matrix[0][2].thereIsAnimal() and board.matrix[0][2].animal.player.number == 1:
             p1.victories += 1
             if calledFromGameController:
                 print(WON_THE_GAME_1)
             return True
-        elif board.matrix[8][3].thereIsAnimal() and board.matrix[8][3].animal.player.number == 2:
+        elif board.matrix[6][2].thereIsAnimal() and board.matrix[6][2].animal.player.number == 2:
             p2.victories += 1
             if calledFromGameController:
                 print(WON_THE_GAME_2)
