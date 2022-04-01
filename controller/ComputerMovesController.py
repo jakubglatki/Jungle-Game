@@ -83,6 +83,7 @@ class ComputerMovesController:
     movementValidationController = MovementValidationController()
     movementController = MovementController()
 
+#used in the MinimaxController, generates all the moves that a player can do with all his animals
     def listOfPossibleMoves(self, player: Player, board: Board):
         directions = ['u', 'd', 'l', 'r']
         viableMoves = []

@@ -124,8 +124,10 @@ class GameController:
         state.opponentPlayer.showTimeInfo()
         return
 
+    #In researchMode changing n we can change the number of games to test. In this way we can analyse much faster different difficulties/depths. At the end of the games the software gives us a
+    #brief description of the games describing us number of wins, average number of rounds per game and average time for player 1 and for player 2.
     def researchMode(self):
-        n = 10
+        n = 100
         actual = 0
         nwins1 = 0
         nwins2 = 0

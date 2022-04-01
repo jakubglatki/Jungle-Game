@@ -12,6 +12,7 @@ class Board:
             if isPlayer1Bot == True: self.player1.switchToBot()
             if isPlayer2Bot == True: self.player2.switchToBot()
 
+            #generate all the animals
             m1 = Animal("MOUSE", "M1", 1, self.player1, 6, 6)
             c1 = Animal("CAT", "C1", 2, self.player1, 7, 1)
             d1 = Animal("DOG", "D1", 3, self.player1, 7, 5)
@@ -29,12 +30,14 @@ class Board:
             l2 = Animal("LION", "L2", 7, self.player2, 0, 0)
             e2 = Animal("ELEPHANT", "E2", 8, self.player2, 2, 6)
 
-            self.Animals1 = [m1, c1, d1, w1, p1, t1, l1, e1]
-            self.Animals2 = [m2, c2, d2, w2, p2, t2, l2, e2]
+            #put each animal of each player in his animal collection
+            self.Animals1 = [e1, l1, t1, p1, w1, d1, c1, m1]
+            self.Animals2 = [e2, l2, t2, p2, w2, d2, c2, m2]
 
             self.player1.animalCollection = self.Animals1
             self.player2.animalCollection = self.Animals2
 
+            #generate the board, made of cells
             self.matrix = [[Cell(1), Cell(1), Cell(5), Cell(6), Cell(5), Cell(1), Cell(1)],
                            [Cell(1), Cell(1), Cell(1), Cell(5), Cell(1), Cell(1), Cell(1)],
                            [Cell(1), Cell(1), Cell(1), Cell(1), Cell(1), Cell(1), Cell(1)],
@@ -45,23 +48,23 @@ class Board:
                            [Cell(1), Cell(1), Cell(1), Cell(3), Cell(1), Cell(1), Cell(1)],
                            [Cell(1), Cell(1), Cell(3), Cell(4), Cell(3), Cell(1), Cell(1)]]
             # put the animals in their starting points
-            self.matrix[2][0].animal = self.Animals2[0]
-            self.matrix[1][5].animal = self.Animals2[1]
-            self.matrix[1][1].animal = self.Animals2[2]
-            self.matrix[2][4].animal = self.Animals2[3]
-            self.matrix[2][2].animal = self.Animals2[4]
-            self.matrix[0][6].animal = self.Animals2[5]
-            self.matrix[0][0].animal = self.Animals2[6]
-            self.matrix[2][6].animal = self.Animals2[7]
+            self.matrix[2][0].animal = self.Animals2[7]
+            self.matrix[1][5].animal = self.Animals2[6]
+            self.matrix[1][1].animal = self.Animals2[5]
+            self.matrix[2][4].animal = self.Animals2[4]
+            self.matrix[2][2].animal = self.Animals2[3]
+            self.matrix[0][6].animal = self.Animals2[2]
+            self.matrix[0][0].animal = self.Animals2[1]
+            self.matrix[2][6].animal = self.Animals2[0]
 
-            self.matrix[6][6].animal = self.Animals1[0]
-            self.matrix[7][1].animal = self.Animals1[1]
-            self.matrix[7][5].animal = self.Animals1[2]
-            self.matrix[6][2].animal = self.Animals1[3]
-            self.matrix[6][4].animal = self.Animals1[4]
-            self.matrix[8][0].animal = self.Animals1[5]
-            self.matrix[8][6].animal = self.Animals1[6]
-            self.matrix[6][0].animal = self.Animals1[7]
+            self.matrix[6][6].animal = self.Animals1[7]
+            self.matrix[7][1].animal = self.Animals1[6]
+            self.matrix[7][5].animal = self.Animals1[5]
+            self.matrix[6][2].animal = self.Animals1[4]
+            self.matrix[6][4].animal = self.Animals1[3]
+            self.matrix[8][0].animal = self.Animals1[2]
+            self.matrix[8][6].animal = self.Animals1[1]
+            self.matrix[6][0].animal = self.Animals1[0]
 
 
     def getDojo1(self):
@@ -76,6 +79,7 @@ class Board:
     def getPlayer2(self):
         return self.player2
 
+    #Function used in the evaluation function, to see if an animal at the end of the turn is menaced by an opponent animal
     def isMenaced(self, animal: Animal):
         x = animal.getX()
         y = animal.getY()

@@ -2,6 +2,7 @@ import math
 
 from model.State import State
 
+#matrixes used for the evaluation functions
 cellValue1 = [[4, 7, 12, 100, 12, 7, 4],
               [3, 6, 8, 12, 8, 6, 4],
               [3, 5, 7, 9, 7, 5, 3],
@@ -22,107 +23,107 @@ cellValue2 = [[0, 0, 0, 0, 0, 0, 0],
               [3, 6, 8, 12, 8, 6, 4],
               [4, 7, 12, 100, 12, 7, 4]]
 
-cellValueMouse1 = [[12, 13, 50, math.inf, 50, 13, 12],
-                   [11, 12, 13, 50, 13, 12, 11],
-                   [10, 11, 12, 13, 12, 11, 10],
-                   [9, 11, 12, 12, 12, 11, 9],
-                   [8, 10, 11, 11, 11, 10, 8],
-                   [7, 9, 10, 10, 10, 9, 7],
-                   [6, 7, 8, 9, 8, 7, 6],
-                   [5, 6, 7, 8, 7, 6, 5],
-                   [4, 6, 5, 7, 5, 6, 4]]
+cellValueMouse1 = [[8, 13, 50, math.inf, 50, 13, 8],
+                   [11, 12, 13, 50, 14, 13, 12],
+                   [10, 11, 12, 13, 13, 12, 11],
+                   [9, 11, 12, 12, 13, 12, 10],
+                   [8, 10, 11, 11, 12, 11, 9],
+                   [7, 9, 10, 10, 11, 10, 8],
+                   [6, 7, 8, 9, 9, 8, 7],
+                   [5, 6, 7, 8, 8, 7, 6],
+                   [0, 6, 5, 0, 5, 6, 0]]
 
-cellValueMouse2 = [[4, 6, 5, 7, 5, 6, 4],
-                   [5, 6, 7, 8, 7, 6, 5],
-                   [6, 7, 8, 9, 8, 7, 6],
-                   [7, 9, 10, 10, 10, 9, 7],
-                   [8, 10, 11, 11, 11, 10, 8],
-                   [9, 11, 12, 12, 12, 11, 9],
-                   [10, 11, 12, 13, 12, 11, 10],
-                   [11, 12, 13, 50, 13, 12, 11],
-                   [12, 13, 50, math.inf, 50, 13, 12]]
+cellValueMouse2 = [[0, 6, 5, 0, 5, 6, 0],
+                   [6, 7, 8, 8, 7, 6, 5],
+                   [7, 8, 9, 9, 8, 7, 6],
+                   [8, 10, 11, 10, 10, 9, 7],
+                   [9, 11, 12, 11, 11, 10, 8],
+                   [10, 12, 13, 12, 12, 11, 9],
+                   [11, 12, 13, 13, 12, 11, 10],
+                   [12, 13, 14, 50, 13, 12, 11],
+                   [8, 13, 50, math.inf, 50, 13, 8]]
 
-cellValueCat1 = [[11, 12, 50, math.inf, 50, 12, 11],
+cellValueCat1 = [[0, 12, 50, math.inf, 50, 12, 0],
                  [10, 11, 13, 50, 13, 11, 10],
                  [9, 10, 11, 12, 11, 10, 9],
                  [8, 0, 0, 11, 0, 0, 8],
                  [7, 0, 0, 10, 0, 0, 7],
                  [6, 0, 0, 9, 0, 0, 6],
                  [6, 7, 8, 9, 8, 7, 6],
-                 [5, 6, 9, 6, 9, 6, 5],
-                 [4, 9, 4, 11, 4, 9, 4]]
+                 [5, 6, 15, 5, 15, 6, 5],
+                 [0, 10, 4, 0, 4, 10, 0]]
 
-cellValueCat2 = [[4, 9, 4, 11, 4, 9, 4],
-                 [5, 6, 9, 6, 9, 6, 5],
+cellValueCat2 = [[0, 10, 4, 0, 4, 10, 0],
+                 [5, 6, 15, 5, 15, 6, 5],
                  [6, 7, 8, 9, 8, 7, 6],
                  [6, 0, 0, 9, 0, 0, 6],
                  [7, 0, 0, 10, 0, 0, 7],
                  [8, 0, 0, 11, 0, 0, 8],
                  [9, 10, 11, 12, 11, 10, 9],
                  [10, 11, 13, 50, 13, 11, 10],
-                 [11, 12, 50, math.inf, 50, 12, 11]]
+                 [0, 12, 50, math.inf, 50, 12, 0]]
 
-cellValueDog1 = [[11, 12, 50, math.inf, 50, 12, 11],
+cellValueDog1 = [[0, 12, 50, math.inf, 50, 12, 0],
                  [10, 11, 13, 50, 13, 11, 10],
                  [9, 10, 11, 12, 11, 10, 9],
                  [8, 0, 0, 11, 0, 0, 8],
                  [7, 0, 0, 10, 0, 0, 7],
                  [6, 0, 0, 9, 0, 0, 6],
                  [6, 7, 8, 9, 8, 7, 6],
-                 [5, 6, 8, 7, 8, 6, 5],
-                 [4, 8, 5, 10, 5, 8, 4]]
+                 [5, 6, 15, 5, 15, 6, 5],
+                 [0, 10, 5, 0, 5, 15, 0]]
 
-cellValueDog2 = [[4, 8, 5, 10, 5, 8, 4],
-                 [5, 6, 8, 7, 8, 6, 5],
+cellValueDog2 = [[0, 10, 5, 0, 5, 15, 0],
+                 [5, 6, 15, 5, 15, 6, 5],
                  [6, 7, 8, 9, 8, 7, 6],
                  [6, 0, 0, 9, 0, 0, 6],
                  [7, 0, 0, 10, 0, 0, 7],
                  [8, 0, 0, 11, 0, 0, 8],
                  [9, 10, 11, 12, 11, 10, 9],
                  [10, 11, 13, 50, 13, 11, 10],
-                 [11, 12, 50, math.inf, 50, 12, 11]]
+                 [0, 12, 50, math.inf, 50, 12, 0]]
 
-cellValueWolf1 = [[12, 13, 50, math.inf, 50, 13, 12],
+cellValueWolf1 = [[5, 13, 50, math.inf, 50, 13, 5],
                   [11, 12, 13, 50, 13, 12, 11],
                   [10, 11, 12, 13, 12, 11, 10],
                   [9, 0, 0, 12, 0, 0, 9],
                   [8, 0, 0, 11, 0, 0, 8],
                   [7, 0, 0, 10, 0, 0, 7],
                   [5, 5, 5, 7, 5, 5, 5],
-                  [4, 5, 7, 5, 7, 5, 4],
-                  [3, 5, 4, 6, 4, 5, 3]]
+                  [4, 5, 9, 6, 9, 5, 4],
+                  [0, 8, 4, 0, 4, 8, 0]]
 
-cellValueWolf2 = [[3, 5, 4, 6, 4, 5, 3],
-                  [4, 5, 7, 5, 7, 5, 4],
+cellValueWolf2 = [[0, 8, 4, 0, 4, 8, 0],
+                  [4, 5, 9, 6, 9, 5, 4],
                   [5, 5, 5, 7, 5, 5, 5],
                   [7, 0, 0, 10, 0, 0, 7],
                   [8, 0, 0, 11, 0, 0, 8],
                   [9, 0, 0, 12, 0, 0, 9],
                   [10, 11, 12, 13, 12, 11, 10],
                   [11, 12, 13, 50, 13, 12, 11],
-                  [12, 13, 50, math.inf, 50, 13, 12]]
+                  [5, 13, 50, math.inf, 50, 13, 5]]
 
-cellValuePanther1 = [[13, 14, 50, math.inf, 50, 14, 13],
+cellValuePanther1 = [[10, 14, 50, math.inf, 50, 14, 10],
                      [12, 13, 14, 50, 14, 13, 12],
                      [11, 12, 13, 14, 13, 12, 11],
                      [10, 0, 0, 12, 0, 0, 10],
                      [9, 0, 0, 11, 0, 0, 9],
                      [8, 0, 0, 10, 0, 0, 8],
                      [6, 4, 4, 7, 4, 4, 6],
-                     [3, 4, 5, 3, 5, 4, 3],
-                     [2, 4, 3, 4, 3, 4, 2]]
+                     [3, 4, 5, 4, 5, 4, 3],
+                     [0, 5, 3, 0, 3, 5, 0]]
 
-cellValuePanther2 = [[2, 4, 3, 4, 3, 4, 2],
-                     [3, 4, 5, 3, 5, 4, 3],
+cellValuePanther2 = [[0, 5, 3, 0, 3, 5, 0],
+                     [3, 4, 5, 4, 5, 4, 3],
                      [6, 4, 4, 7, 4, 4, 6],
                      [8, 0, 0, 10, 0, 0, 8],
                      [9, 0, 0, 11, 0, 0, 9],
                      [10, 0, 0, 12, 0, 0, 10],
                      [11, 12, 13, 14, 13, 12, 11],
                      [12, 13, 14, 50, 14, 13, 12],
-                     [13, 14, 50, math.inf, 50, 14, 13]]
+                     [10, 14, 50, math.inf, 50, 14, 10]]
 
-cellValueTiger1 = [[14, 15, 50, math.inf, 50, 15, 14],
+cellValueTiger1 = [[11, 15, 50, math.inf, 50, 15, 11],
                    [14, 15, 16, 50, 16, 15, 14],
                    [13, 14, 15, 15, 15, 14, 13],
                    [12, 0, 0, 11, 0, 0, 12],
@@ -130,9 +131,9 @@ cellValueTiger1 = [[14, 15, 50, math.inf, 50, 15, 14],
                    [10, 0, 0, 11, 0, 0, 10],
                    [6, 10, 10, 9, 10, 10, 6],
                    [2, 3, 4, 2, 4, 3, 2],
-                   [1, 3, 2, 2, 2, 3, 1]]
+                   [0, 3, 2, 0, 2, 3, 0]]
 
-cellValueTiger2 = [[1, 4, 2, 2, 2, 4, 1],
+cellValueTiger2 = [[0, 3, 2, 2, 2, 3, 0],
                    [2, 3, 5, 2, 5, 3, 2],
                    [6, 10, 10, 9, 10, 10, 6],
                    [10, 0, 0, 11, 0, 0, 10],
@@ -140,9 +141,9 @@ cellValueTiger2 = [[1, 4, 2, 2, 2, 4, 1],
                    [12, 0, 0, 11, 0, 0, 12],
                    [13, 14, 15, 15, 15, 14, 13],
                    [14, 15, 16, 50, 16, 15, 14],
-                   [14, 15, 50, math.inf, 50, 15, 14]]
+                   [11, 15, 50, math.inf, 50, 15, 11]]
 
-cellValueLion1 = [[14, 15, 50, math.inf, 50, 15, 14],
+cellValueLion1 = [[11, 15, 50, math.inf, 50, 15, 11],
                   [14, 15, 16, 50, 16, 15, 14],
                   [13, 14, 15, 15, 15, 14, 13],
                   [12, 0, 0, 11, 0, 0, 12],
@@ -150,9 +151,9 @@ cellValueLion1 = [[14, 15, 50, math.inf, 50, 15, 14],
                   [10, 0, 0, 11, 0, 0, 10],
                   [6, 10, 10, 9, 10, 10, 6],
                   [2, 3, 4, 2, 4, 3, 2],
-                  [1, 3, 2, 2, 2, 3, 1]]
+                  [0, 3, 2, 0, 2, 3, 0]]
 
-cellValueLion2 = [[1, 3, 2, 2, 2, 3, 1],
+cellValueLion2 = [[0, 3, 2, 0, 2, 3, 0],
                   [2, 3, 4, 2, 4, 3, 2],
                   [6, 10, 10, 9, 10, 10, 6],
                   [10, 0, 0, 11, 0, 0, 10],
@@ -160,9 +161,9 @@ cellValueLion2 = [[1, 3, 2, 2, 2, 3, 1],
                   [12, 0, 0, 11, 0, 0, 12],
                   [13, 14, 15, 15, 15, 14, 13],
                   [14, 15, 16, 50, 16, 15, 14],
-                  [14, 15, 50, math.inf, 50, 15, 14]]
+                  [11, 15, 50, math.inf, 50, 15, 11]]
 
-cellValueElephant1 = [[16, 17, 50, math.inf, 50, 17, 16],
+cellValueElephant1 = [[12, 17, 50, math.inf, 50, 17, 12],
                       [15, 16, 17, 50, 17, 16, 15],
                       [14, 15, 16, 17, 16, 15, 14],
                       [13, 0, 0, 14, 0, 0, 13],
@@ -180,7 +181,7 @@ cellValueElephant2 = [[0, 4, 2, 4, 2, 4, 0],
                       [13, 0, 0, 14, 0, 0, 13],
                       [14, 15, 16, 17, 16, 15, 14],
                       [15, 16, 17, 50, 17, 16, 15],
-                      [16, 17, 50, math.inf, 50, 17, 16]]
+                      [12, 17, 50, math.inf, 50, 17, 12]]
 
 hardCellValueMouse1 = [[11, 13, 50, math.inf, 50, 13, 13],
                        [11, 12, 13, 50, 13, 13, 13],
@@ -291,6 +292,8 @@ class EvaluationFunctionController:
             if animal.isAlive: value = value - animal.power
         return value
 
+
+    # Second evaluation function, it consider also the dojo
     def evaluationFunction_firstEvaluationFunction(self, state: State):
         # Dojo control if I am player1
         if state.playerWhoMoves.number == 1:
@@ -328,8 +331,8 @@ class EvaluationFunctionController:
                     value -= animal.power
         return value
 
-    # Now the idea is to give importance also in the positioning of each animal, creating some kind of "hot zone" in which some animals are stronger
 
+    # Now the idea is to give importance also in the positioning of each animal, creating some kind of "hot zone" in which some animals are stronger
     def evaluationFunctionWithMeaningfulDistanceToDojo(self, state: State):
         value = self.evaluationFunction_firstEvaluationFunction(state)
         if state.playerWhoMoves.number == 1:
@@ -340,7 +343,7 @@ class EvaluationFunctionController:
             opponentCellValue = cellValue1
 
         for animal in state.playerWhoMoves.animalCollection:
-            if animal.isAlive:  # and doesnt' have a opponent animal in the adiacent square  through the not menaced function inside animal
+            if animal.isAlive:  # and doesnt' have a opponent animal in the adjacent square  through the not menaced function inside animal
 
                 if state.playerWhoMoves.number == 1:
                     if animal.name == "MOUSE":
@@ -415,6 +418,7 @@ class EvaluationFunctionController:
                         value -= cellValueElephant2[animal.getX()][animal.getY()]
         return value
 
+    #Adding the IsMenacedFunction
     def evaluationFunctionWithIsMenacedFunction(self, state: State, difficulty: int):
 
         if difficulty == 1:
@@ -571,6 +575,7 @@ class EvaluationFunctionController:
 
         return totalValue
 
+    # In our last evaluation function we decided to not give less importance to opponent animals because too often our player doesn't consider at all the enemy position
     def evaluationFunctionWithIsMenacedFunctionWithoutEnemyDiminuition(self, state: State, difficulty: int):
 
         if difficulty == 4:
