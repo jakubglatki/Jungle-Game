@@ -6,7 +6,7 @@ class Player:
         self.depth = depth
         self.difficulty = difficulty
         self.number = number
-        self.alive = 8
+        self.alive = 4
         self.animalCollection = None
         self.isABot = False
         self.lastMoves = LastMoves()

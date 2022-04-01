@@ -15,7 +15,7 @@ class BoardViewer:
                 boardView += self.putAnimalOnBoard(index1, index2, cell)
             boardView += "  " + str(index1 + 1)
             boardView += "\n"
-        boardView += "\n A   B   C   D   E   F   G \n"
+        boardView += "\n A   B   C   D   E \n"
         print(boardView)
         return boardView
 
