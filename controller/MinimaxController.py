@@ -81,7 +81,7 @@ class MinimaxController:
                     if best_action.depth == 0 and best_score == math.inf:
                         return best_action
 
-        print(str(minimaxLastMoves.max))
+        print("Number of different nodes analyzed: " + str(minimaxLastMoves.max))
         return best_action
 
     def result(self, state: State, action: Move):  #This function generate the new state of the game
