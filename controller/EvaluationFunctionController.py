@@ -2,6 +2,7 @@ import math
 
 from model.State import State
 
+#matrixes used for the evaluation functions
 cellValue1 = [[4, 7, 12, 100, 12, 7, 4],
               [3, 6, 8, 12, 8, 6, 4],
               [3, 5, 7, 9, 7, 5, 3],
@@ -291,6 +292,8 @@ class EvaluationFunctionController:
             if animal.isAlive: value = value - animal.power
         return value
 
+
+    # Second evaluation function, it consider also the dojo
     def evaluationFunction_firstEvaluationFunction(self, state: State):
         # Dojo control if I am player1
         if state.playerWhoMoves.number == 1:
@@ -328,8 +331,8 @@ class EvaluationFunctionController:
                     value -= animal.power
         return value
 
-    # Now the idea is to give importance also in the positioning of each animal, creating some kind of "hot zone" in which some animals are stronger
 
+    # Now the idea is to give importance also in the positioning of each animal, creating some kind of "hot zone" in which some animals are stronger
     def evaluationFunctionWithMeaningfulDistanceToDojo(self, state: State):
         value = self.evaluationFunction_firstEvaluationFunction(state)
         if state.playerWhoMoves.number == 1:
@@ -340,7 +343,7 @@ class EvaluationFunctionController:
             opponentCellValue = cellValue1
 
         for animal in state.playerWhoMoves.animalCollection:
-            if animal.isAlive:  # and doesnt' have a opponent animal in the adiacent square  through the not menaced function inside animal
+            if animal.isAlive:  # and doesnt' have a opponent animal in the adjacent square  through the not menaced function inside animal
 
                 if state.playerWhoMoves.number == 1:
                     if animal.name == "MOUSE":
@@ -415,6 +418,7 @@ class EvaluationFunctionController:
                         value -= cellValueElephant2[animal.getX()][animal.getY()]
         return value
 
+    #Adding the IsMenacedFunction
     def evaluationFunctionWithIsMenacedFunction(self, state: State, difficulty: int):
 
         if difficulty == 1:
@@ -571,6 +575,7 @@ class EvaluationFunctionController:
 
         return totalValue
 
+    # In our last evaluation function we decided to not give less importance to opponent animals because too often our player doesn't consider at all the enemy position
     def evaluationFunctionWithIsMenacedFunctionWithoutEnemyDiminuition(self, state: State, difficulty: int):
 
         if difficulty == 4:

@@ -35,6 +35,7 @@ class EndingGameController:
         else:
             return False
 
+#test if the player that has to move has at least 1 valid move to do
     def noPossibleMoveForPlayer(self, player: Player, board: Board):
         for animal in player.animalCollection:
             if animal.isAlive:

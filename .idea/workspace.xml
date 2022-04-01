@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b6f79360-9f91-443b-bae9-de4490f5eed1" name="Changes" comment="First commit post Friday">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ComputerMovesController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ComputerMovesController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/EndingGameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EndingGameController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/EvaluationFunctionController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EvaluationFunctionController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GameController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/MinimaxController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MinimaxController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Board.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
